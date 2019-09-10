@@ -21,3 +21,15 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+*.code-workspace
+
+-----------------------------
+1. API
+2. firebase
+- search for books by title or author
+- show info on book
+- save a list of books
+- remove books from a list
+- track reading list
+- 
