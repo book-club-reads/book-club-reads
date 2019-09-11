@@ -30,7 +30,7 @@ class App extends Component {
         useCache: false
       }
     }).then((res) => {
-      console.log(res);
+      console.log(res.data.GoodreadsResponse.search.results.work);
     });
   }
 
