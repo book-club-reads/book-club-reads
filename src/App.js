@@ -1,30 +1,47 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
+import axios from 'axios';
+import Qs from 'qs';
+import './App.css';
 
-import "./App.css";
-import axios from "axios";
 class App extends Component {
-  componentDidMount() {
+  constructor() {
+    super();
+    this.state = {
+
+    }
+  }
+
+  fetchBooks = (input) => {
     axios({
-      method: "GET",
-      url: "https://proxy.hackeryou.com",
-      dataResponse: "xml",
-      params: {
-        reqURL:
-          "https://www.goodreads.com/book/title.xml?author=Arthur+Conan+Doyle&key=CzLumnN1aSeTwYzHRbIeRw&title=Hound+of+the+Baskervilles",
-        params: {
-          key: "CzLumnN1aSeTwYzHRbIeRw"
-        }
+      method: 'GET',
+      url: 'http://proxy.hackeryou.com',
+      //OR url: 'https://proxy.hackeryou.com',
+      dataResponse: 'json',
+      paramsSerializer: function (params) {
+        return Qs.stringify(params, { arrayFormat: 'brackets' })
       },
-      xmlToJSON: true
-    }).then(function(data) {
-      console.log(data);
+      params: {
+        reqUrl: "https://www.goodreads.com/search.xml",
+        params: {
+          'key': "cKnr7UGQgCVhhgAGJEJg",
+          'q': input
+        },
+        xmlToJSON: true,
+        useCache: false
+      }
+    }).then((res) => {
+      console.log(res);
     });
+  }
+
+  componentDidMount() {
+    this.fetchBooks('rowling');
   }
 
   render() {
     return (
       <div className="App">
-        <h1>Hi</h1>
+
       </div>
     );
   }
