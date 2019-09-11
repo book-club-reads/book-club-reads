@@ -71,7 +71,7 @@ user click on individual book to open modal
 in the display info modal,display info (title, image, author, genre, rating)
 have a button to "add" the book to "reading list" - store to state
 
-//reading list
+//reading list (firebase)
 - have a button to mark book as read - this will decrease state.tracker, book will be grayed out, but stay on the shelve
 - have a button to "remove" the book from "reading list", this will not decrease state.tracker, but will remove it from the reading list, remove item from state.readingListArray
 
