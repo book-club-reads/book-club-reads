@@ -47,9 +47,7 @@ class Search extends Component {
       }
     }).then((res) => {
       const books = res.data.GoodreadsResponse.search.results.work;
-      this.setState = ({
-        books,
-      })
+      this.props.booksArray(books);
     });
   }
 
