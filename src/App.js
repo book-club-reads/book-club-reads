@@ -17,7 +17,33 @@ class App extends Component {
   //const result = searchFn()
   //pass result to Result.js to render
 
+  userBooks = (searchBooks) => {
+    console.log("Search books", searchBooks);
+    const newBookState = []
+    searchBooks.map((book) => {
+      newBookState.push(book)
+      console.log("book", book)
 
-  
+    });
+
+    this.setState ({
+      books: newBookState
+    })
+
+    console.log("state books", this.state.books);
+  }
+  render() {
+    return (
+      <div>
+        <Header />
+        <Search searchBooksArray = {this.userBooks} />
+        <Results displayBooks = {this.state.books} />
+      </div>
+    )
+  }
+
+
+
+} 
 export default App;
- books = {this.state.books} 
+ 

@@ -7,7 +7,7 @@ class Search extends Component {
     super();
     this.state = {
       userInput: "",
-      books: [],
+      // books: [],
     }
   }
 
@@ -20,7 +20,7 @@ class Search extends Component {
   handleSubmit = (event) => {
     event.preventDefault();
 
-    this.setState = ({
+    this.setState ({
         userInput: event.target.value
     })
     this.fetchBooks(this.state.userInput);
@@ -47,10 +47,12 @@ class Search extends Component {
       }
     }).then((res) => {
       const books = res.data.GoodreadsResponse.search.results.work;
-      this.setState = ({
-        books,
-      })
-    });
+      this.props.searchBooksArray(books);
+    }).catch((error) => {
+      alert("No results");
+      const emptyBooks = []
+      this.props.searchBooksArray(emptyBooks);
+    })
   }
 
   
