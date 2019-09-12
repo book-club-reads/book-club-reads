@@ -48,7 +48,11 @@ class Search extends Component {
     }).then((res) => {
       const books = res.data.GoodreadsResponse.search.results.work;
       this.props.searchBooksArray(books);
-    });
+    }).catch((error) => {
+      alert("No results");
+      const emptyBooks = []
+      this.props.searchBooksArray(emptyBooks);
+    })
   }
 
   
