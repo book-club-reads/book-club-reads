@@ -11,12 +11,14 @@ class Search extends Component {
     }
   }
 
+  //get value from user input search field
   handleChange = (e) => {
     this.setState ({
       [e.target.name]: e.target.value
     })
   }
 
+  //once we get the value from search field, make API call 
   handleSubmit = (event) => {
     event.preventDefault();
 
@@ -27,6 +29,7 @@ class Search extends Component {
     console.log("userInput", this.state.userInput);
   }
 
+  //API call to good reads based on user input
   fetchBooks = (input) => {
     axios({
       method: 'GET',
@@ -47,16 +50,16 @@ class Search extends Component {
       }
     }).then((res) => {
       const books = res.data.GoodreadsResponse.search.results.work;
-      this.props.searchBooksArray(books);
+      this.props.bookResults(books);
     }).catch((error) => {
       alert("No results");
       const emptyBooks = []
-      this.props.searchBooksArray(emptyBooks);
+      this.props.bookResults(emptyBooks);
     })
   }
 
   
-
+  //search form fields
   render(){
     return(
       <section>
