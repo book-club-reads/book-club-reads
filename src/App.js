@@ -22,7 +22,7 @@ class App extends Component {
     const newBookState = []
     const newBookArray = searchBooks.map((book) => {
       newBookState.push(book)
-      console.log("book", book)
+      // console.log("book", book)
 
     });
 
