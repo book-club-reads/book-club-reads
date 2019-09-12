@@ -20,14 +20,14 @@ class App extends Component {
   userBooks = (searchBooks) => {
     console.log("Search books", searchBooks);
     const newBookState = []
-    const newBookArray = searchBooks.map((book) => {
+    searchBooks.map((book) => {
       newBookState.push(book)
-      // console.log("book", book)
+      console.log("book", book)
 
     });
 
-    this.setState = ({
-      books: newBookArray
+    this.setState ({
+      books: newBookState
     })
 
     console.log("state books", this.state.books);
