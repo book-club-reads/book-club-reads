@@ -36,8 +36,8 @@ class App extends Component {
     return (
       <div>
         <Header />
-        <Search booksArray={this.userBooks} />
-        <Results />
+        <Search searchBooksArray = {this.userBooks} />
+        <Results displayBooks = {this.state.books} />
       </div>
     )
   }
