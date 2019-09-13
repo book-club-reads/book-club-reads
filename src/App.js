@@ -66,12 +66,12 @@ componentDidUpdate(){
         <Results displayBookResults={this.state.books} selectBook={this.selectBook} />
         {this.state.isShowing && (
         <div className="modalContainer">
-            <div className="wrapper">
               <div className="modalHeader">
                 <span className="closeModalButton" onClick={this.closeModal}>
                 &#9747;
                 </span>
               </div>
+            <div className="wrapper">
                 <div className="bookDisplay">
                   <div className="bookImage">
                     <img src={this.state.select.best_book.image_url} alt=""/>
