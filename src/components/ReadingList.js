@@ -5,16 +5,16 @@ class ReadingList extends Component {
     constructor(){
         super();
         this.state = {
-            readingList:[],
+            // readingList:[],
         }
     }
 
-    addBookToList = (bookToAdd) => {
-        this.setState({
-            readingList: [...this.state.readingList, bookToAdd]
-        })
-        this.addToFirebase(bookToAdd);
-    }
+    // addBookToList = (bookToAdd) => {
+    //     this.setState({
+    //         readingList: [...this.state.readingList, bookToAdd]
+    //     })
+    //     this.addToFirebase(bookToAdd);
+    // }
     
     addToFirebase = (bookToAddFirebase) => {
         const dbRef = firebase.database().ref("Name");
@@ -24,7 +24,8 @@ class ReadingList extends Component {
             Image: bookToAddFirebase.best_book.image_url,
             Title: bookToAddFirebase.best_book.title,
             Author: bookToAddFirebase.best_book.author.name,
-            Rating: bookToAddFirebase.average_rating
+            Rating: bookToAddFirebase.average_rating,
+            Read: false
 
         })
         
@@ -69,10 +70,6 @@ class ReadingList extends Component {
     componentDidUpdate(prevProps, prevState) {
         if (this.props.addBook && this.props.addBook !== prevProps.addBook) {
             this.addBookToList(this.props.addBook);
-<<<<<<< HEAD
-    
-=======
->>>>>>> 0355ffb56e4601b0df0fa14e166ba448992e9b5c
         }
     }
 
