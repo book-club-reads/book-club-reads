@@ -6,29 +6,41 @@ class Tracker extends Component {
   constructor(){
     super();
     this.state ={
-
+      goalInput: "",
     }
   }
 
   onFormSubmit = (e) => {
-    
-  
+    e.preventDefault();
+    this.setState({
+      [e.target.name]: e.target.value
+    })
+  }
+
+  onGoalInput = (event) => {
+    this.setState({
+      goalInput: event.target.value
+    })	
   }
 
 
   render() {
     return (
       <form action="" onSubmit={this.onFormSubmit}>
-        <label 
-          htmlFor="goal" 
-          className="">How many books do you want to read this year?</label>
-        <input 
-          type="text" 
-          name="" 
-          id="goal" 
-          className=""
-          placeholder="10" />
-        <button className="" type="submit">Set Goal</button>
+        <input name="goalInput"
+          type="text"
+          onChange={this.onGoalInput}
+          value={this.state.goalInput}
+          placeholder="10"
+          pattern="^[1-9][0-9]?$|^100$"
+        />
+        <button
+          className="submitButton"
+          id="submitButton"
+          type="submit"
+        >
+          Set Goal
+          </button>
       </form>
     )
   }
