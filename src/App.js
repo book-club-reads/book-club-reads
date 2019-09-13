@@ -75,7 +75,6 @@ class App extends Component {
       this.selectBook();
     }
   }
-
   
   render() {
     console.log("AddBook", this.state.addBook);
