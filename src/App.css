@@ -1,7 +1,3 @@
-@import "partials/setup";
-@import "partials/global";
-@import "partials/displayBooks";
-
 .App {
   text-align: center;
 }
