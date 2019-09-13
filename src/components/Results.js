@@ -22,21 +22,13 @@ class Results extends Component {
     return (
       <div>
         <p>Add books to your collection</p>
-      <div key={i}>
-        <div className="bookImages"
-              onClick={()=>this.props.addBook(book)}
-        >
-          <img src={book.best_book.image_url} alt=""/>
-        </div>
       </div>
     );
   }
 
   componentDidMount() {
-    this.renderDisplayBooks();
+    this.renderDisplayBooks()
   }
-
-  
 
   render(){
     return(
@@ -47,7 +39,6 @@ class Results extends Component {
             {this.props.displayBookResults.length
               ? this.renderDisplayBooks()
               : this.renderEmptyState()}
-            {this.props.displayBookResults.length ? this.renderDisplayBooks() : this.renderEmptyState()}
           </div>
         </div>
       </div>
