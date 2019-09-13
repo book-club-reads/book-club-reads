@@ -27,11 +27,11 @@ class Results extends Component {
   }
 
   componentDidMount() {
-    this.renderDisplayBooks();
+    this.renderDisplayBooks()
   }
 
-  render() {
-    return (
+  render(){
+    return(
       <div>
         <div className="displayBackground">
           <h2 className=""> Results</h2>

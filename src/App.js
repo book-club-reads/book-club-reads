@@ -4,8 +4,10 @@ import Header from "./components/Header";
 import Tracker from "./components/Tracker";
 import Search from "./components/Search";
 import Results from "./components/Results";
-import Modal from "./components/Modal";
+import Modal from "./components/Modal"
+import ReadingList from "./components/ReadingList";
 import "./App.scss";
+import DisplayFirebase from "./components/DisplayFirebase";
 
 class App extends Component {
   constructor() {
@@ -13,7 +15,8 @@ class App extends Component {
     this.state = {
       books: [],
       isShowing: false,
-      select: '1',
+      select: '',
+      addBook: ''
     };
   }
 
@@ -35,7 +38,6 @@ class App extends Component {
     this.setState({
       books: searchBooks
     });
-
     console.log("state books", this.state.books);
   };
 
@@ -74,23 +76,42 @@ componentDidUpdate(){
     }
 }
 
+  addBook = bookToAdd => {
+    console.log("bookToAdd", bookToAdd);
+    this.setState ({
+      addBook: bookToAdd
+    })
+  }
+
+  componentDidUpdate() {
+    if (this.state.select === true) {
+      this.selectBook();
+    }
+  }
+
+  
   render() {
+    console.log("AddBook", this.state.addBook);
     return (
       <div>
         <Header />
         <Tracker getGoalFn={this.goalFormSubmit}/>
         <Search bookResults={this.bookResults} />
-        <Results displayBookResults={this.state.books} selectBook={this.selectBook} />
+        <Results displayBookResults={this.state.books}        selectBook={this.selectBook} />
         {this.state.isShowing && (
-        <Modal 
-        close={this.closeModal}
-        img={this.state.select.best_book.image_url}
-        title={this.state.select.best_book.title}
-        author={this.state.select.best_book.author.name}
-        rating={this.state.select.average_rating}
-        alt={this.state.select.best_book.title}
-        />
+          <Modal
+            close={this.closeModal}
+            img={this.state.select.best_book.image_url}
+            title={this.state.select.best_book.title}
+            author={this.state.select.best_book.author.name}
+            rating={this.state.select.average_rating}
+            alt={this.state.select.best_book.title}
+            addBook={this.addBook}
+            selectBook = {this.state.select}
+          />
         )}
+        <ReadingList addBook = {this.state.addBook} />
+        <DisplayFirebase />
       </div>
     );
   }

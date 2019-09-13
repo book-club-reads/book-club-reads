@@ -1,7 +1,7 @@
 import React from "react";
 
 const Modal = props => {
-    console.log(props.books);
+  console.log(props.books);
   return (
     <div className="modalContainer">
       <div className="modalHeader">
@@ -18,7 +18,7 @@ const Modal = props => {
             <h2>{props.title}</h2>
             <p>Author: {props.author}</p>
             <p>Rating: {props.rating}</p>
-            <button>Add Book</button>
+            <button onClick={()=>props.addBook(props.selectBook)}>Add Book</button>
           </div>
         </div>
       </div>
