@@ -1,19 +1,25 @@
 import React from "react";
 
 const Modal = props => {
-    console.log(props.books);
+  console.log(props.books);
   return (
-    <div>
-      <div className="modalWrapper">
-        <div className="modalHeader">
-          <span className="closeModalButton" onClick={props.close}>
-            ×
-          </span>
-        </div>
-        <div className="modalBody">
-            {/* <p>{props.books[0].best_book.title}</p> */}
-            <h2>Book Title</h2>
-            <p>book Description</p>
+    <div className="modalContainer">
+      <div className="modalHeader">
+        <span className="closeModalButton" onClick={props.close}>
+          &#9747;
+        </span>
+      </div>
+      <div className="wrapper">
+        <div className="bookDisplay">
+          <div className="bookImage">
+            <img src={props.img} alt={props.title} />
+          </div>
+          <div className="modalBody">
+            <h2>{props.title}</h2>
+            <p>Author: {props.author}</p>
+            <p>Rating: {props.rating}</p>
+            <button onClick={()=>props.addBook(props.selectBook)}>Add Book</button>
+          </div>
         </div>
       </div>
     </div>
