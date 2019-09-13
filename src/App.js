@@ -60,6 +60,11 @@ class App extends Component {
     console.log(this.state.select);
   }
 
+componentDidUpdate(){
+    if (this.state.select === true) {
+      this.selectBook();
+    }
+  }
 
   render() {
     return (
@@ -69,20 +74,30 @@ class App extends Component {
         <Search bookResults={this.bookResults} />
         <Results displayBookResults={this.state.books} selectBook={this.selectBook} />
         {this.state.isShowing && (
-          <div className="modalWrapper">
-            <div className="modalHeader">
-              <span className="closeModalButton" onClick={this.closeModal}>
-                ×
-              </span>
+        <div className="modalContainer">
+              <div className="modalHeader">
+                <span className="closeModalButton" onClick={this.closeModal}>
+                &#9747;
+                </span>
+              </div>
+            <div className="wrapper">
+                <div className="bookDisplay">
+                  <div className="bookImage">
+                    <img src={this.state.select.best_book.image_url} alt=""/>
+                  </div>
+                <div className="modalBody">
+                  <h2>{this.state.select.best_book.title}</h2>
+                  <p>Author: {this.state.select.best_book.author.name}</p>
+                  <p>Rating: {this.state.select.average_rating}</p>
+                  <button>Add Book</button>
+                </div>
+              </div>
             </div>
-            <div className="modalBody">
-              <h2>s</h2>
-              <p>Book Description</p>
-            </div>
-          </div>
+        </div>
         )}
       </div>
     );
   }
 }
+
 export default App;

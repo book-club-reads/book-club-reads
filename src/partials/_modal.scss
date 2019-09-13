@@ -1,0 +1,46 @@
+
+.modalContainer {
+    width: 40rem;
+    border: 0.1rem solid black;
+    height: 15rem;
+    position: absolute;
+    background: white;
+    bottom: 15rem;
+    left: 15rem;
+    
+}
+
+.wrapper {
+    max-width: 90%;
+    margin: 0 auto;
+}
+
+.bookDisplay {
+    display: flex;
+    flex-flow: row nowrap;
+    .modalBody {
+        margin-bottom: 1.5rem;
+        margin-left: 2rem;
+        h2 {
+            margin-top: 0;
+        }
+
+        button {
+            border: 0.1rem solid black;
+            background: white;
+            padding: 0.5rem;
+            margin: 0;
+            border-radius: 5%;
+        }
+    }
+}
+
+.modalHeader {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.closeModalButton {
+    font-size: 2rem;
+    cursor: pointer;
+}
