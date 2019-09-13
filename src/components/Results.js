@@ -7,7 +7,9 @@ renderDisplayBooks = () => {
   const bookList = this.props.displayBookResults.map((book, i) => {
     return (
       <div key={i}>
-        <div className="bookImages">
+        <div className="bookImages"
+              onClick={()=>this.props.addBook(book)}
+        >
           <img src={book.best_book.image_url} alt=""/>
         </div>
       </div>
@@ -30,15 +32,15 @@ renderEmptyState(){
 componentDidMount(){
   this.renderDisplayBooks()
 
-  dbRef.on('value', (data) => {
+  // dbRef.on('value', (data) => {
 
-    //grab the data from FB, return an object
-    data = data.val();
+  //   //grab the data from FB, return an object
+  //   data = data.val();
 
-    //go through this object, and turn it into an array 
-    console.log(data)
+  //   //go through this object, and turn it into an array 
+  //   console.log(data)
 
-  })
+  // })
 }
 
   render(){
@@ -47,7 +49,7 @@ componentDidMount(){
         <div className="displayBackground">
           <h2 className=""> Results</h2>
           <div>
-            {this.props.displayBookResults.length ? this.renderDisplayBook() : this.renderEmptyState()}
+            {this.props.displayBookResults.length ? this.renderDisplayBooks() : this.renderEmptyState()}
           </div>
         </div>
       </div>

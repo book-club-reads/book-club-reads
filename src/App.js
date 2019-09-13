@@ -4,13 +4,15 @@ import Header from "./components/Header";
 import Tracker from "./components/Tracker";
 import Search from "./components/Search";
 import Results from "./components/Results";
+import ReadingList from "./components/ReadingList";
 import "./App.scss";
 
 class App extends Component {
   constructor() {
     super();
     this.state = {
-      books: []
+      books: [],
+      addBook: ''
     };
   }
 
@@ -23,17 +25,27 @@ class App extends Component {
     this.setState({
       books: searchBooks
     });
-
     console.log("state books", this.state.books);
   };
 
+  addBook = bookToAdd => {
+    console.log("bookToAdd", bookToAdd);
+    this.setState ({
+      addBook: bookToAdd
+    })
+  }
+
+  
   render() {
     return (
       <div>
         <Header />
         <Tracker />
         <Search bookResults={this.bookResults} />
-        <Results displayBookResults={this.state.books} />
+        <Results displayBookResults={this.state.books}
+                addBook={this.addBook}
+        />
+        <ReadingList addBook = {this.state.addBook} />
       </div>
     );
   }
