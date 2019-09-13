@@ -10,14 +10,14 @@ class Tracker extends Component {
     }
   }
 
-  onFormSubmit = (e) => {
-    e.preventDefault();
-    this.setState({
-      [e.target.name]: e.target.value
-    })
-  }
+  // onFormSubmit = (e) => {
+  //   e.preventDefault();
+  //   this.setState({
+  //     [e.target.name]: e.target.value
+  //   })
+  // }
 
-  onGoalInput = (event) => {
+  goalInputField = (event) => {
     this.setState({
       goalInput: event.target.value
     })	
@@ -26,10 +26,10 @@ class Tracker extends Component {
 
   render() {
     return (
-      <form action="" onSubmit={this.onFormSubmit}>
+      <form action="" onSubmit={(e) => this.props.getGoalFn(e, this.state.goalInput)}>
         <input name="goalInput"
           type="text"
-          onChange={this.onGoalInput}
+          onChange={this.goalInputField}
           value={this.state.goalInput}
           placeholder="10"
           pattern="^[1-9][0-9]?$|^100$"
