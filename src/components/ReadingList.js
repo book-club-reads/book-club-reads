@@ -69,7 +69,6 @@ class ReadingList extends Component {
     componentDidUpdate(prevProps, prevState) {
         if (this.props.addBook && this.props.addBook !== prevProps.addBook) {
             this.addBookToList(this.props.addBook);
-    
         }
     }
 
