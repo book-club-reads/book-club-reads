@@ -12,7 +12,7 @@ class DisplayFirebase extends Component {
     renderReadingList() {
         const userReadingListArray = this.state.userReadingList.map((response, i) => {
             return (
-                <div key={response.uniqueKey}>
+                <div key={response.uniqueKey} className="displayBooksContent">
                     <div>
                         <img src={response.Image} alt={response.Title}/>
                         <h2>{response.Title}</h2>
@@ -25,7 +25,7 @@ class DisplayFirebase extends Component {
                 </div>
             )
         });
-        return (<div>{userReadingListArray}</div>);
+        return (<div className="displayBooksContainer">{userReadingListArray}</div>);
     }
     //Displays when there are no guardians save from firebase.
     renderEmptyState() {
