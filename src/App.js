@@ -12,7 +12,8 @@ class App extends Component {
     super();
     this.state = {
       books: [],
-      isShowing: true
+      isShowing: false,
+      select: '1'
     };
   }
 
@@ -31,8 +32,7 @@ class App extends Component {
 
   openModal = (books) => {
     this.setState({
-      isShowing: true,
-      books
+      isShowing: true
     })
   };
 
@@ -42,18 +42,35 @@ class App extends Component {
     })
   }
 
+  selectBook = (book) => {
+    console.log(book);
+    this.setState({
+      select: book
+    })
+    this.openModal()
+    console.log(this.state.select);
+  }
+
+
   render() {
     return (
       <div>
         <Header />
         <Tracker />
         <Search bookResults={this.bookResults} />
-        <Results displayBookResults={this.state.books} />
+        <Results displayBookResults={this.state.books} selectBook={this.selectBook} />
         {this.state.isShowing && (
-          <Modal
-            close={this.closeModal}
-            books={this.state.books}
-          />
+          <div className="modalWrapper">
+            <div className="modalHeader">
+              <span className="closeModalButton" onClick={this.closeModal}>
+                ×
+              </span>
+            </div>
+            <div className="modalBody">
+              <h2>s</h2>
+              <p>Book Description</p>
+            </div>
+          </div>
         )}
       </div>
     );

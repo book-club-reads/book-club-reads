@@ -6,7 +6,8 @@ class Results extends Component {
     const bookList = this.props.displayBookResults.map((book, i) => {
       return (
         <div key={i}>
-          <div className="bookImages">
+          <div className="bookImages" onClick={() => {this.props.selectBook(book)}}>
+
             <img src={book.best_book.image_url} alt="" />
           </div>
         </div>
@@ -27,10 +28,6 @@ class Results extends Component {
   componentDidMount() {
     this.renderDisplayBooks();
   }
-
-  // handleClick = () => {
-  //   this.openModal();
-  // };
 
   render() {
     return (
