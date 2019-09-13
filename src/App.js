@@ -112,10 +112,6 @@ componentDidUpdate(){
             </div>
         </div>
         )}
-
-        <Results displayBookResults={this.state.books}
-                addBook={this.addBook}
-        />
         <ReadingList addBook = {this.state.addBook} />
         <DisplayFirebase />
       </div>
