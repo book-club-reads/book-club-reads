@@ -51,6 +51,11 @@ class App extends Component {
     console.log(this.state.select);
   }
 
+componentDidUpdate(){
+    if (this.state.select === true) {
+      this.selectBook();
+    }
+  }
 
   render() {
     return (
@@ -67,8 +72,11 @@ class App extends Component {
               </span>
             </div>
             <div className="modalBody">
-              <h2>s</h2>
-              <p>Book Description</p>
+              <img src={this.state.select.best_book.image_url} alt=""/>
+              <h2>{this.state.select.best_book.title}</h2>
+              <p>Author: {this.state.select.best_book.author.name}</p>
+              <p>Rating: {this.state.select.average_rating}</p>
+              <button>Add Book</button>
             </div>
           </div>
         )}
@@ -76,4 +84,5 @@ class App extends Component {
     );
   }
 }
+
 export default App;
