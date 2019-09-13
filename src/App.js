@@ -17,9 +17,18 @@ class App extends Component {
     };
   }
 
-  //app.js: write a function to tell search.js to do something
-  //const result = searchFn()
-  //pass result to Result.js to render
+  componentDidMount() {
+    const dbRef = firebase.database().ref();
+    dbRef.on('value', (data) => {
+
+      //grab the data from FB, return an object
+      data = data.val();
+
+      //go through this object, and turn it into an array 
+      console.log(data)
+
+    })
+  }
 
   //user input from search field
   bookResults = searchBooks => {
