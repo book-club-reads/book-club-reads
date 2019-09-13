@@ -13,7 +13,6 @@ class ReadingList extends Component {
         this.setState({
             readingList: [...this.state.readingList, bookToAdd]
         })
-<<<<<<< HEAD
         this.addToFirebase(bookToAdd);
     }
     
@@ -42,43 +41,6 @@ class ReadingList extends Component {
     renderReadingList= () => {
         console.log("State Collection", this.state.readingList);
         const userReadingList = this.state.readingList.map((book, i) => {
-=======
-        this.addToFirebase();
-    }
-    
-    addToFirebase = () => {
-        const dbRef = firebase.database().ref();
-        console.log("Add to firebase");
-
-        dbRef.push({
-            Name: "Norre",
-            ReadingList: "list" 
-        })
-        
-        };
-    
-<<<<<<< HEAD
-    renderBookCollection = () => {
-        console.log("State Collection", this.state.bookCollection);
-        const bookCollection = this.state.bookCollection.map((book, i) => {
->>>>>>> Some stuff added to firebase
-=======
-    //Deletes book from reading list
-    removeBookFromList = (index) => {
-        const copiedArray = [...this.state.readingList];
-
-        const newArray = copiedArray.filter((book, i) => {
-            return i !== index;
-        });
-
-        this.setState({
-            readingList: newArray
-        })
-    }
-    renderReadingList= () => {
-        console.log("State Collection", this.state.readingList);
-        const userReadingList = this.state.readingList.map((book, i) => {
->>>>>>> Added the book📗 remove function from reading list
             return (
                 <div key={i}>
                     <div className="bookImages">
@@ -103,6 +65,7 @@ class ReadingList extends Component {
     componentDidUpdate(prevProps, prevState) {
         if (this.props.addBook && this.props.addBook !== prevProps.addBook) {
             this.addBookToList(this.props.addBook);
+    
         }
     }
 
