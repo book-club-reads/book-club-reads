@@ -19,6 +19,7 @@ class DisplayFirebase extends Component {
                         <p>{response.Author}</p>
                         <p>{response.Rating}</p>
                     </div>
+                    <button onClick={() => this.removeBook(response.uniqueKey)}>Remove book</button>
                 </div>
             )
         });
@@ -31,6 +32,12 @@ class DisplayFirebase extends Component {
                 <p>No books in reading list...</p>
             </div>
         )
+    }
+    removeBook = (bookId) => {
+        const dbRef = firebase.database().ref("Name");
+
+        dbRef.child(bookId).remove();
+
     }
     componentDidMount() {
         const dbRef = firebase.database().ref("Name");
