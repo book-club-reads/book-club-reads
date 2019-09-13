@@ -7,6 +7,7 @@ import Results from "./components/Results";
 import Modal from "./components/Modal"
 import ReadingList from "./components/ReadingList";
 import "./App.scss";
+import DisplayFirebase from "./components/DisplayFirebase";
 
 class App extends Component {
   constructor() {
@@ -103,6 +104,7 @@ class App extends Component {
         )}
 
         <ReadingList addBook = {this.state.addBook} />
+        <DisplayFirebase />
       </div>
     );
   }
