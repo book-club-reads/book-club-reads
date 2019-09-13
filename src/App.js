@@ -4,7 +4,11 @@ import Header from "./components/Header";
 import Tracker from "./components/Tracker";
 import Search from "./components/Search";
 import Results from "./components/Results";
+<<<<<<< HEAD
 import Modal from "./components/Modal"
+=======
+import ReadingList from "./components/ReadingList";
+>>>>>>> Add books📗 to reading list
 import "./App.scss";
 
 class App extends Component {
@@ -14,6 +18,7 @@ class App extends Component {
       books: [],
       isShowing: false,
       select: '1'
+      addBook: ''
     };
   }
 
@@ -35,7 +40,6 @@ class App extends Component {
     this.setState({
       books: searchBooks
     });
-
     console.log("state books", this.state.books);
   };
 
@@ -66,6 +70,14 @@ componentDidUpdate(){
     }
   }
 
+  addBook = bookToAdd => {
+    console.log("bookToAdd", bookToAdd);
+    this.setState ({
+      addBook: bookToAdd
+    })
+  }
+
+  
   render() {
     return (
       <div>
@@ -95,6 +107,10 @@ componentDidUpdate(){
             </div>
         </div>
         )}
+        <Results displayBookResults={this.state.books}
+                addBook={this.addBook}
+        />
+        <ReadingList addBook = {this.state.addBook} />
       </div>
     );
   }
