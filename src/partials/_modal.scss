@@ -1,0 +1,29 @@
+
+.modalContainer {
+    max-width: 50%;
+    border: 0.1rem solid black;
+    height: 15rem;
+
+}
+
+.wrapper {
+    max-width: 90%;
+    margin: 0 auto;
+}
+
+.bookDisplay {
+    display: flex;
+    flex-flow: row nowrap;
+    .modalBody {
+        margin-bottom: 1.5rem;
+        margin-left: 2rem;
+        h2 {
+            margin-top: 0;
+        }
+    }
+}
+
+.modalHeader {
+    display: flex;
+    justify-content: flex-end;
+}
