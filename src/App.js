@@ -8,6 +8,12 @@ import Modal from "./components/Modal"
 import ReadingList from "./components/ReadingList";
 import "./App.scss";
 import DisplayFirebase from "./components/DisplayFirebase";
+import {
+  BrowserRouter 
+  as Router, 
+  Route, Link } 
+  from 'react-router-dom';
+  
 
 class App extends Component {
   constructor() {
@@ -93,28 +99,66 @@ componentDidUpdate(){
   render() {
     console.log("AddBook", this.state.addBook);
     return (
-      <div>
-        <Header />
-        <Tracker getGoalFn={this.goalFormSubmit}/>
-        <Search bookResults={this.bookResults} />
-        <Results displayBookResults={this.state.books}        selectBook={this.selectBook} />
-        {this.state.isShowing && (
-          <Modal
-            close={this.closeModal}
-            img={this.state.select.best_book.image_url}
-            title={this.state.select.best_book.title}
-            author={this.state.select.best_book.author.name}
-            rating={this.state.select.average_rating}
-            alt={this.state.select.best_book.title}
-            addBook={this.addBook}
-            selectBook = {this.state.select}
-          />
-        )}
-        <ReadingList addBook = {this.state.addBook} />
-        <DisplayFirebase />
-      </div>
+      <Router>
+        <div>
+          <Header />
+          {/* <Tracker getGoalFn={this.goalFormSubmit}/>
+          <Search bookResults={this.bookResults} />
+          <Results displayBookResults={this.state.books}        
+                  selectBook={this.selectBook} />
+          {this.state.isShowing && (
+            <Modal
+              close={this.closeModal}
+              img={this.state.select.best_book.image_url}
+              title={this.state.select.best_book.title}
+              author={this.state.select.best_book.author.name}
+              rating={this.state.select.average_rating}
+              alt={this.state.select.best_book.title}
+              addBook={this.addBook}
+              selectBook = {this.state.select}
+            />
+          )}
+          <ReadingList addBook = {this.state.addBook} />
+          {/* <DisplayFirebase /> */}
+          {/* <Route exact path="/" component={Results}/>
+          <Link to="/bookshelf">Bookshelf</Link> */}
+          <Route exact path='/' render={()=>{
+            return(
+              <Home fullState={this.state}/>
+            )}
+          } />
+          <Route path="/bookshelf" component={DisplayFirebase} />
+        </div>
+      </Router>
     );
   }
 }
 
 export default App;
+
+class Home extends Component {
+  render(){
+    return(
+      <div>
+        <Tracker getGoalFn={this.goalFormSubmit}/>
+          <Search bookResults={this.bookResults} />
+          <Results displayBookResults={this.props.fullState.books}        
+                  selectBook={this.selectBook} />
+          {this.props.fullState.isShowing && (
+            <Modal
+              close={this.closeModal}
+              img={this.props.fullState.select.best_book.image_url}
+              title={this.props.fullState.select.best_book.title}
+              author={this.props.fullState.select.best_book.author.name}
+              rating={this.props.fullState.select.average_rating}
+              alt={this.props.fullState.select.best_book.title}
+              addBook={this.addBook}
+              selectBook = {this.props.fullState.select}
+            />
+          )}
+          <ReadingList addBook = {this.props.fullState.addBook} />
+          <Link to="/bookshelf">Bookshelf</Link>
+      </div>
+    )
+  }
+}

@@ -18,9 +18,10 @@ class DisplayFirebase extends Component {
                         <h2>{response.Title}</h2>
                         <p>{response.Author}</p>
                         <p>{response.Rating}</p>
+                        <button>Read</button>
+                        <button onClick={() => this.removeBook(response.uniqueKey)}>Remove book</button>
                     </div>
-                    <button>Read</button>
-                    <button onClick={() => this.removeBook(response.uniqueKey)}>Remove book</button>
+                    
                 </div>
             )
         });
@@ -65,7 +66,7 @@ class DisplayFirebase extends Component {
 
     render() {
         return (
-            <section>
+            <section className="displayBooksContainer">
                     <h2>Reading List</h2>
                     <div>
                         {this.state.userReadingList.length ? this.renderReadingList() : this.renderEmptyState()}

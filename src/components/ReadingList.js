@@ -75,10 +75,10 @@ class ReadingList extends Component {
     render(){
         return(
             <div>
-                <h2>Reading Collection</h2>
+                {/* <h2>Reading Collection</h2>
                 <div>
                     {this.state.readingList.length ? this.renderReadingList() : this.renderEmptyState()}
-                </div>
+                </div> */}
             </div>
         )
     }
