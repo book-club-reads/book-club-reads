@@ -4,11 +4,8 @@ import Header from "./components/Header";
 import Tracker from "./components/Tracker";
 import Search from "./components/Search";
 import Results from "./components/Results";
-<<<<<<< HEAD
 import Modal from "./components/Modal"
-=======
 import ReadingList from "./components/ReadingList";
->>>>>>> Add books📗 to reading list
 import "./App.scss";
 
 class App extends Component {
@@ -17,7 +14,7 @@ class App extends Component {
     this.state = {
       books: [],
       isShowing: false,
-      select: '1'
+      select: '',
       addBook: ''
     };
   }
@@ -77,14 +74,20 @@ componentDidUpdate(){
     })
   }
 
-  
+  componentDidUpdate() {
+    if (this.state.select === true) {
+      this.selectBook();
+    }
+  }
+
   render() {
+    console.log("AddBook", this.state.addBook);
     return (
       <div>
         <Header />
         <Tracker />
         <Search bookResults={this.bookResults} />
-        <Results displayBookResults={this.state.books} selectBook={this.selectBook} />
+        <Results displayBookResults={this.state.books}        selectBook={this.selectBook} />
         {this.state.isShowing && (
         <div className="modalContainer">
               <div className="modalHeader">
@@ -107,9 +110,7 @@ componentDidUpdate(){
             </div>
         </div>
         )}
-        <Results displayBookResults={this.state.books}
-                addBook={this.addBook}
-        />
+
         <ReadingList addBook = {this.state.addBook} />
       </div>
     );
