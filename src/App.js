@@ -6,6 +6,7 @@ import Search from "./components/Search";
 import Results from "./components/Results";
 import ReadingList from "./components/ReadingList";
 import "./App.scss";
+import DisplayFirebase from "./components/DisplayFirebase";
 
 class App extends Component {
   constructor() {
@@ -46,6 +47,7 @@ class App extends Component {
                 addBook={this.addBook}
         />
         <ReadingList addBook = {this.state.addBook} />
+        <DisplayFirebase />
       </div>
     );
   }
