@@ -5,40 +5,53 @@ class ReadingList extends Component {
     constructor(){
         super();
         this.state = {
-            bookCollection:[],
+            readingList:[],
         }
     }
 
     addBookToList = (bookToAdd) => {
         this.setState({
-            bookCollection: [...this.state.bookCollection, bookToAdd]
+            readingList: [...this.state.readingList, bookToAdd]
         })
         this.addToFirebase();
     }
     
-        addToFirebase = () => {
-            const dbRef = firebase.database().ref();
-            console.log("Add to firebase");
+    addToFirebase = () => {
+        const dbRef = firebase.database().ref();
+        console.log("Add to firebase");
 
-            dbRef.push({
-                Name: "Norre",
-                ReadingList: "list" 
-            })
+        dbRef.push({
+            Name: "Norre",
+            ReadingList: "list" 
+        })
         
         };
     
-    renderBookCollection = () => {
-        console.log("State Collection", this.state.bookCollection);
-        const bookCollection = this.state.bookCollection.map((book, i) => {
+    //Deletes book from reading list
+    removeBookFromList = (index) => {
+        const copiedArray = [...this.state.readingList];
+
+        const newArray = copiedArray.filter((book, i) => {
+            return i !== index;
+        });
+
+        this.setState({
+            readingList: newArray
+        })
+    }
+    renderReadingList= () => {
+        console.log("State Collection", this.state.readingList);
+        const userReadingList = this.state.readingList.map((book, i) => {
             return (
                 <div key={i}>
                     <div className="bookImages">
                         <img src={book.best_book.image_url} alt="" />
                     </div>
+                    <button onClick={()=>this.removeBookFromList(i)}>Remove</button>
                 </div>
             )
         });
-        return (<div className="displayBooksContainer">{bookCollection}</div>);
+        return (<div className="displayBooksContainer">{userReadingList}</div>);
     }  
 
     //if there is no returned data, render this
@@ -53,7 +66,6 @@ class ReadingList extends Component {
     componentDidUpdate(prevProps, prevState) {
         if (this.props.addBook && this.props.addBook !== prevProps.addBook) {
             this.addBookToList(this.props.addBook);
-    
         }
     }
 
@@ -62,7 +74,7 @@ class ReadingList extends Component {
             <div>
                 <h2>Reading Collection</h2>
                 <div>
-                    {this.state.bookCollection.length ? this.renderBookCollection() : this.renderEmptyState()}
+                    {this.state.readingList.length ? this.renderReadingList() : this.renderEmptyState()}
                 </div>
             </div>
         )
