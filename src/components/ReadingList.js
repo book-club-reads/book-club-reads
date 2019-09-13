@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import firebase from 'firebase';
 
 class ReadingList extends Component {
     constructor(){
@@ -8,13 +9,24 @@ class ReadingList extends Component {
         }
     }
 
-    
     addBookToList = (bookToAdd) => {
         this.setState({
             bookCollection: [...this.state.bookCollection, bookToAdd]
         })
+        this.addToFirebase();
     }
+    
+        addToFirebase = () => {
+            const dbRef = firebase.database().ref();
+            console.log("Add to firebase");
 
+            dbRef.push({
+                Name: "Norre",
+                ReadingList: "list" 
+            })
+        
+        };
+    
     renderBookCollection = () => {
         console.log("State Collection", this.state.bookCollection);
         const bookCollection = this.state.bookCollection.map((book, i) => {
@@ -41,6 +53,7 @@ class ReadingList extends Component {
     componentDidUpdate(prevProps, prevState) {
         if (this.props.addBook && this.props.addBook !== prevProps.addBook) {
             this.addBookToList(this.props.addBook);
+    
         }
     }
 
