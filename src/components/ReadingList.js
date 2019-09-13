@@ -13,16 +13,15 @@ class ReadingList extends Component {
         this.setState({
             readingList: [...this.state.readingList, bookToAdd]
         })
-        this.addToFirebase();
+        this.addToFirebase(bookToAdd);
     }
     
-    addToFirebase = () => {
-        const dbRef = firebase.database().ref();
-        console.log("Add to firebase");
+    addToFirebase = (bookToAddFirebase) => {
+        const dbRef = firebase.database().ref("Name");
+        console.log("Add to firebase", bookToAddFirebase);
 
         dbRef.push({
-            Name: "Norre",
-            ReadingList: "list" 
+            Book: `${bookToAddFirebase}` 
         })
         
         };
