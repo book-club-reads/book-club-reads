@@ -4,13 +4,15 @@ import Header from "./components/Header";
 import Tracker from "./components/Tracker";
 import Search from "./components/Search";
 import Results from "./components/Results";
+import Modal from "./components/Modal"
 import "./App.scss";
 
 class App extends Component {
   constructor() {
     super();
     this.state = {
-      books: []
+      books: [],
+      isShowing: true
     };
   }
 
@@ -27,6 +29,19 @@ class App extends Component {
     console.log("state books", this.state.books);
   };
 
+  openModal = (books) => {
+    this.setState({
+      isShowing: true,
+      books
+    })
+  };
+
+  closeModal = () => {
+    this.setState({
+      isShowing: false
+    })
+  }
+
   render() {
     return (
       <div>
@@ -34,6 +49,12 @@ class App extends Component {
         <Tracker />
         <Search bookResults={this.bookResults} />
         <Results displayBookResults={this.state.books} />
+        {this.state.isShowing && (
+          <Modal
+            close={this.closeModal}
+            books={this.state.books}
+          />
+        )}
       </div>
     );
   }
