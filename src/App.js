@@ -61,12 +61,20 @@ class App extends Component {
     this.openModal()
     console.log(this.state.select);
   }
-
+  //goal tracker form fn to get user's reading goal
+  goalFormSubmit = (e, goal) => {
+    e.preventDefault();
+    this.setState({
+      userGoal: goal,
+    })
+    console.log(this.state.userGoal);
+  }
+  
 componentDidUpdate(){
     if (this.state.select === true) {
       this.selectBook();
     }
-  }
+}
 
   addBook = bookToAdd => {
     console.log("bookToAdd", bookToAdd);
@@ -87,7 +95,7 @@ componentDidUpdate(){
     return (
       <div>
         <Header />
-        <Tracker />
+        <Tracker getGoalFn={this.goalFormSubmit}/>
         <Search bookResults={this.bookResults} />
         <Results displayBookResults={this.state.books}        selectBook={this.selectBook} />
         {this.state.isShowing && (
