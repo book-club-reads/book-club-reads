@@ -1,16 +1,16 @@
 header {
     background-color: $darkBlue;
     @include flex (space-between, inherit);
+    padding: 15px;
     .logo {
-        width: 200px;
-        // display: inline-block;
+        width: 100px;
+
     }
     img {
         width: 100%;
     }
     h1{
-        @include heading ($lightBlue, 5rem);
+        @include heading ($lightBlue, 4.5rem);
         margin: 0;
-        // display: inline-block;
     }
 }
