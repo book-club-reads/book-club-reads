@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import firebase from "./firebase";
 import Header from "./components/Header";
 import Tracker from "./components/Tracker";
 import Results from "./components/Results";
