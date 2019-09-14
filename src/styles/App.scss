@@ -2,7 +2,60 @@
 @import "partials/setup";
 @import "partials/global";
 @import "partials/header";
-@import "partials/tracker";
 @import "partials/displayBooks";
 @import "partials/modal";
 
+.tracker {
+    height: 80vh;
+    background-image: url('./assets/header.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: top;
+    background-attachment: fixed;
+    @include flex(center, center);
+    flex-direction: column;
+}
+
+.formOverlay {
+    background-color: #1b245699;
+    width: 60%;
+    height: auto;
+    min-height: 40vh;
+    border-radius: 20px;
+    padding: 40px;
+    @include flex(center, center);
+}
+
+form {
+    @include flex(center, center);
+    flex-direction: column;
+    margin: 0 auto;
+    @include text($lightBlue, 1.5rem);
+    // color: $lightBlue;
+}
+input, button {
+    border: 4px solid transparent;
+    border-radius: 7px;
+    padding: 10px;
+    &:hover, &:focus {
+    border: 4px solid $brightBlue;
+    border-radius: 7px;		
+    }
+}
+button {
+    background-color: $lightBlue;
+}
+.nameInput, .goalInput {
+    margin: 10px 0;
+    text-align: center;
+}
+.goalInput input {
+    width: 10%;
+}
+label {
+    margin: 0 10px;
+    // font-size: 1.5rem;
+}
+p {
+    @include text($lightBlue, 1.5rem)
+}
