@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import firebase from 'firebase';
-// import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-// import Home from './Home'
+
 
 class DisplayFirebase extends Component {
   constructor() {
@@ -11,7 +10,7 @@ class DisplayFirebase extends Component {
       read: 0
     };
   }
-  //Display the list of guardians from firebase with name and adopted pokemon.
+  //Display the list of books in the reading list
   renderReadingList() {
     const userReadingListArray = this.state.userReadingList.map(
       (response, i) => {
@@ -60,7 +59,7 @@ class DisplayFirebase extends Component {
     );
     return <div className="displayBooksContainer">{userReadingListArray}</div>;
   }
-
+  //Adds selected book to firebase
   addToFirebase = bookToAddFirebase => {
     const dbRef = firebase.database().ref("Name");
     console.log("Add to firebase", bookToAddFirebase);
@@ -129,11 +128,14 @@ class DisplayFirebase extends Component {
       </div>
     );
   }
+  //Remove book from firebase
   removeBook = bookId => {
     const dbRef = firebase.database().ref("Name");
 
     dbRef.child(bookId).remove();
   };
+
+
   componentDidMount() {
     const dbRef = firebase.database().ref("Name");
 
