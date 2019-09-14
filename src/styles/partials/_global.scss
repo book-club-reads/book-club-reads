@@ -12,12 +12,17 @@ $cranberry: #E25050;
 @mixin text($color, $size) {
     color: $color;
     font-size: $size;
-    font-family: 'Barlow', sans-serif;
+}
+@mixin flex($justify, $align) {
+    display: flex;
+    justify-content: $justify;
+    align-items: $align;
 }
 
 html {
-    // text-align: center;
     font-size: 100%;
+    font-family: 'Barlow', sans-serif;
+    font-size: 1.25rem;
 }
 
 img {

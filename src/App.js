@@ -92,7 +92,7 @@ class App extends Component {
       <Router>
         <div>
           <Header />
-          {/* <Tracker getGoalFn={this.goalFormSubmit}/>
+          {/* <Tracker />
           <Search bookResults={this.bookResults} />
           <Results displayBookResults={this.state.books}        
                   selectBook={this.selectBook} />
