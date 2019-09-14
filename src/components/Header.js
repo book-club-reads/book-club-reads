@@ -14,12 +14,31 @@ class Header extends Component {
     return (
       <header>
         <div className="logo">
-          <img src={books} alt="Logo with books"/>
+          <img src={books} alt="Logo with books" />
         </div>
+
         <h1>Book Club Reads</h1>
+        <nav>
+          <ul>
+            <li>
+              <button
+                onClick={this.props.bookshelfPage}
+              >
+                Bookshelf
+              </button>
+            </li>
+            <li>
+              <button
+                onClick={this.props.searchPage}
+              >
+                Search
+              </button>
+            </li>
+          </ul>
+        </nav>
         <Search bookResults={this.props.appBookResults} />
       </header>
-    )
+    );
   }
 }
 
