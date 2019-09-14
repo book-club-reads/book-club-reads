@@ -14,6 +14,11 @@ $cranberry: #E25050;
     font-size: $size;
     font-family: 'Barlow', sans-serif;
 }
+@mixin flex($justify, $align) {
+    display: flex;
+    justify-content: $justify;
+    align-items: $align;
+}
 
 html {
     // text-align: center;

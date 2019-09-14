@@ -34,28 +34,30 @@ class Tracker extends Component {
 
   render() {
     return (
-      <form action="" onSubmit={this.onFormSubmit}>
-        <input name="nameInput"
-          type="text"
-          placeholder="Enter your name"
-          value={this.state.nameInput}
-          onChange={(e) => {this.inputField(e, "nameInput")}}
-        />
-        <input name="goalInput"
-          type="text"
-          placeholder="10"
-          pattern="^[1-9][0-9]?$|^100$"
-          value={this.state.goalInput}
-          onChange={(e) => {this.inputField(e, "goalInput")}}
-        />
-        <button
-          className="submitButton"
-          id="submitButton"
-          type="submit"
-        >
-          Set Goal
-          </button>
-      </form>
+      <section className="tracker">
+        <form action="" onSubmit={this.onFormSubmit}>
+          <input name="nameInput"
+            type="text"
+            placeholder="Enter your name"
+            value={this.state.nameInput}
+            onChange={(e) => {this.inputField(e, "nameInput")}}
+          />
+          <input name="goalInput"
+            type="text"
+            placeholder="10"
+            pattern="^[1-9][0-9]?$|^100$"
+            value={this.state.goalInput}
+            onChange={(e) => {this.inputField(e, "goalInput")}}
+          />
+          <button
+            className="submitButton"
+            id="submitButton"
+            type="submit"
+          >
+            Set Goal
+            </button>
+        </form>
+      </section>
     )
   }
 }

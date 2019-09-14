@@ -1,0 +1,11 @@
+.tracker {
+    width: 100vw;
+    height: 80vh;
+    background-image: url('../assets/header.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: top;
+    @include flex(flex-start, center);
+    flex-direction: column;
+    padding: 50px;
+}
