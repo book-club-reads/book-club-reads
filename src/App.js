@@ -66,11 +66,11 @@ class App extends Component {
   
   //goal tracker form fn to get user's reading goal
   goalFormSubmit = (goalInput) => {
-    console.log(goalInput);
-
+    
     this.setState({
       userGoal: goalInput,
     })
+    console.log(goalInput);
 
   }
   
@@ -100,7 +100,7 @@ class App extends Component {
     return (
         <div>
           <Header appBookResults={this.bookResults}/>
-          <Tracker />
+        <Tracker getGoalFn={this.goalFormSubmit} />
           <Results displayBookResults={this.state.books}        
                   selectBook={this.selectBook} />
           {this.state.isShowing && (
