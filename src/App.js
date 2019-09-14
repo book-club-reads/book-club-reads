@@ -31,6 +31,12 @@ class App extends Component {
     });
     console.log("state books", this.state.books);
   };
+  //on page load, make search form disappear
+  //once we receive user's name and goal input, display a line of text in main area, and display search form
+  //once we receive user's input into search form, clear the line of text in main area
+  //display the search result into main area
+
+
 
   openModal = (books) => {
     this.setState({
@@ -55,11 +61,11 @@ class App extends Component {
   
   //goal tracker form fn to get user's reading goal
   goalFormSubmit = (goalInput) => {
-    console.log(goalInput);
-
+    
     this.setState({
       userGoal: goalInput,
     })
+    console.log(goalInput);
 
   }
   
@@ -89,7 +95,7 @@ class App extends Component {
     return (
         <div>
           <Header appBookResults={this.bookResults}/>
-          <Tracker />
+        <Tracker getGoalFn={this.goalFormSubmit} />
           <Results displayBookResults={this.state.books}        
                   selectBook={this.selectBook} />
           {this.state.isShowing && (
