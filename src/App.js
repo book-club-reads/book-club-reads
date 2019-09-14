@@ -103,7 +103,6 @@ class App extends Component {
               selectBook = {this.state.select}
             />
           )}
-        {/* <ReadingList addBook={this.state.addBook} /> */}
         <DisplayFirebase addComment={this.handleComment}
                         addBook={this.state.addBook}            
         />
