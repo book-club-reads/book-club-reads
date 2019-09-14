@@ -2,9 +2,16 @@
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: space-around;
+    
+    // justify-content: space-around;
 }
 
-.bookImages {
-    margin: 4px;
+// .bookImages {
+//     margin: 4px;
+// }
+
+.displayBooksContent {
+    width: 25%;
+    
+    
 }

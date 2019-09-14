@@ -197,12 +197,10 @@ img {
           flex-direction: row;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
 }
 
-.bookImages {
-  margin: 4px;
+.displayBooksContent {
+  width: 25%;
 }
 
 .modalContainer {
