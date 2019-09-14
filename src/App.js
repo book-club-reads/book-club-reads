@@ -7,6 +7,7 @@ import Modal from "./components/Modal";
 import "./styles/App.scss";
 import DisplayFirebase from "./components/DisplayFirebase";
 import AddComment from "./components/AddComment"
+import GoalPercent from "./components/GoalPercent";
 
   
 
@@ -107,6 +108,7 @@ class App extends Component {
                         addBook={this.state.addBook}            
         />
         <AddComment comment={this.state.commentBookId} />
+        <GoalPercent />
         </div>
       
     );
