@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Tracker from "../components/Tracker";
-import Search from "../components/Search";
+// import Search from "../components/Search";
 import Results from "../components/Results";
 // import Modal from "./components/Modal";
 import Modal from "../components/Modal";
@@ -15,7 +15,7 @@ class Home extends Component {
         return (
             <div>
                 <Tracker getGoalFn={this.goalFormSubmit} />
-                <Search bookResults={this.props.appBookResults} />
+                {/* <Search bookResults={this.props.appBookResults} /> */}
                 <Results displayBookResults={this.props.fullState.books}
                     selectBook={this.props.appSelectBook} />
                 {this.props.fullState.isShowing && (

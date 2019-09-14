@@ -91,7 +91,7 @@ class App extends Component {
     return (
       <Router>
         <div>
-          <Header />
+          <Header appBookResults={this.bookResults}/>
           {/* <Tracker />
           <Search bookResults={this.bookResults} />
           <Results displayBookResults={this.state.books}        
@@ -115,7 +115,7 @@ class App extends Component {
           <Route exact path='/' render={()=>{
             return(
               <Home fullState={this.state} 
-                    appBookResults = {this.bookResults}
+                    // appBookResults = {this.bookResults}
                     appCloseModal = {this.closeModal}
                     appOpenModal = {this.openModal}
                     appSelectBook = {this.selectBook}
