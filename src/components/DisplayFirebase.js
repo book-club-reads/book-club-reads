@@ -19,8 +19,19 @@ class DisplayFirebase extends Component {
                         <h2>{response.Title}</h2>
                         <p>{response.Author}</p>
                         <p>{response.Rating}</p>
-                        {response.Read === false ? <button onClick={() => {this.handleRead(response.uniqueKey)}}>Read</button> : <button onClick={() => {this.handleUnread(response.uniqueKey)}}>unRead</button>}
-                        {response.Comment ? `${response.Comment}` : "No comments on this book"}
+                        <p>{response.Comment ? this.renderComment(response.Comment) : this.renderNoComment()}</p>
+                        <p>
+                        {response.Read === false ? 
+                            <button onClick={() => {
+                                this.handleRead(response.uniqueKey)
+                                }}>Read
+                            </button> : 
+                            <button onClick={() => {
+                                this.handleUnread(response.uniqueKey)
+                                }}>unRead
+                            </button>}
+                        </p>
+                        
                     </div>
                     
                     <button onClick={()=> this.props.addComment(response.uniqueKey)}>Post Comment</button>
@@ -56,6 +67,22 @@ class DisplayFirebase extends Component {
         dbRef.update({
             Read: false
         })
+    }
+    //Display of user comments on book
+    renderComment(comment){
+        return(
+            <div>
+                <p>{comment}</p>
+            </div>
+        )
+    }
+    //Display no comment 
+    renderNoComment() {
+        return(
+            <div>
+                <p>No comment on this book</p>
+            </div>
+        )
     }
     //Displays when there are no guardians save from firebase.
     renderEmptyState() {

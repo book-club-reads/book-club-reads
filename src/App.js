@@ -102,7 +102,7 @@ class App extends Component {
         <Search bookResults={this.bookResults} />
         <Results displayBookResults={this.state.books}        selectBook={this.selectBook} />
         {this.state.isShowing && (
-          <Modal
+        <Modal
             close={this.closeModal}
             img={this.state.select.best_book.image_url}
             title={this.state.select.best_book.title}
@@ -111,7 +111,7 @@ class App extends Component {
             alt={this.state.select.best_book.title}
             addBook={this.addBook}
             selectBook = {this.state.select}
-          />
+        />
         )}
         <ReadingList addBook = {this.state.addBook} />
         <DisplayFirebase addComment = {this.handleComment}/>
