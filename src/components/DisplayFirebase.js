@@ -6,6 +6,7 @@ class DisplayFirebase extends Component {
         super();
         this.state = {
             userReadingList: [],
+            read: 0
         }
     }
     //Display the list of guardians from firebase with name and adopted pokemon. 
@@ -18,15 +19,43 @@ class DisplayFirebase extends Component {
                         <h2>{response.Title}</h2>
                         <p>{response.Author}</p>
                         <p>{response.Rating}</p>
+                        {response.Read === false ? <button onClick={() => {this.handleRead(response.uniqueKey)}}>Read</button> : <button onClick={() => {this.handleUnread(response.uniqueKey)}}>unRead</button>}
                         {response.Comment ? `${response.Comment}` : "No comments on this book"}
                     </div>
-                    <button>Read</button>
+                    
                     <button onClick={()=> this.props.addComment(response.uniqueKey)}>Post Comment</button>
                     <button onClick={() => this.removeBook(response.uniqueKey)}>Remove book</button>
                 </div>
             )
         });
         return (<div>{userReadingListArray}</div>);
+    }
+
+    //Function to run when user clicks read button
+    handleRead = (bookId) => {
+        this.setState({
+            read: this.state.read + 1
+        }) 
+        console.log("Read click", bookId);
+        const dbRef = firebase.database().ref("Name").child(`${bookId}`)
+
+        dbRef.update({
+            Read: true
+        })
+        
+    }
+
+    //Function to run when user clicks unread button
+    handleUnread = (bookId) => {
+        this.setState({
+            read: this.state.read - 1
+        })
+        console.log("unRead click", bookId);
+        const dbRef = firebase.database().ref("Name").child(`${bookId}`)
+
+        dbRef.update({
+            Read: false
+        })
     }
     //Displays when there are no guardians save from firebase.
     renderEmptyState() {
@@ -56,7 +85,8 @@ class DisplayFirebase extends Component {
                     Author: response[key].Author,
                     Rating: response[key].Rating,
                     uniqueKey: key,
-                    Comment: response[key].Comment
+                    Comment: response[key].Comment,
+                    Read: response[key].Read
                 });
             }
             this.setState({
