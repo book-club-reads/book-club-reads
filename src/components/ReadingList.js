@@ -24,7 +24,8 @@ class ReadingList extends Component {
             Image: bookToAddFirebase.best_book.image_url,
             Title: bookToAddFirebase.best_book.title,
             Author: bookToAddFirebase.best_book.author.name,
-            Rating: bookToAddFirebase.average_rating
+            Rating: bookToAddFirebase.average_rating,
+            Read: false
 
         })
         

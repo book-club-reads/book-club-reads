@@ -7,7 +7,6 @@ class Search extends Component {
     super();
     this.state = {
       userInput: "",
-      // books: [],
     }
   }
 
@@ -49,6 +48,7 @@ class Search extends Component {
         useCache: false
       }
     }).then((res) => {
+      console.log("search", res);
       const books = res.data.GoodreadsResponse.search.results.work;
       this.props.bookResults(books);
     }).catch((error) => {
@@ -58,7 +58,6 @@ class Search extends Component {
     })
   }
 
-  
   //search form fields
   render(){
     return(

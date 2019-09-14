@@ -1,18 +1,16 @@
 import React, { Component } from "react";
 import firebase from "./firebase";
 import Header from "./components/Header";
-import Tracker from "./components/Tracker";
-import Search from "./components/Search";
-import Results from "./components/Results";
-import Modal from "./components/Modal"
-import ReadingList from "./components/ReadingList";
+
 import "./styles/App.scss";
 import DisplayFirebase from "./components/DisplayFirebase";
+import AddComment from "./components/AddComment"
 import {
   BrowserRouter 
   as Router, 
   Route, Link } 
   from 'react-router-dom';
+  import Home from './components/Home';
   
 
 class App extends Component {
@@ -23,21 +21,9 @@ class App extends Component {
       isShowing: false,
       select: '',
       addBook: '',
+      commentBookId: '',
       userGoal: {},
     };
-  }
-
-  componentDidMount() {
-    const dbRef = firebase.database().ref();
-    dbRef.on('value', (data) => {
-
-      //grab the data from FB, return an object
-      data = data.val();
-
-      //go through this object, and turn it into an array 
-      console.log(data)
-
-    })
   }
 
   //user input from search field
@@ -59,7 +45,7 @@ class App extends Component {
       isShowing: false
     })
   }
-
+  //Handle selected book details to pop as modal
   selectBook = (book) => {
     console.log(book);
     this.setState({
@@ -79,17 +65,19 @@ class App extends Component {
 
   }
   
-componentDidUpdate(){
-    if (this.state.select === true) {
-      this.selectBook();
-    }
-}
-
+  //Add book to reading list
   addBook = bookToAdd => {
     console.log("bookToAdd", bookToAdd);
     this.setState ({
       addBook: bookToAdd
     })
+  }
+  
+  handleComment = (bookId) => {
+    this.setState({
+      commentBookId: bookId
+    })
+    console.log("handle comment", bookId);
   }
 
   componentDidUpdate() {
@@ -98,9 +86,8 @@ componentDidUpdate(){
     }
   }
 
-  
+
   render() {
-    console.log("AddBook", this.state.addBook);
     return (
       <Router>
         <div>
@@ -127,7 +114,15 @@ componentDidUpdate(){
           <Link to="/bookshelf">Bookshelf</Link> */}
           <Route exact path='/' render={()=>{
             return(
-              <Home fullState={this.state}/>
+              <Home fullState={this.state} 
+                    appBookResults = {this.bookResults}
+                    appCloseModal = {this.closeModal}
+                    appOpenModal = {this.openModal}
+                    appSelectBook = {this.selectBook}
+                    appAddBook = {this.addBook}
+                    appComment = {this.handleComment}
+
+                    />
             )}
           } />
           <Route path="/bookshelf" component={DisplayFirebase} />
@@ -139,29 +134,3 @@ componentDidUpdate(){
 
 export default App;
 
-class Home extends Component {
-  render(){
-    return(
-      <div>
-        <Tracker getGoalFn={this.goalFormSubmit}/>
-          <Search bookResults={this.bookResults} />
-          <Results displayBookResults={this.props.fullState.books}        
-                  selectBook={this.selectBook} />
-          {this.props.fullState.isShowing && (
-            <Modal
-              close={this.closeModal}
-              img={this.props.fullState.select.best_book.image_url}
-              title={this.props.fullState.select.best_book.title}
-              author={this.props.fullState.select.best_book.author.name}
-              rating={this.props.fullState.select.average_rating}
-              alt={this.props.fullState.select.best_book.title}
-              addBook={this.addBook}
-              selectBook = {this.props.fullState.select}
-            />
-          )}
-          <ReadingList addBook = {this.props.fullState.addBook} />
-          <Link to="/bookshelf">Bookshelf</Link>
-      </div>
-    )
-  }
-}

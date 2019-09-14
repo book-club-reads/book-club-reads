@@ -1,5 +1,6 @@
 
-.modalContainer {
+.modalContainer,
+.formModalContainer {
     width: 40rem;
     border: 0.1rem solid black;
     height: 15rem;
@@ -43,4 +44,18 @@
 .closeModalButton {
     font-size: 2rem;
     cursor: pointer;
+}
+
+//MODAL for Post Comment
+
+.formFlex {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    width: 60%;
+    
+}
+.formModalContainer {
+    width: 20rem;
+    height: 20rem;
 }

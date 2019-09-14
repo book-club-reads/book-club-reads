@@ -6,9 +6,18 @@
     // justify-content: space-around;
 }
 
+.bookImages {
+    margin: 4px;
+}
+
+.formFlex {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    width: 60%;
 // .bookImages {
 //     margin: 4px;
-// }
+}
 
 .displayBooksContent {
     width: 25%;
