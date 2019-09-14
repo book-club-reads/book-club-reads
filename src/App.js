@@ -1,7 +1,10 @@
 import React, { Component } from "react";
 import firebase from "./firebase";
 import Header from "./components/Header";
-
+import Tracker from "./components/Tracker";
+import Results from "./components/Results";
+import Modal from "./components/Modal";
+import ReadingList from "./components/ReadingList";
 import "./styles/App.scss";
 import DisplayFirebase from "./components/DisplayFirebase";
 import AddComment from "./components/AddComment"
@@ -89,11 +92,9 @@ class App extends Component {
 
   render() {
     return (
-      <Router>
         <div>
           <Header appBookResults={this.bookResults}/>
-          {/* <Tracker />
-          <Search bookResults={this.bookResults} />
+          <Tracker />
           <Results displayBookResults={this.state.books}        
                   selectBook={this.selectBook} />
           {this.state.isShowing && (
@@ -109,25 +110,9 @@ class App extends Component {
             />
           )}
           <ReadingList addBook = {this.state.addBook} />
-          {/* <DisplayFirebase /> */}
-          {/* <Route exact path="/" component={Results}/>
-          <Link to="/bookshelf">Bookshelf</Link> */}
-          <Route exact path='/' render={()=>{
-            return(
-              <Home fullState={this.state} 
-                    // appBookResults = {this.bookResults}
-                    appCloseModal = {this.closeModal}
-                    appOpenModal = {this.openModal}
-                    appSelectBook = {this.selectBook}
-                    appAddBook = {this.addBook}
-                    appComment = {this.handleComment}
-
-                    />
-            )}
-          } />
-          <Route path="/bookshelf" component={DisplayFirebase} />
+          <DisplayFirebase />
         </div>
-      </Router>
+      
     );
   }
 }
