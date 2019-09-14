@@ -5,15 +5,26 @@ class AddComment extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            value: ''
+            value: '',
+            isShowing: false
         };
-
-        // this.handleChange = this.handleChange.bind(this);
-        // this.handleSubmit = this.handleSubmit.bind(this);
     }
+    openModal = (books) => {
+        this.setState({
+            isShowing: true
+        })
+    };
 
+    closeModal = () => {
+        this.setState({
+            isShowing: false
+        })
+    }
     handleChange = (event) => {
-        this.setState({ value: event.target.value });
+        this.setState({ 
+            value: event.target.value 
+        });
+        this.openModal();
     }
 
     handleSubmit = (event) => {
@@ -29,87 +40,37 @@ class AddComment extends Component {
         this.setState({
             value: ''
         })
+        this.closeModal();
     }
 
+    componentDidUpdate(prevProps, prevState) {
+        if (this.props.comment && this.props.comment !== prevProps.comment) {
+            this.openModal();
+        }
+    }
     render() {
         return (
-            <form onSubmit={this.handleSubmit}>
-                <label>
-                    Add Comment
-          <textarea value={this.state.value} onChange={this.handleChange} rows={5} cols={30} placeholder="Add comments to the book"/>
-                </label>
-                <input type="submit" value="Submit" />
-
-            </form>
+            <div>
+            { this.state.isShowing && (
+            <div className="formModalContainer">
+                <div className="modalHeader">
+                    <span className="closeModalButton" onClick={this.closeModal}>
+                        &#9747;
+        </span>
+                </div>
+                <div className="wrapper">
+                        <form className="formFlex" onSubmit={this.handleSubmit}>
+                            <label>Add Comment</label>
+            <textarea value={this.state.value} onChange={this.handleChange} rows={10} cols={5} placeholder="Add comments to the book" />
+                            {/* </label> */}
+                            <input type="submit" value="Post Comment" />
+                        </form>
+                </div>
+            </div> 
+            )}
+            </div>
         );
     }
 }
 
-// class AddComments extends Component {
-//     constructor() {
-//         super();
-//         this.state = {
-//             userComment: "",
-//         }
-//     }
-
-//     // onFormSubmit = (e) => {
-//     //   e.preventDefault();
-//     //   this.setState({
-//     //     [e.target.name]: e.target.value
-//     //   })
-//     // }
-
-//     handleAddComment = (event) => {
-//         this.setState({
-//             [event.target.name]: event.target.value
-//         })
-//     }
-
-//     postComment = () => {
-        
-//     }
-//     componentDidUpdate(prevProps, prevState){
-//         if (this.props.comment && this.props.comment !== prevProps.comment) {
-//             this.postComment();
-//         } 
-//     }
-
-
-//     render(){
-//         return(
-//             <form>
-//                 <fieldset>
-//                     <legend>Add Comment</legend>
-//                         <p>
-//                             <label>Text Area</label>
-//                             <textarea> id = "myTextArea"
-//                                     rows = "3"
-//                                     cols = "80"
-//                                     >Your text here
-//                             </textarea>
-//                         </p>
-//                 </fieldset>
-//             </form>
-//             // <form action="" onSubmit={() => this.postComment}>
-//             //     <input name="goalInput"
-//             //         type="textarea"
-//             //         onChange={this.handleAddComment}
-//             //         value={this.state.userComment}
-//             //         placeholder="Add comment"
-//             //         rows="4" cols="50"
-//             //         // pattern="^[1-9][0-9]?$|^100$"
-//             //     />
-//             //     <button
-//             //         className="submitButton"
-//             //         id="submitButton"
-//             //         type="submit"
-
-//             //     >
-//             //         Post Comment
-//             // </button>
-//             // </form>
-//         )
-//     }
-// }
 export default AddComment;

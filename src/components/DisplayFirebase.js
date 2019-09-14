@@ -21,7 +21,7 @@ class DisplayFirebase extends Component {
                         {response.Comment ? `${response.Comment}` : "No comments on this book"}
                     </div>
                     <button>Read</button>
-                    <button onClick={()=> this.props.addComment(response.uniqueKey)}>Add Comment</button>
+                    <button onClick={()=> this.props.addComment(response.uniqueKey)}>Post Comment</button>
                     <button onClick={() => this.removeBook(response.uniqueKey)}>Remove book</button>
                 </div>
             )
