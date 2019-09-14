@@ -19,8 +19,8 @@ class DisplayFirebase extends Component {
                         <h2>{response.Title}</h2>
                         <p>{response.Author}</p>
                         <p>{response.Rating}</p>
-                        <p>{response.Comment ? this.renderComment(response.Comment) : this.renderNoComment()}</p>
-                        <p>
+                        <div>{response.Comment ? this.renderComment(response.Comment) : this.renderNoComment()}</div>
+                        <div>
                         {response.Read === false ? 
                             <button onClick={() => {
                                 this.handleRead(response.uniqueKey)
@@ -30,7 +30,7 @@ class DisplayFirebase extends Component {
                                 this.handleUnread(response.uniqueKey)
                                 }}>unRead
                             </button>}
-                        </p>
+                        </div>
                         
                     </div>
                     
