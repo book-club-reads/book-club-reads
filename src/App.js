@@ -33,6 +33,12 @@ class App extends Component {
     });
     console.log("state books", this.state.books);
   };
+  //on page load, make search form disappear
+  //once we receive user's name and goal input, display a line of text in main area, and display search form
+  //once we receive user's input into search form, clear the line of text in main area
+  //display the search result into main area
+
+
 
   openModal = (books) => {
     this.setState({

@@ -13,10 +13,12 @@ class Header extends Component {
   render() {
     return (
       <header>
-        <div className="logo">
-          <img src={books} alt="Logo with books"/>
+        <div className="title">
+          <div className="logo">
+            <img src={books} alt="Logo with books"/>
+          </div>
+          <h1>Book Club Reads</h1>
         </div>
-        <h1>Book Club Reads</h1>
         <Search bookResults={this.props.appBookResults} />
       </header>
     )
