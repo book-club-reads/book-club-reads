@@ -4,16 +4,10 @@ import Header from "./components/Header";
 import Tracker from "./components/Tracker";
 import Results from "./components/Results";
 import Modal from "./components/Modal";
-import ReadingList from "./components/ReadingList";
 import "./styles/App.scss";
 import DisplayFirebase from "./components/DisplayFirebase";
 import AddComment from "./components/AddComment"
-import {
-  BrowserRouter 
-  as Router, 
-  Route, Link } 
-  from 'react-router-dom';
-  import Home from './components/Home';
+
   
 
 class App extends Component {
@@ -109,8 +103,10 @@ class App extends Component {
               selectBook = {this.state.select}
             />
           )}
-          <ReadingList addBook = {this.state.addBook} />
-          <DisplayFirebase />
+        <DisplayFirebase addComment={this.handleComment}
+                        addBook={this.state.addBook}            
+        />
+        <AddComment comment={this.state.commentBookId} />
         </div>
       
     );

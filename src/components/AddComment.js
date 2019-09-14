@@ -9,6 +9,7 @@ class AddComment extends Component {
             isShowing: false
         };
     }
+    
     openModal = (books) => {
         this.setState({
             isShowing: true
