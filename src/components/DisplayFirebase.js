@@ -18,6 +18,7 @@ class DisplayFirebase extends Component {
                         <h2>{response.Title}</h2>
                         <p>{response.Author}</p>
                         <p>{response.Rating}</p>
+                        {response.Comment ? `${response.Comment}` : "No comments on this book"}
                     </div>
                     <button>Read</button>
                     <button onClick={()=> this.props.addComment(response.uniqueKey)}>Add Comment</button>
@@ -55,6 +56,7 @@ class DisplayFirebase extends Component {
                     Author: response[key].Author,
                     Rating: response[key].Rating,
                     uniqueKey: key,
+                    Comment: response[key].Comment
                 });
             }
             this.setState({
