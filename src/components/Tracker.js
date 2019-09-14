@@ -6,33 +6,47 @@ class Tracker extends Component {
   constructor(){
     super();
     this.state ={
-      goalInput: "",
+      userInput: {}, //collect the goal and name input fields on form submit
+      goalInput: "", //
+      nameInput: "",
     }
   }
 
-  // onFormSubmit = (e) => {
-  //   e.preventDefault();
-  //   this.setState({
-  //     [e.target.name]: e.target.value
-  //   })
-  // }
+  onFormSubmit = (e) => {
+    e.preventDefault();
+    const inputObj = {
+      name: this.state.nameInput,
+      goal: this.state.goalInput,
+    }
 
-  goalInputField = (event) => {
-    this.setState({
-      goalInput: event.target.value
-    })	
+    this.props.getGoalFn(inputObj)
+
+  }
+
+  inputField = (e,userInput) => {
+    const input = {}
+    input[userInput] = e.target.value
+
+    this.setState(input)
+    console.log(input)
   }
 
 
   render() {
     return (
-      <form action="" onSubmit={(e) => this.props.getGoalFn(e, this.state.goalInput)}>
+      <form action="" onSubmit={this.onFormSubmit}>
+        <input name="nameInput"
+          type="text"
+          placeholder="Enter your name"
+          value={this.state.nameInput}
+          onChange={(e) => {this.inputField(e, "nameInput")}}
+        />
         <input name="goalInput"
           type="text"
-          onChange={this.goalInputField}
-          value={this.state.goalInput}
           placeholder="10"
           pattern="^[1-9][0-9]?$|^100$"
+          value={this.state.goalInput}
+          onChange={(e) => {this.inputField(e, "goalInput")}}
         />
         <button
           className="submitButton"

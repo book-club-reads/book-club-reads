@@ -1,0 +1,27 @@
+// colors
+$brightBlue: #5C67FF;
+$lightBlue: #C8E0F8;
+$darkBlue: #1B2456;
+$blush: #E5C1BD;
+$cranberry: #E25050;
+@mixin heading($color, $size) {
+    color: $color;
+    font-size: $size;
+    font-family: 'Merienda One', cursive;
+}
+@mixin text($color, $size) {
+    color: $color;
+    font-size: $size;
+    font-family: 'Barlow', sans-serif;
+}
+
+html {
+    // text-align: center;
+    font-size: 100%;
+}
+
+img {
+    display: block;
+    
+}
+

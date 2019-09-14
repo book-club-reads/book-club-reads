@@ -6,7 +6,7 @@ import Search from "./components/Search";
 import Results from "./components/Results";
 import Modal from "./components/Modal"
 import ReadingList from "./components/ReadingList";
-import "./App.scss";
+import "./styles/App.scss";
 import DisplayFirebase from "./components/DisplayFirebase";
 
 class App extends Component {
@@ -16,7 +16,8 @@ class App extends Component {
       books: [],
       isShowing: false,
       select: '',
-      addBook: ''
+      addBook: '',
+      userGoal: {},
     };
   }
 
@@ -61,13 +62,15 @@ class App extends Component {
     this.openModal()
     console.log(this.state.select);
   }
+  
   //goal tracker form fn to get user's reading goal
-  goalFormSubmit = (e, goal) => {
-    e.preventDefault();
+  goalFormSubmit = (goalInput) => {
+    console.log(goalInput);
+
     this.setState({
-      userGoal: goal,
+      userGoal: goalInput,
     })
-    console.log(this.state.userGoal);
+
   }
   
 componentDidUpdate(){
