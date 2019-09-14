@@ -8,6 +8,7 @@ import Modal from "./components/Modal"
 import ReadingList from "./components/ReadingList";
 import "./App.scss";
 import DisplayFirebase from "./components/DisplayFirebase";
+import AddComment from "./components/AddComment"
 
 class App extends Component {
   constructor() {
@@ -16,7 +17,8 @@ class App extends Component {
       books: [],
       isShowing: false,
       select: '',
-      addBook: ''
+      addBook: '',
+      commentBookId: ''
     };
   }
 
@@ -52,7 +54,7 @@ class App extends Component {
       isShowing: false
     })
   }
-
+  //Handle selected book details to pop as modal
   selectBook = (book) => {
     console.log(book);
     this.setState({
@@ -70,17 +72,19 @@ class App extends Component {
     console.log(this.state.userGoal);
   }
   
-componentDidUpdate(){
-    if (this.state.select === true) {
-      this.selectBook();
-    }
-}
-
+  //Add book to reading list
   addBook = bookToAdd => {
     console.log("bookToAdd", bookToAdd);
     this.setState ({
       addBook: bookToAdd
     })
+  }
+  
+  handleComment = (bookId) => {
+    this.setState({
+      commentBookId: bookId
+    })
+    console.log("handle comment", bookId);
   }
 
   componentDidUpdate() {
@@ -89,9 +93,8 @@ componentDidUpdate(){
     }
   }
 
-  
+
   render() {
-    console.log("AddBook", this.state.addBook);
     return (
       <div>
         <Header />
@@ -111,7 +114,8 @@ componentDidUpdate(){
           />
         )}
         <ReadingList addBook = {this.state.addBook} />
-        <DisplayFirebase />
+        <DisplayFirebase addComment = {this.handleComment}/>
+        <AddComment comment = {this.state.commentBookId}/>
       </div>
     );
   }

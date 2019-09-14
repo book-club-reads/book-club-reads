@@ -20,6 +20,7 @@ class DisplayFirebase extends Component {
                         <p>{response.Rating}</p>
                     </div>
                     <button>Read</button>
+                    <button onClick={()=> this.props.addComment(response.uniqueKey)}>Add Comment</button>
                     <button onClick={() => this.removeBook(response.uniqueKey)}>Remove book</button>
                 </div>
             )
