@@ -13,7 +13,7 @@ class DisplayFirebase extends Component {
     renderReadingList() {
         const userReadingListArray = this.state.userReadingList.map((response, i) => {
             return (
-                <div key={response.uniqueKey}>
+                <div key={response.uniqueKey} className="displayBooksContent">
                     <div>
                         <img src={response.Image} alt={response.Title}/>
                         <h2>{response.Title}</h2>
@@ -36,10 +36,11 @@ class DisplayFirebase extends Component {
                     
                     <button onClick={()=> this.props.addComment(response.uniqueKey)}>Post Comment</button>
                     <button onClick={() => this.removeBook(response.uniqueKey)}>Remove book</button>
+                    
                 </div>
             )
         });
-        return (<div>{userReadingListArray}</div>);
+        return (<div className="displayBooksContainer">{userReadingListArray}</div>);
     }
 
     //Function to run when user clicks read button
@@ -125,7 +126,7 @@ class DisplayFirebase extends Component {
 
     render() {
         return (
-            <section>
+            <section className="displayBooksContainer">
                     <h2>Reading List</h2>
                     <div>
                         {this.state.userReadingList.length ? this.renderReadingList() : this.renderEmptyState()}

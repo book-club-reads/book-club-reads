@@ -2,7 +2,8 @@
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: space-around;
+    
+    // justify-content: space-around;
 }
 
 .bookImages {
@@ -14,5 +15,12 @@
     flex-direction: column;
     margin: 0 auto;
     width: 60%;
+// .bookImages {
+//     margin: 4px;
+}
+
+.displayBooksContent {
+    width: 25%;
+    
     
 }
