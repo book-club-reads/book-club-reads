@@ -1,0 +1,10 @@
+header {
+    width: 100vw;
+    height: 80vh;
+    background-image: url('../assets/header.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    @include heading ($darkBlue, 3rem);
+    
+}
