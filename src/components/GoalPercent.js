@@ -7,22 +7,33 @@ class GoalPercent extends Component {
         this.state = ({
             read: [],
             readCounter: 0,
+            percent: 0
         })
     }
 
-    renderReadingList() {
-        const countRead = this.state.read.map(
-            (response, i) => {
-                return (
-                    <div>
-                        {response.Read === true ? this.setState({readCounter: this.state.readCounter + 1  }) : null}
-                    </div>
-                )
-            })
-            return (<div>{countRead}</div>)
-        }
+    filterRead = () => {
+        const copyOfRead = [...this.state.read];
+        const countRead = copyOfRead.filter((read, i) => {
+              return  read.Read === true;
+        })
+        console.log("count read length", countRead.length);
+        const totalRead = countRead.length
+        this.setState({
+            readCounter: totalRead
+        })
+        this.calcPercent();
+    }
 
-    componentDidMount() {
+    
+
+    calcPercent = () => {
+        const percentage = ((this.state.readCounter / this.props.goalInput) * 100 )
+        console.log("percentage" ,percentage);
+        this.setState({
+            percent: percentage
+        })
+    }
+    firebaseData = () => {
         const dbRef = firebase.database().ref("Name");
         dbRef.on("value", data => {
             const response = data.val();
@@ -36,16 +47,26 @@ class GoalPercent extends Component {
             this.setState({
                 read: newState
             });
-            console.log(this.state.read);
-
+            this.filterRead()
         });
     }
+    componentDidMount(){
+        this.firebaseData();
+    }
+    // componentDidUpdate(prevProps){
+    //     if(this.state.readCounter && this.state.readCounter !== prevProps.readCounter){
+    //         this.filterRead()
+    //     }
+    // }
+
     
     render(){
-        console.log("Read Counter", this.state.readCounter);
+        console.log("Read Counter", this.props.goalInput);
+        console.log("percent", this.state.percent);
+        console.log("Count Read", this.state.readCounter);
         return(
             <div>
-                
+                <p>Goal Completion: {this.state.percent}%</p>
             </div>
         )
     }

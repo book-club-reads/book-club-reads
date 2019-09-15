@@ -92,6 +92,7 @@ class App extends Component {
 
 
   render() {
+    console.log("GOal Input", this.state.userGoal);
     return (
         <div>
           <Header appBookResults={this.bookResults}/>
@@ -114,7 +115,7 @@ class App extends Component {
                         addBook={this.state.addBook}            
         />
         <AddComment comment={this.state.commentBookId} />
-        <GoalPercent />
+        <GoalPercent goalInput = {this.state.userGoal.goal}/>
         </div>
       
     );

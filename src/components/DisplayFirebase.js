@@ -169,7 +169,6 @@ class DisplayFirebase extends Component {
 
   render() {
     return (
-      
         <section className="displayBooksContainer">
           <h2>Reading List</h2>
           <div>
