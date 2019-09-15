@@ -36,6 +36,12 @@ class Header extends Component {
             </li>
           </ul>
         </nav>
+        <div className="title">
+          <div className="logo">
+            <img src={books} alt="Logo with books"/>
+          </div>
+          <h1>Book Club Reads</h1>
+        </div>
         <Search bookResults={this.props.appBookResults} />
       </header>
     );

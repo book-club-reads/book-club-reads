@@ -4,16 +4,10 @@ import Header from "./components/Header";
 import Tracker from "./components/Tracker";
 import Results from "./components/Results";
 import Modal from "./components/Modal";
-import ReadingList from "./components/ReadingList";
 import "./styles/App.scss";
 import DisplayFirebase from "./components/DisplayFirebase";
 import AddComment from "./components/AddComment"
-import {
-  BrowserRouter 
-  as Router, 
-  Route, Link } 
-  from 'react-router-dom';
-  import Home from './components/Home';
+
   
 
 class App extends Component {
@@ -38,6 +32,12 @@ class App extends Component {
     });
     console.log("state books", this.state.books);
   };
+  //on page load, make search form disappear
+  //once we receive user's name and goal input, display a line of text in main area, and display search form
+  //once we receive user's input into search form, clear the line of text in main area
+  //display the search result into main area
+
+
 
   openModal = books => {
     this.setState({
