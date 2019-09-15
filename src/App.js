@@ -61,8 +61,7 @@ class App extends Component {
   };
 
   //goal tracker form fn to get user's reading goal
-  goalFormSubmit = goalInput => {
-    console.log(goalInput);
+  goalFormSubmit = (goalInput) => {
 
     this.setState({
       userGoal: goalInput
@@ -108,12 +107,19 @@ class App extends Component {
   render() {
     return (
       <div>
-        <Header appBookResults={this.bookResults} bookshelfPage={this.bookshelfPage} searchPage={this.searchPage} searchOn={this.state.searchOn} />
-        <Tracker />
-        {this.state.resultsShowing && (<Results
-          displayBookResults={this.state.books}
-          selectBook={this.selectBook}
-        />)}
+        <Header appBookResults={this.bookResults} />
+        <Tracker
+          getGoalFn={this.goalFormSubmit}
+          bookshelfPage={this.bookshelfPage}
+          searchPage={this.searchPage}
+          searchOn={this.state.searchOn}
+        />
+        {this.state.resultsShowing && (
+          <Results
+            displayBookResults={this.state.books}
+            selectBook={this.selectBook}
+          />
+        )}
         {this.state.isShowing && (
           <Modal
             close={this.closeModal}
@@ -126,7 +132,6 @@ class App extends Component {
             selectBook={this.state.select}
           />
         )}
-        <ReadingList addBook={this.state.addBook} />
         {this.state.booklistShowing && <DisplayFirebase />}
       </div>
     );
