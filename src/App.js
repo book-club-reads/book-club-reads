@@ -77,6 +77,7 @@ class App extends Component {
     })
   }
   
+  //Grabs book Id to post a comment
   handleComment = (bookId) => {
     this.setState({
       commentBookId: bookId
@@ -92,7 +93,6 @@ class App extends Component {
 
 
   render() {
-    console.log("GOal Input", this.state.userGoal);
     return (
         <div>
           <Header appBookResults={this.bookResults}/>

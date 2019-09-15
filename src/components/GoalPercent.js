@@ -11,6 +11,7 @@ class GoalPercent extends Component {
         })
     }
 
+    //Filter all books with read: true to a new array
     filterRead = () => {
         const copyOfRead = [...this.state.read];
         const countRead = copyOfRead.filter((read, i) => {
@@ -24,8 +25,7 @@ class GoalPercent extends Component {
         this.calcPercent();
     }
 
-    
-
+    //Calculates percentage
     calcPercent = () => {
         const percentage = ((this.state.readCounter / this.props.goalInput) * 100 )
         console.log("percentage" ,percentage);
@@ -33,6 +33,7 @@ class GoalPercent extends Component {
             percent: percentage
         })
     }
+
     firebaseData = () => {
         const dbRef = firebase.database().ref("Name");
         dbRef.on("value", data => {
@@ -50,6 +51,7 @@ class GoalPercent extends Component {
             this.filterRead()
         });
     }
+    
     componentDidMount(){
         this.firebaseData();
     }
@@ -61,9 +63,6 @@ class GoalPercent extends Component {
 
     
     render(){
-        console.log("Read Counter", this.props.goalInput);
-        console.log("percent", this.state.percent);
-        console.log("Count Read", this.state.readCounter);
         return(
             <div>
                 <p>Goal Completion: {this.state.percent}%</p>
