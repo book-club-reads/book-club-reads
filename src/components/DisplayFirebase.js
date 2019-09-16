@@ -8,7 +8,8 @@ class DisplayFirebase extends Component {
     super();
     this.state = {
       userReadingList: [],
-      read: 0
+      read: 0,
+      userGoal: {}
     };
   }
   //Display the list of books in the reading list
@@ -36,6 +37,7 @@ class DisplayFirebase extends Component {
                   >
                     Read
                   </button>
+                  
                 ) : (
                   <button
                     onClick={() => {
@@ -133,15 +135,24 @@ class DisplayFirebase extends Component {
     dbRef.child(bookId).remove();
   };
 
+  getUserGoal = () => {
+    this.setState({
+      userGoal: this.props.userGoal
+    })
+  }
 
-  componentDidMount() {
+  readingListFromFirebase = () => {
     const dbRef = firebase.database().ref("Name");
 
     dbRef.on("value", data => {
       const response = data.val();
       const newState = [];
+      let readCounter = 0
 
       for (let key in response) {
+        if (response[key].Read === true) {
+          readCounter = readCounter + 1
+        }
         newState.push({
           Image: response[key].Image,
           Title: response[key].Title,
@@ -153,23 +164,30 @@ class DisplayFirebase extends Component {
         });
       }
       this.setState({
-        userReadingList: newState
+        userReadingList: newState,
+        read: readCounter
       });
     });
+  }
+
+  componentDidMount() {
+    this.readingListFromFirebase();
+    this.getUserGoal();
   }
 
   componentDidUpdate(prevProps, prevState) {
     if (this.props.addBook && this.props.addBook !== prevProps.addBook) {
       this.addToFirebase(this.props.addBook);
-    }
+    } 
   }
 
   render() {
-    console.log("this.state.read", this.state.read);
     return (
         <section className="displayBooksContainer">
           <h2>Reading List</h2>
-          <GoalPercent read = {this.state.read}/>
+          <GoalPercent read = {this.state.read}
+                        userGoal = {this.state.userGoal}
+          />
           <div>
             {this.state.userReadingList.length
               ? this.renderReadingList()
