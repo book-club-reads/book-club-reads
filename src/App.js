@@ -101,23 +101,24 @@ class App extends Component {
         <Header appBookResults={this.bookResults} />
         <Nav bookshelfPage={this.bookshelfPage}
           searchPage={this.searchPage}/>
-        {/* if books.length > 0, put result in div, otherwise, ask for user's reading goal */}
-        {this.state.books.length 
-        ? 
-        // {this.state.resultsShowing && (
-          <Results
-            displayBookResults={this.state.books}
-            selectBook={this.selectBook}
-            resultsShowing={this.state.resultsShowing}
-            booklistShowing={this.state.booklistShowing}
-            userGoal={this.state.userGoal}
-          />
-          // )}
-        :
-          <Tracker
-            getGoalFn={this.goalFormSubmit}
-            searchOn={this.state.searchOn}
-          />
+        { typeof this.state.books == "undefined" 
+          ? alert("No results")
+          : (
+              this.state.books.length 
+              ?
+                <Results
+                  displayBookResults={this.state.books}
+                  selectBook={this.selectBook}
+                  resultsShowing={this.state.resultsShowing}
+                  booklistShowing={this.state.booklistShowing}
+                  userGoal={this.state.userGoal}
+                />
+              :
+                <Tracker
+                  getGoalFn={this.goalFormSubmit}
+                  searchOn={this.state.searchOn}
+                />
+          )    
         }
 
 

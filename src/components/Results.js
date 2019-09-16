@@ -106,6 +106,13 @@ class Results extends Component {
   //Add book to reading list
   addBook = bookToAdd => {
     console.log("bookToAdd", bookToAdd);
+
+    let bookIdArray = []
+
+    //Gets the book id
+    bookIdArray = Object.values(bookToAdd.id)
+    const bookId = bookIdArray[1]
+
     this.setState({
       addBook: bookToAdd
     });
@@ -116,7 +123,8 @@ class Results extends Component {
       Title: bookToAdd.best_book.title,
       Author: bookToAdd.best_book.author.name,
       Rating: bookToAdd.average_rating,
-      Read: false
+      Read: false,
+      BookId: bookId
     });
   };
 
