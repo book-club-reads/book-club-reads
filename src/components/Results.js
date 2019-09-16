@@ -1,15 +1,20 @@
 import React, { Component } from "react";
+import placeholder from '../styles/assets/placeholder.jpg'; 
 
 
 class Results extends Component {
   //display the search results
   renderDisplayBooks = () => {
     const bookList = this.props.displayBookResults.map((book, i) => {
+      
       return (
-        <div key={i}>
+        <div key={i} className="resultsBlock">
+          
           <div className="bookImages" onClick={() => {this.props.selectBook(book)}}>
 
-            <img src={book.best_book.image_url} alt="" />
+            <img src={book.best_book.image_url === "https://s.gr-assets.com/assets/nophoto/book/111x148-bcc042a9c91a29c1d680899eff700a03.png" ? placeholder : book.best_book.image_url  } alt={book.best_book.title} />
+            <p className="bookNameResults">{book.best_book.title}</p>
+            <p className="authorNameResults">{book.best_book.author.name}</p>
           </div>
         </div>
       );
@@ -36,6 +41,8 @@ class Results extends Component {
         <div className="displayBackground">
           <h2 className=""> Results</h2>
           <div>
+            
+            
             {this.props.displayBookResults.length
               ? this.renderDisplayBooks()
               : this.renderEmptyState()}
