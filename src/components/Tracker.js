@@ -83,17 +83,23 @@ class Tracker extends Component {
 
 
   render() {
-    return(
+    return (
       <section className="tracker">
+        <nav>
+          <ul>
+            <li>
+              <button onClick={this.props.bookshelfPage}>Bookshelf</button>
+            </li>
+            <li>
+              <button onClick={this.props.searchPage}>Search</button>
+            </li>
+          </ul>
+        </nav>
         <div className="formOverlay">
-        {
-          this.state.goalSubmit
-            ? this.renderform()
-            : this.renderPlaceholder()
-        }
+          {this.state.goalSubmit ? this.renderform() : this.renderPlaceholder()}
         </div>
       </section>
-    )
+    );
   }
 }
 
