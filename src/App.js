@@ -16,10 +16,12 @@ class App extends Component {
     this.state = {
       books: [],
       isShowing: false,
-      select: '',
-      addBook: '',
-      commentBookId: '',
-      userGoal: {},
+      resultsShowing: true,
+      booklistShowing: false,
+      select: "",
+      addBook: "",
+      commentBookId: "",
+      userGoal: {}
     };
   }
 
@@ -37,51 +39,64 @@ class App extends Component {
 
 
 
-  openModal = (books) => {
+  openModal = books => {
     this.setState({
       isShowing: true
-    })
+    });
   };
 
   closeModal = () => {
     this.setState({
       isShowing: false
-    })
-  }
+    });
+  };
   //Handle selected book details to pop as modal
-  selectBook = (book) => {
+  selectBook = book => {
     console.log(book);
     this.setState({
       select: book
-    })
-    this.openModal()
+    });
+    this.openModal();
     console.log(this.state.select);
-  }
-  
+  };
+
   //goal tracker form fn to get user's reading goal
   goalFormSubmit = (goalInput) => {
-    
-    this.setState({
-      userGoal: goalInput,
-    })
-    console.log(goalInput);
 
-  }
-  
+    this.setState({
+      userGoal: goalInput
+    });
+  };
+
   //Add book to reading list
   addBook = bookToAdd => {
     console.log("bookToAdd", bookToAdd);
-    this.setState ({
+    this.setState({
       addBook: bookToAdd
-    })
-  }
-  
-  handleComment = (bookId) => {
+    });
+  };
+
+  handleComment = bookId => {
     this.setState({
       commentBookId: bookId
-    })
+    });
     console.log("handle comment", bookId);
-  }
+  };
+
+  bookshelfPage = () => {
+    this.setState({
+      resultsShowing: false,
+      booklistShowing: true
+    });
+  };
+
+  // function to change state to render search page instead of favourite page
+  searchPage = () => {
+    this.setState({
+      resultsShowing: true,
+      booklistShowing:false
+    });
+  };
 
   componentDidUpdate() {
     if (this.state.select === true) {
@@ -89,32 +104,36 @@ class App extends Component {
     }
   }
 
-
   render() {
     return (
-        <div>
-          <Header appBookResults={this.bookResults}/>
-        <Tracker getGoalFn={this.goalFormSubmit} />
-          <Results displayBookResults={this.state.books}        
-                  selectBook={this.selectBook} />
-          {this.state.isShowing && (
-            <Modal
-              close={this.closeModal}
-              img={this.state.select.best_book.image_url}
-              title={this.state.select.best_book.title}
-              author={this.state.select.best_book.author.name}
-              rating={this.state.select.average_rating}
-              alt={this.state.select.best_book.title}
-              addBook={this.addBook}
-              selectBook = {this.state.select}
-            />
-          )}
-        <DisplayFirebase addComment={this.handleComment}
-                        addBook={this.state.addBook}            
+      <div>
+        <Header appBookResults={this.bookResults} />
+        <Tracker
+          getGoalFn={this.goalFormSubmit}
+          bookshelfPage={this.bookshelfPage}
+          searchPage={this.searchPage}
+          searchOn={this.state.searchOn}
         />
-        <AddComment comment={this.state.commentBookId} />
-        </div>
-      
+        {this.state.resultsShowing && (
+          <Results
+            displayBookResults={this.state.books}
+            selectBook={this.selectBook}
+          />
+        )}
+        {this.state.isShowing && (
+          <Modal
+            close={this.closeModal}
+            img={this.state.select.best_book.image_url}
+            title={this.state.select.best_book.title}
+            author={this.state.select.best_book.author.name}
+            rating={this.state.select.average_rating}
+            alt={this.state.select.best_book.title}
+            addBook={this.addBook}
+            selectBook={this.state.select}
+          />
+        )}
+        {this.state.booklistShowing && <DisplayFirebase />}
+      </div>
     );
   }
 }
