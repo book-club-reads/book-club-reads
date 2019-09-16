@@ -32,7 +32,6 @@ class AddComment extends Component {
         event.preventDefault();
         
         const bookId = this.props.comment
-        console.log("Add to firebase", bookId);
         const dbRef = firebase.database().ref("Name").child(`${bookId}`)
 
         dbRef.update({

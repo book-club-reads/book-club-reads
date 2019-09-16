@@ -6,10 +6,7 @@ import Results from "./components/Results";
 import Modal from "./components/Modal";
 import "./styles/App.scss";
 import DisplayFirebase from "./components/DisplayFirebase";
-import AddComment from "./components/AddComment"
-import GoalPercent from "./components/GoalPercent";
 
-  
 
 class App extends Component {
   constructor() {
@@ -81,7 +78,6 @@ class App extends Component {
     this.setState({
       commentBookId: bookId
     });
-    console.log("handle comment", bookId);
   };
 
   bookshelfPage = () => {

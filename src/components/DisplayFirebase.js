@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import firebase from 'firebase';
+import AddComment from './AddComment';
 import GoalPercent from './GoalPercent';
 
 
@@ -9,7 +10,8 @@ class DisplayFirebase extends Component {
     this.state = {
       userReadingList: [],
       read: 0,
-      userGoal: {}
+      userGoal: {},
+      commentBookId: ''
     };
   }
   //Display the list of books in the reading list
@@ -50,7 +52,7 @@ class DisplayFirebase extends Component {
               </div>
             </div>
 
-            <button onClick={() => this.props.addComment(response.uniqueKey)}>
+            <button onClick={() => this.handleComment(response.uniqueKey)}>
               Post Comment
             </button>
             <button onClick={() => this.removeBook(response.uniqueKey)}>
@@ -103,6 +105,12 @@ class DisplayFirebase extends Component {
 
     dbRef.update({
       Read: false
+    });
+  };
+
+  handleComment = bookId => {
+    this.setState({
+      commentBookId: bookId
     });
   };
 
@@ -200,6 +208,7 @@ class DisplayFirebase extends Component {
               ? this.renderReadingList()
               : this.renderEmptyState()}
           </div>
+          <AddComment comment = {this.state.commentBookId}/>
         </section>
     );
   }
