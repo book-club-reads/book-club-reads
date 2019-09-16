@@ -55,6 +55,27 @@ class Results extends Component {
     );
   }
 
+  //Handle selected book details to pop as modal
+  selectBook = book => {
+    this.setState({
+      select: book
+    });
+    this.openModal();
+  };
+
+  openModal = books => {
+    this.setState({
+      isShowing: true
+    });
+  };
+
+  closeModal = () => {
+    this.setState({
+      isShowing: false
+    });
+  };
+
+
   //Gets user goal from App.js
   getUserGoal = () => {
     this.setState({

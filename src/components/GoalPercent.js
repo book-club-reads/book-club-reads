@@ -15,8 +15,9 @@ class GoalPercent extends Component {
         })
     }
 
+
     componentDidUpdate(prevProps){
-        if(this.props.read && this.props.read !== prevProps.read){
+        if(this.props.read !== prevProps.read){
             this.calcPercent();
         }
     }

@@ -25,7 +25,6 @@ class Search extends Component {
         userInput: event.target.value
     })
     this.fetchBooks(this.state.userInput);
-    console.log("userInput", this.state.userInput);
   }
 
   //API call to good reads based on user input
@@ -48,7 +47,7 @@ class Search extends Component {
         useCache: false
       }
     }).then((res) => {
-      console.log("search", res);
+      console.log(res);
       const books = res.data.GoodreadsResponse.search.results.work;
       this.props.bookResults(books);
     }).catch((error) => {
