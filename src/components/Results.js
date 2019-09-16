@@ -1,7 +1,9 @@
 import React, { Component } from "react";
+import DisplayFirebase from "./DisplayFirebase";
 
 
 class Results extends Component {
+  
   //display the search results
   renderDisplayBooks = () => {
     const bookList = this.props.displayBookResults.map((book, i) => {
@@ -32,16 +34,27 @@ class Results extends Component {
 
   render(){
     return(
-      <div>
-        <div className="displayBackground">
-          <h2 className=""> Results</h2>
-          <div>
-            {this.props.displayBookResults.length
-              ? this.renderDisplayBooks()
-              : this.renderEmptyState()}
-          </div>
+      // <div>
+      //   <div className="displayBackground">
+      //     <h2 className=""> Results</h2>
+      //     <div>
+      //       {this.props.displayBookResults.length
+      //         ? this.renderDisplayBooks()
+      //         : this.renderEmptyState()}
+      //     </div>
+      //   </div>
+      // </div>
+      <section className="tracker">
+        <div className="formOverlay">
+          {this.props.resultsShowing &&
+          ({this.props.displayBookResults.length
+               ? this.renderDisplayBooks()
+               : this.renderEmptyState()})
+          }
+          {this.props.booklistShowing && (<DisplayFirebase/>)}
+          {/* {this.props.resultsShowing && (this.renderDisplayBooks())} */}
         </div>
-      </div>
+      </section>
     );
   }
 }
