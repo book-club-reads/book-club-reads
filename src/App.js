@@ -28,7 +28,8 @@ class App extends Component {
   //user input from search field
   bookResults = searchBooks => {
     this.setState({
-      books: searchBooks
+      books: searchBooks,
+      userGoal: {}
     });
     console.log("state books", this.state.books);
   };
@@ -112,6 +113,7 @@ class App extends Component {
             selectBook={this.selectBook}
             resultsShowing={this.state.resultsShowing}
             booklistShowing={this.state.booklistShowing}
+            userGoal={this.state.userGoal}
           />
           // )}
         :

@@ -4,6 +4,12 @@ import DisplayFirebase from "./DisplayFirebase";
 
 
 class Results extends Component {
+  constructor(){
+    super();
+    this.state = ({
+      userGoal: {}
+    })
+  }
   
   //display the search results
   renderDisplayBooks = () => {
@@ -34,8 +40,16 @@ class Results extends Component {
     );
   }
 
+  //Gets user goal from App.js
+  getUserGoal = () => {
+    this.setState({
+      userGoal: this.props.userGoal
+    })
+  }
+
   componentDidMount() {
     this.renderDisplayBooks()
+    this.getUserGoal()
   }
 
   render(){
@@ -57,7 +71,7 @@ class Results extends Component {
               ? this.renderDisplayBooks()
               : this.renderEmptyState())
           }
-          {this.props.booklistShowing && (<DisplayFirebase/>)}
+          {this.props.booklistShowing && (<DisplayFirebase userGoal = {this.state.userGoal} />)}
 
         </div>
       </section>
