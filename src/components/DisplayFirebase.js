@@ -62,6 +62,7 @@ class DisplayFirebase extends Component {
     );
     return <div className="displayBooksContainer">{userReadingListArray}</div>;
   }
+
   //Adds selected book to firebase
   addToFirebase = bookToAddFirebase => {
     const dbRef = firebase.database().ref("Name");
@@ -104,6 +105,7 @@ class DisplayFirebase extends Component {
       Read: false
     });
   };
+
   //Display of user comments on book
   renderComment(comment) {
     return (
@@ -112,6 +114,7 @@ class DisplayFirebase extends Component {
       </div>
     );
   }
+
   //Display no comment
   renderNoComment() {
     return (
@@ -120,6 +123,7 @@ class DisplayFirebase extends Component {
       </div>
     );
   }
+
   //Displays when there are no guardians save from firebase.
   renderEmptyState() {
     return (
@@ -128,6 +132,7 @@ class DisplayFirebase extends Component {
       </div>
     );
   }
+
   //Remove book from firebase
   removeBook = bookId => {
     const dbRef = firebase.database().ref("Name");
@@ -135,12 +140,14 @@ class DisplayFirebase extends Component {
     dbRef.child(bookId).remove();
   };
 
+  //Gets user goal from App.js
   getUserGoal = () => {
     this.setState({
       userGoal: this.props.userGoal
     })
   }
 
+  //Function to pull all reading list from firebase
   readingListFromFirebase = () => {
     const dbRef = firebase.database().ref("Name");
 
@@ -152,7 +159,7 @@ class DisplayFirebase extends Component {
       for (let key in response) {
         if (response[key].Read === true) {
           readCounter = readCounter + 1
-        }
+        } 
         newState.push({
           Image: response[key].Image,
           Title: response[key].Title,

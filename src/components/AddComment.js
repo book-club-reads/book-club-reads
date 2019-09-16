@@ -63,7 +63,6 @@ class AddComment extends Component {
                         <form className="formFlex" onSubmit={this.handleSubmit}>
                             <label>Add Comment</label>
             <textarea value={this.state.value} onChange={this.handleChange} rows={10} cols={5} placeholder="Add comments to the book" />
-                            {/* </label> */}
                             <input type="submit" value="Post Comment" />
                         </form>
                 </div>
