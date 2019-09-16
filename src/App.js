@@ -133,7 +133,8 @@ class App extends Component {
             selectBook={this.state.select}
           />
         )}
-        {this.state.booklistShowing && <DisplayFirebase />}
+        {this.state.booklistShowing && 
+          <DisplayFirebase userGoal={this.state.userGoal}/>}
       </div>
     );
   }
