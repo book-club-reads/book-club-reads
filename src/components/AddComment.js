@@ -32,7 +32,6 @@ class AddComment extends Component {
         event.preventDefault();
         
         const bookId = this.props.comment
-        console.log("Add to firebase", bookId);
         const dbRef = firebase.database().ref("Name").child(`${bookId}`)
 
         dbRef.update({
@@ -63,7 +62,6 @@ class AddComment extends Component {
                         <form className="formFlex" onSubmit={this.handleSubmit}>
                             <label>Add Comment</label>
             <textarea value={this.state.value} onChange={this.handleChange} rows={10} cols={5} placeholder="Add comments to the book" />
-                            {/* </label> */}
                             <input type="submit" value="Post Comment" />
                         </form>
                 </div>
