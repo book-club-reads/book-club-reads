@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import firebase from "./firebase";
 import Header from "./components/Header";
+import Nav from './components/Nav';
 import Tracker from "./components/Tracker";
 import Results from "./components/Results";
 import Modal from "./components/Modal";
@@ -108,6 +109,7 @@ class App extends Component {
     return (
       <div>
         <Header appBookResults={this.bookResults} />
+        <Nav />
         <Tracker
           getGoalFn={this.goalFormSubmit}
           bookshelfPage={this.bookshelfPage}
