@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import firebase from "./firebase";
 import Header from "./components/Header";
+import Nav from './components/Nav';
 import Tracker from "./components/Tracker";
 import Results from "./components/Results";
 import Modal from "./components/Modal";
@@ -108,7 +109,8 @@ class App extends Component {
     return (
       <div>
         <Header appBookResults={this.bookResults} />
-        
+        <Nav bookshelfPage={this.bookshelfPage}
+          searchPage={this.searchPage}/>
         {/* if books.length > 0, put result in div, otherwise, ask for user's reading goal */}
         {this.state.books.length 
         ? 
@@ -120,12 +122,11 @@ class App extends Component {
             booklistShowing={this.state.booklistShowing}
           />
           // )}
-        : <Tracker
-          getGoalFn={this.goalFormSubmit}
-          bookshelfPage={this.bookshelfPage}
-          searchPage={this.searchPage}
-          searchOn={this.state.searchOn}
-        />
+        :
+          <Tracker
+            getGoalFn={this.goalFormSubmit}
+            searchOn={this.state.searchOn}
+          />
         }
 
 
