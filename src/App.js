@@ -115,7 +115,6 @@ class App extends Component {
                         addBook={this.state.addBook}            
         />
         <AddComment comment={this.state.commentBookId} />
-        <GoalPercent goalInput = {this.state.userGoal.goal}/>
         </div>
       
     );

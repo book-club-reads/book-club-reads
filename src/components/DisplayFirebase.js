@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import firebase from 'firebase';
+import GoalPercent from './GoalPercent';
 
 
 class DisplayFirebase extends Component {
@@ -62,7 +63,6 @@ class DisplayFirebase extends Component {
   //Adds selected book to firebase
   addToFirebase = bookToAddFirebase => {
     const dbRef = firebase.database().ref("Name");
-    console.log("Add to firebase", bookToAddFirebase);
 
     dbRef.push({
       Image: bookToAddFirebase.best_book.image_url,
@@ -78,7 +78,6 @@ class DisplayFirebase extends Component {
     this.setState({
       read: this.state.read + 1
     });
-    console.log("Read click", bookId);
     const dbRef = firebase
       .database()
       .ref("Name")
@@ -94,7 +93,6 @@ class DisplayFirebase extends Component {
     this.setState({
       read: this.state.read - 1
     });
-    console.log("unRead click", bookId);
     const dbRef = firebase
       .database()
       .ref("Name")
@@ -157,7 +155,6 @@ class DisplayFirebase extends Component {
       this.setState({
         userReadingList: newState
       });
-      console.log(this.state.userReadingList);
     });
   }
 
@@ -168,9 +165,11 @@ class DisplayFirebase extends Component {
   }
 
   render() {
+    console.log("this.state.read", this.state.read);
     return (
         <section className="displayBooksContainer">
           <h2>Reading List</h2>
+          <GoalPercent read = {this.state.read}/>
           <div>
             {this.state.userReadingList.length
               ? this.renderReadingList()
