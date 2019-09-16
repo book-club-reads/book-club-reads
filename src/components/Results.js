@@ -39,15 +39,6 @@ class Results extends Component {
 
   render(){
     return(
-<<<<<<< HEAD
-      <div>
-        <div className="displayBackground">
-          <h2 className=""> Results</h2>
-          <div>
-            
-            
-            {this.props.displayBookResults.length
-=======
       // <div>
       //   <div className="displayBackground">
       //     <h2 className=""> Results</h2>
@@ -62,7 +53,6 @@ class Results extends Component {
         <div className="formOverlay">
           {this.props.resultsShowing &&
             (this.props.displayBookResults.length
->>>>>>> working-branch
               ? this.renderDisplayBooks()
               : this.renderEmptyState())
           }
