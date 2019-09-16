@@ -30,7 +30,7 @@ form {
     @include flex(center, center);
     flex-direction: column;
     margin: 0 auto;
-    @include text($lightBlue, 1.5rem);
+    @include text($lightBlue, 1.3rem);
     // color: $lightBlue;
 }
 input, button {
