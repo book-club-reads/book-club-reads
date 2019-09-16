@@ -66,17 +66,17 @@ class DisplayFirebase extends Component {
   }
 
   //Adds selected book to firebase
-  addToFirebase = bookToAddFirebase => {
-    const dbRef = firebase.database().ref("Name");
-
-    dbRef.push({
-      Image: bookToAddFirebase.best_book.image_url,
-      Title: bookToAddFirebase.best_book.title,
-      Author: bookToAddFirebase.best_book.author.name,
-      Rating: bookToAddFirebase.average_rating,
-      Read: false
-    });
-  };
+  // addToFirebase = bookToAddFirebase => {
+  //   const dbRef = firebase.database().ref("Name");
+  //   console.log(bookToAddFirebase.best_book.image_url);
+  //   dbRef.push({
+  //     Image: bookToAddFirebase.best_book.image_url,
+  //     Title: bookToAddFirebase.best_book.title,
+  //     Author: bookToAddFirebase.best_book.author.name,
+  //     Rating: bookToAddFirebase.average_rating,
+  //     Read: false
+  //   });
+  // };
 
   //Function to run when user clicks read button
   handleRead = bookId => {
@@ -192,11 +192,11 @@ class DisplayFirebase extends Component {
     this.getUserGoal();
   }
 
-  componentDidUpdate(prevProps, prevState) {
-    if (this.props.addBook && this.props.addBook !== prevProps.addBook) {
-      this.addToFirebase(this.props.addBook);
-    } 
-  }
+  // componentDidUpdate(prevProps, prevState) {
+  //   if (this.props.addBook && this.props.addBook !== prevProps.addBook) {
+  //     this.addToFirebase(this.props.addBook);
+  //   } 
+  // }
 
   render() {
     console.log("DIsplay firebase goal", this.state.userGoal);
