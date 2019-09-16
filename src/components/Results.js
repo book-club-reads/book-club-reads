@@ -1,9 +1,6 @@
 import React, { Component } from "react";
-<<<<<<< HEAD
 import placeholder from '../styles/assets/placeholder.jpg'; 
-=======
 import DisplayFirebase from "./DisplayFirebase";
->>>>>>> working-branch
 
 
 class Results extends Component {
