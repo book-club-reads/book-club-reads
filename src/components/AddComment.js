@@ -42,12 +42,13 @@ class AddComment extends Component {
         })
         this.closeModal();
     }
-
+    
     componentDidUpdate(prevProps, prevState) {
         if (this.props.comment && this.props.comment !== prevProps.comment) {
             this.openModal();
         }
     }
+    
     render() {
         return (
             <div>
