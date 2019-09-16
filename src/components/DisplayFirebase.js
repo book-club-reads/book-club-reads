@@ -80,8 +80,9 @@ class DisplayFirebase extends Component {
 
   //Function to run when user clicks read button
   handleRead = bookId => {
+    const addRead = this.state.read + 1
     this.setState({
-      read: this.state.read + 1
+      read: addRead
     });
     const dbRef = firebase
       .database()
@@ -95,8 +96,9 @@ class DisplayFirebase extends Component {
 
   //Function to run when user clicks unread button
   handleUnread = bookId => {
+    const minusRead = this.state.read - 1
     this.setState({
-      read: this.state.read - 1
+      read: minusRead
     });
     const dbRef = firebase
       .database()
@@ -148,7 +150,7 @@ class DisplayFirebase extends Component {
     dbRef.child(bookId).remove();
   };
 
-  //Gets user goal from App.js
+  //Gets user goal from Results.js
   getUserGoal = () => {
     this.setState({
       userGoal: this.props.userGoal
@@ -197,6 +199,7 @@ class DisplayFirebase extends Component {
   }
 
   render() {
+    console.log("DIsplay firebase goal", this.state.userGoal);
     return (
         <section className="displayBooksContainer">
           <h2>Reading List</h2>

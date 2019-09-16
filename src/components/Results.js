@@ -7,7 +7,8 @@ class Results extends Component {
   constructor(){
     super();
     this.state = ({
-      userGoal: {}
+      userGoal: {},
+      isShowing: false,
     })
   }
   
@@ -39,6 +40,27 @@ class Results extends Component {
     );
   }
 
+  //Handle selected book details to pop as modal
+  selectBook = book => {
+    this.setState({
+      select: book
+    });
+    this.openModal();
+  };
+
+  openModal = books => {
+    this.setState({
+      isShowing: true
+    });
+  };
+
+  closeModal = () => {
+    this.setState({
+      isShowing: false
+    });
+  };
+
+
   //Gets user goal from App.js
   getUserGoal = () => {
     this.setState({
@@ -52,6 +74,7 @@ class Results extends Component {
   }
 
   render(){
+    console.log("results usergoal", this.state.userGoal);
     return(
       // <div>
       //   <div className="displayBackground">
@@ -71,7 +94,6 @@ class Results extends Component {
               : this.renderEmptyState())
           }
           {this.props.booklistShowing && (<DisplayFirebase userGoal = {this.state.userGoal} />)}
-
         </div>
       </section>
     );

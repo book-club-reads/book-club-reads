@@ -29,9 +29,8 @@ class App extends Component {
   bookResults = searchBooks => {
     this.setState({
       books: searchBooks,
-      userGoal: {}
+      // userGoal: {}
     });
-    console.log("state books", this.state.books);
   };
   //on page load, make search form disappear
   //once we receive user's name and goal input, display a line of text in main area, and display search form
@@ -53,17 +52,14 @@ class App extends Component {
   };
   //Handle selected book details to pop as modal
   selectBook = book => {
-    console.log(book);
     this.setState({
       select: book
     });
     this.openModal();
-    console.log(this.state.select);
   };
 
   //goal tracker form fn to get user's reading goal
   goalFormSubmit = (goalInput) => {
-
     this.setState({
       userGoal: goalInput
     });
@@ -71,7 +67,6 @@ class App extends Component {
 
   //Add book to reading list
   addBook = bookToAdd => {
-    console.log("bookToAdd", bookToAdd);
     this.setState({
       addBook: bookToAdd
     });
