@@ -7,7 +7,18 @@
 }
 
 .bookImages {
-    margin: 4px;
+    margin: 0.5rem;
+    border: 0.1rem solid blue;
+    width: 15rem;
+    height: 20rem;
+    img {
+        margin: 0 auto;
+    } 
+
+}
+
+.resultsBlock {
+    margin: 0 auto;
 }
 
 .formFlex {
@@ -15,12 +26,23 @@
     flex-direction: column;
     margin: 0 auto;
     width: 60%;
-// .bookImages {
-//     margin: 4px;
+
 }
 
 .displayBooksContent {
     width: 25%;
     
     
+}
+
+.bookNameResults {
+    color: black;
+    font-size: 1.5rem;
+}
+
+.bookNameAuthor {
+  font-size: 1rem;
+  
+  
+
 }
