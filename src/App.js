@@ -29,7 +29,7 @@ class App extends Component {
   bookResults = searchBooks => {
     this.setState({
       books: searchBooks,
-      userGoal: {}
+
     });
     console.log("state books", this.state.books);
   };
@@ -40,26 +40,26 @@ class App extends Component {
 
 
 
-  openModal = books => {
-    this.setState({
-      isShowing: true
-    });
-  };
+  // openModal = books => {
+  //   this.setState({
+  //     isShowing: true
+  //   });
+  // };
 
-  closeModal = () => {
-    this.setState({
-      isShowing: false
-    });
-  };
-  //Handle selected book details to pop as modal
-  selectBook = book => {
-    console.log(book);
-    this.setState({
-      select: book
-    });
-    this.openModal();
-    console.log(this.state.select);
-  };
+  // closeModal = () => {
+  //   this.setState({
+  //     isShowing: false
+  //   });
+  // };
+  // //Handle selected book details to pop as modal
+  // selectBook = book => {
+  //   console.log(book);
+  //   this.setState({
+  //     select: book
+  //   });
+  //   this.openModal();
+  //   console.log(this.state.select);
+  // };
 
   //goal tracker form fn to get user's reading goal
   goalFormSubmit = (goalInput) => {
@@ -69,13 +69,13 @@ class App extends Component {
     });
   };
 
-  //Add book to reading list
-  addBook = bookToAdd => {
-    console.log("bookToAdd", bookToAdd);
-    this.setState({
-      addBook: bookToAdd
-    });
-  };
+  // //Add book to reading list
+  // addBook = bookToAdd => {
+  //   console.log("bookToAdd", bookToAdd);
+  //   this.setState({
+  //     addBook: bookToAdd
+  //   });
+  // };
 
   bookshelfPage = () => {
     this.setState({
@@ -92,11 +92,11 @@ class App extends Component {
     });
   };
 
-  componentDidUpdate() {
-    if (this.state.select === true) {
-      this.selectBook();
-    }
-  }
+  // componentDidUpdate() {
+  //   if (this.state.select === true) {
+  //     this.selectBook();
+  //   }
+  // }
 
   render() {
     return (
@@ -127,7 +127,7 @@ class App extends Component {
         
         
         
-        {this.state.isShowing && (
+        {/* {this.state.isShowing && (
           <Modal
             close={this.closeModal}
             img={this.state.select.best_book.image_url}
@@ -138,7 +138,7 @@ class App extends Component {
             addBook={this.addBook}
             selectBook={this.state.select}
           />
-        )}
+        )} */}
         {/* {this.state.booklistShowing && <DisplayFirebase userGoal={this.state.userGoal />} */}
       </div>
     );
