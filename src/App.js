@@ -74,12 +74,6 @@ class App extends Component {
     });
   };
 
-  handleComment = bookId => {
-    this.setState({
-      commentBookId: bookId
-    });
-  };
-
   bookshelfPage = () => {
     this.setState({
       resultsShowing: false,
