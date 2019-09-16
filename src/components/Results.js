@@ -1,8 +1,13 @@
 import React, { Component } from "react";
+<<<<<<< HEAD
 import placeholder from '../styles/assets/placeholder.jpg'; 
+=======
+import DisplayFirebase from "./DisplayFirebase";
+>>>>>>> working-branch
 
 
 class Results extends Component {
+  
   //display the search results
   renderDisplayBooks = () => {
     const bookList = this.props.displayBookResults.map((book, i) => {
@@ -37,6 +42,7 @@ class Results extends Component {
 
   render(){
     return(
+<<<<<<< HEAD
       <div>
         <div className="displayBackground">
           <h2 className=""> Results</h2>
@@ -44,11 +50,29 @@ class Results extends Component {
             
             
             {this.props.displayBookResults.length
+=======
+      // <div>
+      //   <div className="displayBackground">
+      //     <h2 className=""> Results</h2>
+      //     <div>
+      //       {this.props.displayBookResults.length
+      //         ? this.renderDisplayBooks()
+      //         : this.renderEmptyState()}
+      //     </div>
+      //   </div>
+      // </div>
+      <section className="tracker">
+        <div className="formOverlay">
+          {this.props.resultsShowing &&
+            (this.props.displayBookResults.length
+>>>>>>> working-branch
               ? this.renderDisplayBooks()
-              : this.renderEmptyState()}
-          </div>
+              : this.renderEmptyState())
+          }
+          {this.props.booklistShowing && (<DisplayFirebase/>)}
+
         </div>
-      </div>
+      </section>
     );
   }
 }

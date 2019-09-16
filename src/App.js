@@ -1,11 +1,12 @@
 import React, { Component } from "react";
 import firebase from "./firebase";
 import Header from "./components/Header";
+import Nav from './components/Nav';
 import Tracker from "./components/Tracker";
 import Results from "./components/Results";
 import Modal from "./components/Modal";
 import "./styles/App.scss";
-import DisplayFirebase from "./components/DisplayFirebase";
+// import DisplayFirebase from "./components/DisplayFirebase";
 import AddComment from "./components/AddComment"
 
   
@@ -108,18 +109,30 @@ class App extends Component {
     return (
       <div>
         <Header appBookResults={this.bookResults} />
-        <Tracker
-          getGoalFn={this.goalFormSubmit}
-          bookshelfPage={this.bookshelfPage}
-          searchPage={this.searchPage}
-          searchOn={this.state.searchOn}
-        />
-        {this.state.resultsShowing && (
+        <Nav bookshelfPage={this.bookshelfPage}
+          searchPage={this.searchPage}/>
+        {/* if books.length > 0, put result in div, otherwise, ask for user's reading goal */}
+        {this.state.books.length 
+        ? 
+        // {this.state.resultsShowing && (
           <Results
             displayBookResults={this.state.books}
             selectBook={this.selectBook}
+            resultsShowing={this.state.resultsShowing}
+            booklistShowing={this.state.booklistShowing}
           />
-        )}
+          // )}
+        :
+          <Tracker
+            getGoalFn={this.goalFormSubmit}
+            searchOn={this.state.searchOn}
+          />
+        }
+
+
+        
+        
+        
         {this.state.isShowing && (
           <Modal
             close={this.closeModal}
@@ -132,7 +145,7 @@ class App extends Component {
             selectBook={this.state.select}
           />
         )}
-        {this.state.booklistShowing && <DisplayFirebase />}
+        {/* {this.state.booklistShowing && <DisplayFirebase />} */}
       </div>
     );
   }

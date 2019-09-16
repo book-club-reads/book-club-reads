@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 //component is used to let user input their reading goal
 //also acts as landing page
+import Nav from './Nav'
 
 class Tracker extends Component {
   constructor(){
@@ -85,16 +86,6 @@ class Tracker extends Component {
   render() {
     return (
       <section className="tracker">
-        <nav>
-          <ul>
-            <li>
-              <button onClick={this.props.bookshelfPage}>Bookshelf</button>
-            </li>
-            <li>
-              <button onClick={this.props.searchPage}>Search</button>
-            </li>
-          </ul>
-        </nav>
         <div className="formOverlay">
           {this.state.goalSubmit ? this.renderform() : this.renderPlaceholder()}
         </div>
