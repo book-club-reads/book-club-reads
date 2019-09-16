@@ -7,9 +7,8 @@ import Results from "./components/Results";
 import Modal from "./components/Modal";
 import "./styles/App.scss";
 // import DisplayFirebase from "./components/DisplayFirebase";
-import AddComment from "./components/AddComment"
 
-  
+
 
 class App extends Component {
   constructor() {
@@ -77,13 +76,6 @@ class App extends Component {
     });
   };
 
-  handleComment = bookId => {
-    this.setState({
-      commentBookId: bookId
-    });
-    console.log("handle comment", bookId);
-  };
-
   bookshelfPage = () => {
     this.setState({
       resultsShowing: false,
@@ -145,7 +137,7 @@ class App extends Component {
             selectBook={this.state.select}
           />
         )}
-        {/* {this.state.booklistShowing && <DisplayFirebase />} */}
+        {/* {this.state.booklistShowing && <DisplayFirebase userGoal={this.state.userGoal />} */}
       </div>
     );
   }
