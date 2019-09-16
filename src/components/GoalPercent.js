@@ -27,9 +27,7 @@ class GoalPercent extends Component {
 
     //Calculates percentage
     calcPercent = () => {
-        const percentage = Math.floor((this.props.read / 9) * 100 )
-        console.log("percentage" ,percentage);
-        console.log("Goal input", this.props.goalInput);
+        const percentage = Math.floor((this.props.read / this.props.userGoal.goal) * 100 )
         this.setState({
             percent: percentage
         })
@@ -42,10 +40,9 @@ class GoalPercent extends Component {
     }
 
     render(){
-        console.log("this.state.percent", this.state.percent);
         return(
             <div>
-                <p>Goal Completion: {this.state.percent}%</p>
+                <p>Hello {this.props.userGoal.name} <span>Goal Completion: {this.state.percent}%</span></p>
             </div>
         )
     }
