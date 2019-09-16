@@ -47,12 +47,12 @@ class Results extends Component {
       <section className="tracker">
         <div className="formOverlay">
           {this.props.resultsShowing &&
-          ({this.props.displayBookResults.length
-               ? this.renderDisplayBooks()
-               : this.renderEmptyState()})
+            (this.props.displayBookResults.length
+              ? this.renderDisplayBooks()
+              : this.renderEmptyState())
           }
           {this.props.booklistShowing && (<DisplayFirebase/>)}
-          {/* {this.props.resultsShowing && (this.renderDisplayBooks())} */}
+
         </div>
       </section>
     );
