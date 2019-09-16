@@ -37,8 +37,7 @@
 }
 
 .bookNameResults {
-    color: black;
-    font-size: 1.5rem;
+    @include text(black, 1.1rem);
 }
 
 .bookNameAuthor {

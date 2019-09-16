@@ -42,7 +42,8 @@ class Results extends Component {
         </div>
       );
     });
-    return <div className="displayBooksContainer">{bookList}</div>;
+    // return <div className="displayBooksContainer">{bookList}</div>;
+    return bookList;
   };
 
   //if there is no returned data, render t

@@ -24,13 +24,14 @@
     border-radius: 20px;
     padding: 40px;
     @include flex(center, center);
+    flex-wrap: wrap;
 }
 
 form {
     @include flex(center, center);
     flex-direction: column;
     margin: 0 auto;
-    @include text($lightBlue, 1.3rem);
+    @include text($lightBlue, 1rem);
     // color: $lightBlue;
 }
 input, button {
