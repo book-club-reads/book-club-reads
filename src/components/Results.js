@@ -189,7 +189,6 @@ class Results extends Component {
 
   render() {
     return (
-
       <section className="tracker">
         <div className="formOverlay">
           {this.props.resultsShowing &&
