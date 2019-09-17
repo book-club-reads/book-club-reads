@@ -7,10 +7,10 @@ class Nav extends Component {
             <nav>
               <ul className="buttonList">
                 <li>
-                  <button onClick={this.props.bookshelfPage}>Bookshelf</button>
+                  <button onClick={this.props.bookshelfPage}>My Bookshelf</button>
                 </li>
                 <li>
-                  <button onClick={this.props.searchPage}>Search</button>
+                  <button onClick={this.props.searchPage}>Search Results</button>
                 </li>
               </ul>
             </nav>

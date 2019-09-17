@@ -43,6 +43,9 @@ class App extends Component {
     this.setState({
       userGoal: goalInput
     });
+    const dbRef = firebase.database().ref("Name");
+    dbRef.remove()
+    this.searchPage();
   };
 
   bookshelfPage = () => {
@@ -51,6 +54,7 @@ class App extends Component {
       booklistShowing: true
     });
   };
+  
 
   // function to change state to render search page instead of bookshelf page
   searchPage = () => {
@@ -78,15 +82,17 @@ class App extends Component {
           return (
             <div>
             <Header appBookResults={this.bookResults} />
-            <Nav bookshelfPage={this.bookshelfPage} 
-              searchPage={this.searchPage}/>
-             <Results
-              displayBookResults={this.state.books}
-              selectBook={this.selectBook}
-              resultsShowing={this.state.resultsShowing}
-              booklistShowing={this.state.booklistShowing}
-              userGoal={this.state.userGoal}
-            />
+            <div className="tracker">
+              <Nav bookshelfPage={this.bookshelfPage} 
+                searchPage={this.searchPage}/>
+               <Results
+                displayBookResults={this.state.books}
+                selectBook={this.selectBook}
+                resultsShowing={this.state.resultsShowing}
+                booklistShowing={this.state.booklistShowing}
+                userGoal={this.state.userGoal}
+              />
+            </div>
             </div>
             );
        }}
