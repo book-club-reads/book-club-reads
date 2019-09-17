@@ -1,7 +1,10 @@
 import React, {Component} from 'react';
 //component is used to let user input their reading goal
 //also acts as landing page
-import Nav from './Nav'
+import Nav from './Nav';
+import books from '../styles/assets/book-logo.png';
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+
 
 class Tracker extends Component {
   constructor(){
@@ -35,6 +38,10 @@ class Tracker extends Component {
         <div className="userPrompt">
           <p>Hello {this.state.nameInput}</p>
           <p>You've set a goal to read {this.state.goalInput} books this year.  Start by searching for a book by title or author at the top right corner.</p>
+          <Link to="/search">
+          <button>Get Started</button>
+          </Link>
+          
         </div>
     )
   }
@@ -85,11 +92,21 @@ class Tracker extends Component {
 
   render() {
     return (
-      <section className="tracker">
-        <div className="formOverlay">
-          {this.state.goalSubmit ? this.renderform() : this.renderPlaceholder()}
-        </div>
-      </section>
+      <div>
+        <header>
+          <div className="title">
+            <div className="logo">
+              <img src={books} alt="Logo with books" />
+            </div>
+            <h1>Book Club Reads</h1>
+          </div>
+        </header>
+        <section className="tracker">
+          <div className="formOverlay">
+            {this.state.goalSubmit ? this.renderform() : this.renderPlaceholder()}
+          </div>
+        </section>
+      </div>
     );
   }
 }

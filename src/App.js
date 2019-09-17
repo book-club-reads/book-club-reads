@@ -7,7 +7,7 @@ import Results from "./components/Results";
 import Modal from "./components/Modal";
 import "./styles/App.scss";
 // import DisplayFirebase from "./components/DisplayFirebase";
-
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 
 
 class App extends Component {
@@ -97,48 +97,29 @@ class App extends Component {
 
   render() {
     return (
-      <div>
+      <Router>
+        <Tracker
+          getGoalFn={this.goalFormSubmit}
+          searchOn={this.state.searchOn}
+        />
+        <Route path="/search" 
         <Header appBookResults={this.bookResults} />
         <Nav bookshelfPage={this.bookshelfPage}
           searchPage={this.searchPage}/>
-        { typeof this.state.books == "undefined" 
+        
+        {/* { typeof this.state.books == "undefined" 
           ? alert("No results")
-          : (
-              this.state.books.length 
-              ?
-                <Results
-                  displayBookResults={this.state.books}
-                  selectBook={this.selectBook}
-                  resultsShowing={this.state.resultsShowing}
-                  booklistShowing={this.state.booklistShowing}
-                  userGoal={this.state.userGoal}
-                />
-              :
-                <Tracker
-                  getGoalFn={this.goalFormSubmit}
-                  searchOn={this.state.searchOn}
-                />
-          )    
-        }
-
-
-        
-        
-        
-        {/* {this.state.isShowing && (
-          <Modal
-            close={this.closeModal}
-            img={this.state.select.best_book.image_url}
-            title={this.state.select.best_book.title}
-            author={this.state.select.best_book.author.name}
-            rating={this.state.select.average_rating}
-            alt={this.state.select.best_book.title}
-            addBook={this.addBook}
-            selectBook={this.state.select}
-          />
-        )} */}
-        {/* {this.state.booklistShowing && <DisplayFirebase userGoal={this.state.userGoal />} */}
-      </div>
+          : ( */}
+              {/* this.state.books.length 
+              ? */}
+        <Results
+          displayBookResults={this.state.books}
+          selectBook={this.selectBook}
+          resultsShowing={this.state.resultsShowing}
+          booklistShowing={this.state.booklistShowing}
+          userGoal={this.state.userGoal}
+        />
+      </Router>
     );
   }
 }
