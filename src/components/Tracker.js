@@ -1,9 +1,6 @@
 import React, {Component} from 'react';
-//component is used to let user input their reading goal
-//also acts as landing page
-import Nav from './Nav';
 import books from '../styles/assets/book-logo.png';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 
 class Tracker extends Component {
@@ -41,7 +38,6 @@ class Tracker extends Component {
           <Link to="/search">
           <button>Get Started</button>
           </Link>
-          
         </div>
     )
   }
@@ -86,7 +82,6 @@ class Tracker extends Component {
     input[userInput] = e.target.value
 
     this.setState(input)
-    console.log(input)
   }
 
   render() {
