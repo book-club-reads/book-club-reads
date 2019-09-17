@@ -17,9 +17,10 @@ class Results extends Component {
     };
   }
 
-  //display the search results
+  //Display the search results
   renderDisplayBooks = () => {
     const bookList = this.props.displayBookResults.map((book, i) => {
+      const first20 = book.best_book.title.replace(/(.{20})..+/, "$1...");
       return (
         <div key={i} className="resultsBlock">
           <div
@@ -47,7 +48,7 @@ class Results extends Component {
     return bookList;
   };
 
-  //if there is no returned data, render empty message
+  //If there is no returned data, render empty message
   renderEmptyState() {
     return (
       <div>
@@ -76,17 +77,7 @@ class Results extends Component {
     });
   };
 
-  //Handle selected book details to pop as modal
-  selectBook = book => {
-    console.log(book);
-    this.setState({
-      select: book
-    });
-    this.openModal();
-    console.log(this.state.select);
-  };
   //-------------------ADD BOOK------------------------
-
 
   //Gets user goal from App.js
   getUserGoal = () => {
@@ -168,7 +159,7 @@ class Results extends Component {
     });
   };
 
-  // function to change state to render search page instead of bookshelf page
+  // Function to change state to render search page instead of bookshelf page
   searchPage = () => {
     this.setState({
       resultsShowing: true,

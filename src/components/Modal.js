@@ -8,12 +8,14 @@ class Modal extends React.Component {
       addedShowing: false
     }
   }
+
   buttonSwitch = () => {
     this.setState({
       addedShowing: true,
       addShowing: false
     })
   }
+
   render() {
     return (
       <div className="modal">
@@ -24,7 +26,7 @@ class Modal extends React.Component {
               onClick={this.props.close}
             >
               &#9747;
-                     </span>
+            </span>
           </div>
           <div className="wrapper">
             <div className="bookDisplay">
@@ -49,7 +51,7 @@ class Modal extends React.Component {
                     }
                   >
                     Add Book
-                           </button>
+                  </button>
                 }
                 {this.state.addedShowing && <button>Added</button>}
               </div>
