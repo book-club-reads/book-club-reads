@@ -112,7 +112,7 @@ class Results extends Component {
     console.log("checkBookId", checkBookId);
     
     if (copiedArray.includes(`${checkBookId}`)) {
-      alert('Duplicate')
+      alert('You already added this book')
     } else {
       this.addBook(bookToCheckDuplicate);
     }
