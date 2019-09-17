@@ -36,6 +36,9 @@ class App extends Component {
     this.setState({
       userGoal: goalInput
     });
+    const dbRef = firebase.database().ref("Name");
+    dbRef.remove()
+    this.searchPage();
   };
 
   bookshelfPage = () => {
@@ -44,6 +47,7 @@ class App extends Component {
       booklistShowing: true
     });
   };
+  
 
   // Function to change state to render search page instead of bookshelf page
   searchPage = () => {
@@ -66,7 +70,6 @@ class App extends Component {
           </div>
           );
         }}/>
-  
         <Route exact path='/search' render={() => {
           return (
             <div>
