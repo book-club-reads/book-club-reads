@@ -109,7 +109,6 @@ class Results extends Component {
     const checkBookId = checkDuplicateId[1]
     
     const copiedArray = this.state.fbBookIdArray
-    console.log("checkBookId", checkBookId);
     
     if (copiedArray.includes(`${checkBookId}`)) {
       alert('You already added this book')
@@ -157,7 +156,6 @@ class Results extends Component {
   }
 
   render() {
-    console.log("this.state.fbBookIdArray", this.state.fbBookIdArray);
     return (
       // <div>
       //   <div className="displayBackground">
