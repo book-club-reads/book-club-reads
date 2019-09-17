@@ -105,27 +105,27 @@ class App extends Component {
         { typeof this.state.books == "undefined" 
           ? alert("No results")
           : (
-              this.state.books.length 
-              ?
-                <Results
-                  displayBookResults={this.state.books}
-                  selectBook={this.selectBook}
-                  resultsShowing={this.state.resultsShowing}
-                  booklistShowing={this.state.booklistShowing}
-                  userGoal={this.state.userGoal}
-                />
-              :
+            this.state.books.length
+            ?
+              <Results
+                displayBookResults={this.state.books}
+                selectBook={this.selectBook}
+                resultsShowing={this.state.resultsShowing}
+                booklistShowing={this.state.booklistShowing}
+                userGoal={this.state.userGoal}
+              />
+            :
                 <Tracker
-                  getGoalFn={this.goalFormSubmit}
-                  searchOn={this.state.searchOn}
-                />
-          )    
-        }
+          getGoalFn={this.goalFormSubmit}
+          searchOn={this.state.searchOn}
+        />
+          )        
+      }
 
 
-        
-        
-        
+      
+      
+      
         {/* {this.state.isShowing && (
           <Modal
             close={this.closeModal}

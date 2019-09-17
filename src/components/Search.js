@@ -49,7 +49,7 @@ class Search extends Component {
     }).then((res) => {
       console.log(res);
       const books = res.data.GoodreadsResponse.search.results.work;
-      this.props.bookResults(books);
+        this.props.bookResults(books);
     }).catch((error) => {
 
       alert("No results");
