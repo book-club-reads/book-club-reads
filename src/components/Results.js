@@ -144,7 +144,7 @@ class Results extends Component {
       //   </div>
       // </div>
       <section className="tracker">
-        <div className="formOverlay">
+        <div className="resultOverlay">
           {this.props.resultsShowing &&
             (this.props.displayBookResults.length
               ? this.renderDisplayBooks()

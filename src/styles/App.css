@@ -181,9 +181,8 @@ legend, button::-moz-focus-inner, input::-moz-focus-inner {
 }
 
 html {
-  font-size: 100%;
   font-family: 'Barlow', sans-serif;
-  font-size: 1.25rem;
+  font-size: 125%;
 }
 
 img {
@@ -257,17 +256,16 @@ header form button {
 
 .bookImages {
   margin: 0.5rem;
-  border: 0.1rem solid blue;
-  width: 15rem;
-  height: 20rem;
+  width: 10rem;
+  height: 15rem;
 }
 
 .bookImages img {
   margin: 0 auto;
 }
 
-.resultsBlock {
-  margin: 0 auto;
+.resultsBlock:hover {
+  background: lightblue;
 }
 
 .formFlex {
@@ -286,13 +284,20 @@ header form button {
   width: 25%;
 }
 
-.bookNameResults {
+p.bookNameResults {
   color: black;
-  font-size: 1.5rem;
+  font-size: 1.1rem;
+  margin: 0;
+  text-align: center;
+  font-style: italic;
 }
 
-.bookNameAuthor {
+p.authorNameResults {
   font-size: 1rem;
+  color: black;
+  margin: 0;
+  text-align: center;
+  font-weight: bold;
 }
 
 .modalContainer,
@@ -407,6 +412,8 @@ header form button {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
 }
 
 form {
@@ -425,7 +432,7 @@ form {
           flex-direction: column;
   margin: 0 auto;
   color: #C8E0F8;
-  font-size: 1.5rem;
+  font-size: 1rem;
 }
 
 input, button {
@@ -459,5 +466,35 @@ label {
 p {
   color: #C8E0F8;
   font-size: 1.5rem;
+}
+
+ul.buttonList {
+  list-style-type: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+ul.buttonList li {
+  margin-right: 1rem;
+}
+
+ul.buttonList li button {
+  width: 7rem;
+}
+
+.resultOverlay {
+  background-color: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
+  min-height: 40vh;
 }
 /*# sourceMappingURL=App.css.map */
