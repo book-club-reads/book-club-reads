@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import firebase from 'firebase';
 import AddComment from './AddComment';
 import GoalPercent from './GoalPercent';
+import placeholder from '../styles/assets/placeholder.jpg'
 
 
 class DisplayFirebase extends Component {
@@ -21,7 +22,10 @@ class DisplayFirebase extends Component {
         return (
           <div key={response.uniqueKey} className="displayBooksContent">
             <div>
-              <img src={response.Image} alt={response.Title} />
+              <img src={response.Image === "https://s.gr-assets.com/assets/nophoto/book/111x148-bcc042a9c91a29c1d680899eff700a03.png" 
+              ? placeholder : response.Image
+              
+            } alt={response.Title} />
               <h2>{response.Title}</h2>
               <p>{response.Author}</p>
               <p>{response.Rating}</p>
@@ -165,7 +169,7 @@ class DisplayFirebase extends Component {
       const response = data.val();
       const newState = [];
       let readCounter = 0
-
+      
       for (let key in response) {
         if (response[key].Read === true) {
           readCounter = readCounter + 1
@@ -177,7 +181,8 @@ class DisplayFirebase extends Component {
           Rating: response[key].Rating,
           uniqueKey: key,
           Comment: response[key].Comment,
-          Read: response[key].Read
+          Read: response[key].Read,
+          BookId: response[key].BookId
         });
       }
       this.setState({
@@ -199,7 +204,6 @@ class DisplayFirebase extends Component {
   // }
 
   render() {
-    console.log("DIsplay firebase goal", this.state.userGoal);
     return (
         <section className="displayBooksContainer">
           <h2>Reading List</h2>
