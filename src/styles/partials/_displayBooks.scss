@@ -8,17 +8,23 @@
 
 .bookImages {
     margin: 0.5rem;
-    width: 10rem;
-    height: 15rem;
+    width: 100px;
+    margin: 0 auto;
     img {
-        margin: 0 auto;
+        width: 100%;
     } 
 
 }
 
-.resultsBlock:hover {
-    background: lightblue;
-
+.resultsBlock{
+    width: 25%;
+    height: 300px;
+    padding: 20px;
+    flex-direction: column;
+    @include flex(flex-start, center);
+    &:hover {
+        background: lightblue;
+    }
 }
 
 .formFlex {

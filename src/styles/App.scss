@@ -5,8 +5,9 @@
 @import "partials/displayBooks";
 @import "partials/modal";
 
-.tracker {
-    height: 80vh;
+.content, main {
+    min-height: 80vh;
+    width: 100vw;
     background-image: url('./assets/header.jpg');
     background-size: cover;
     background-repeat: no-repeat;
@@ -15,8 +16,19 @@
     @include flex(center, center);
     flex-direction: column;
 }
+// main {
+//     min-height: 80vh;
+//     width: 100vw;
+//     background-image: url('./assets/header.jpg');
+//     background-size: cover;
+//     background-repeat: no-repeat;
+//     background-position: top;
+//     background-attachment: fixed;
+//     @include flex(center, center);
+//     flex-direction: column;
+// }
 
-.formOverlay {
+.formOverlay, .resultOverlay {
     background-color: #1b245699;
     width: 60%;
     height: auto;
@@ -74,13 +86,13 @@ ul.buttonList {
 
 }
 
-.resultOverlay {
-    background-color: white;
-    display: flex;
-    flex-flow: row wrap;
-    min-height: 40vh;
+// .resultOverlay {
+//     background-color: white;
+//     display: flex;
+//     flex-flow: row wrap;
+//     min-height: 40vh;
     
     
 
 
-}
+// }

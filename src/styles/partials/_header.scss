@@ -2,6 +2,7 @@ header {
     background-color: $darkBlue;
     @include flex (space-between, center);
     padding: 15px;
+    height: 20vh;
     form {
         flex-direction: row;
         button {

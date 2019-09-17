@@ -62,37 +62,42 @@ class App extends Component {
 
   render() {
     return (
-      <Router>
-        <Route exact path='/' render={()=>{
-          return(
-          <div>
-            <Tracker
-              getGoalFn={this.goalFormSubmit}
-              searchOn={this.state.searchOn}
-            />
-          </div>
-          );
-        }}/>
-  
-        <Route exact path='/search' render={() => {
-          return (
+      
+        <Router>
+          <Route exact path='/' render={()=>{
+            return(
+              
             <div>
-            <Header appBookResults={this.bookResults} />
-            <Nav bookshelfPage={this.bookshelfPage} 
-              searchPage={this.searchPage}/>
-             <Results
-              displayBookResults={this.state.books}
-              selectBook={this.selectBook}
-              resultsShowing={this.state.resultsShowing}
-              booklistShowing={this.state.booklistShowing}
-              userGoal={this.state.userGoal}
-            />
+              <Tracker
+                getGoalFn={this.goalFormSubmit}
+                searchOn={this.state.searchOn}
+              />
             </div>
+    
             );
-       }}
-       />
-        
-    </Router>
+          }}/>
+          <Route exact path='/search' render={() => {
+            return (
+              <div>
+                <Header appBookResults={this.bookResults} />
+                <main>
+                  <Nav bookshelfPage={this.bookshelfPage} 
+                    searchPage={this.searchPage}/>
+                  <Results
+                    displayBookResults={this.state.books}
+                    selectBook={this.selectBook}
+                    resultsShowing={this.state.resultsShowing}
+                    booklistShowing={this.state.booklistShowing}
+                    userGoal={this.state.userGoal}
+                  />
+                </main>
+              </div>
+              );
+         }}
+         />
+          
+      </Router>
+      
     )}
 }
 

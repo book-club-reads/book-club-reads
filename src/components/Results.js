@@ -37,9 +37,10 @@ class Results extends Component {
               }
               alt={book.best_book.title}
             />
-            <p className="bookNameResults">{book.best_book.title}</p>
-            <p className="authorNameResults">{book.best_book.author.name}</p>
           </div>
+          <p className="bookNameResults">{book.best_book.title}</p>
+          <p className="authorNameResults">{book.best_book.author.name}</p>
+          
         </div>
       );
     });
@@ -189,7 +190,7 @@ class Results extends Component {
 
   render() {
     return (
-      <section className="tracker">
+      <section className="content">
         <div className="resultOverlay">
           {this.props.resultsShowing &&
             (this.props.displayBookResults.length
