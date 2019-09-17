@@ -102,25 +102,24 @@ class App extends Component {
           getGoalFn={this.goalFormSubmit}
           searchOn={this.state.searchOn}
         />
-        <Route path="/search" 
-        <Header appBookResults={this.bookResults} />
-        <Nav bookshelfPage={this.bookshelfPage}
-          searchPage={this.searchPage}/>
+        <Route exact path='/' render={() => {
+          return (
+            <Header appBookResults={this.bookResults} />
+            <Nav bookshelfPage={this.bookshelfPage}
+              searchPage={this.searchPage} />
         
-        {/* { typeof this.state.books == "undefined" 
-          ? alert("No results")
-          : ( */}
-              {/* this.state.books.length 
-              ? */}
-        <Results
-          displayBookResults={this.state.books}
-          selectBook={this.selectBook}
-          resultsShowing={this.state.resultsShowing}
-          booklistShowing={this.state.booklistShowing}
-          userGoal={this.state.userGoal}
-        />
+          <Results
+            displayBookResults={this.state.books}
+            selectBook={this.selectBook}
+            resultsShowing={this.state.resultsShowing}
+            booklistShowing={this.state.booklistShowing}
+            userGoal={this.state.userGoal}
+          />
+          />
+          )
+        }}
       </Router>
-    );
+    
   }
 }
 
