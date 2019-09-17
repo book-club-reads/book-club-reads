@@ -10,7 +10,7 @@ class Results extends Component {
     super();
     this.state = {
       userGoal: {},
-      isShowing: false,
+      modalShowing: false,
       select: "",
       addBook: ""
     };
@@ -42,11 +42,10 @@ class Results extends Component {
         </div>
       );
     });
-    // return <div className="displayBooksContainer">{bookList}</div>;
     return bookList;
   };
 
-  //if there is no returned data, render t
+  //if there is no returned data, render empty message
   renderEmptyState() {
     return (
       <div>
@@ -54,7 +53,7 @@ class Results extends Component {
       </div>
     );
   }
-
+  //-------------------MODAL------------------------
   //Handle selected book details to pop as modal
   selectBook = book => {
     this.setState({
@@ -65,34 +64,16 @@ class Results extends Component {
 
   openModal = books => {
     this.setState({
-      isShowing: true
+      modalShowing: true
     });
   };
 
   closeModal = () => {
     this.setState({
-      isShowing: false
+      modalShowing: false
     });
   };
 
-
-  //Gets user goal from App.js
-  getUserGoal = () => {
-    this.setState({
-      userGoal: this.props.userGoal
-    });
-  };
-  openModal = books => {
-    this.setState({
-      isShowing: true
-    });
-  };
-
-  closeModal = () => {
-    this.setState({
-      isShowing: false
-    });
-  };
   //Handle selected book details to pop as modal
   selectBook = book => {
     console.log(book);
@@ -102,7 +83,7 @@ class Results extends Component {
     this.openModal();
     console.log(this.state.select);
   };
-
+  //-------------------ADD BOOK------------------------
   //Add book to reading list
   addBook = bookToAdd => {
     console.log("bookToAdd", bookToAdd);
@@ -127,6 +108,28 @@ class Results extends Component {
       BookId: bookId
     });
   };
+  //-------------------READING GOAL------------------------
+  //Gets user goal from App.js
+  getUserGoal = () => {
+    this.setState({
+      userGoal: this.props.userGoal
+    });
+  };
+  //-------------------DISPLAY BOOKSHELF OR SEARCH------------------------
+  bookshelfPage = () => {
+    this.setState({
+      resultsShowing: false,
+      booklistShowing: true
+    });
+  };
+
+  // function to change state to render search page instead of bookshelf page
+  searchPage = () => {
+    this.setState({
+      resultsShowing: true,
+      booklistShowing: false
+    });
+  };
 
   componentDidMount() {
     this.renderDisplayBooks();
@@ -141,16 +144,7 @@ class Results extends Component {
 
   render() {
     return (
-      // <div>
-      //   <div className="displayBackground">
-      //     <h2 className=""> Results</h2>
-      //     <div>
-      //       {this.props.displayBookResults.length
-      //         ? this.renderDisplayBooks()
-      //         : this.renderEmptyState()}
-      //     </div>
-      //   </div>
-      // </div>
+
       <section className="tracker">
         <div className="formOverlay">
           {this.props.resultsShowing &&
@@ -163,7 +157,7 @@ class Results extends Component {
               addBook={this.state.addBook}
             />
           )}
-          {this.state.isShowing && (
+          {this.state.modalShowing && (
             <Modal
               close={this.closeModal}
               img={this.state.select.best_book.image_url}
