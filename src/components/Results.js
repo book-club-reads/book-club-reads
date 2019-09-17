@@ -10,7 +10,7 @@ class Results extends Component {
     super();
     this.state = {
       userGoal: {},
-      isShowing: false,
+      modalShowing: false,
       select: "",
       addBook: "",
       fbBookIdArray: []
@@ -43,11 +43,10 @@ class Results extends Component {
         </div>
       );
     });
-    // return <div className="displayBooksContainer">{bookList}</div>;
     return bookList;
   };
 
-  //if there is no returned data, render t
+  //if there is no returned data, render empty message
   renderEmptyState() {
     return (
       <div>
@@ -55,7 +54,7 @@ class Results extends Component {
       </div>
     );
   }
-
+  //-------------------MODAL------------------------
   //Handle selected book details to pop as modal
   selectBook = book => {
     this.setState({
@@ -66,15 +65,26 @@ class Results extends Component {
 
   openModal = books => {
     this.setState({
-      isShowing: true
+      modalShowing: true
     });
   };
 
   closeModal = () => {
     this.setState({
-      isShowing: false
+      modalShowing: false
     });
   };
+
+  //Handle selected book details to pop as modal
+  selectBook = book => {
+    console.log(book);
+    this.setState({
+      select: book
+    });
+    this.openModal();
+    console.log(this.state.select);
+  };
+  //-------------------ADD BOOK------------------------
 
 
   //Gets user goal from App.js
@@ -142,6 +152,28 @@ class Results extends Component {
       BookId: bookId
     });
   };
+  //-------------------READING GOAL------------------------
+  //Gets user goal from App.js
+  getUserGoal = () => {
+    this.setState({
+      userGoal: this.props.userGoal
+    });
+  };
+  //-------------------DISPLAY BOOKSHELF OR SEARCH------------------------
+  bookshelfPage = () => {
+    this.setState({
+      resultsShowing: false,
+      booklistShowing: true
+    });
+  };
+
+  // function to change state to render search page instead of bookshelf page
+  searchPage = () => {
+    this.setState({
+      resultsShowing: true,
+      booklistShowing: false
+    });
+  };
 
   componentDidMount() {
     this.renderDisplayBooks();
@@ -169,7 +201,7 @@ class Results extends Component {
               addBook={this.state.addBook}
             />
           )}
-          {this.state.isShowing && (
+          {this.state.modalShowing && (
             <Modal
               close={this.closeModal}
               img={this.state.select.best_book.image_url}

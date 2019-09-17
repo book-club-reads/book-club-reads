@@ -30,6 +30,7 @@ class App extends Component {
     this.setState({
       books: searchBooks,
     });
+    this.searchPage();
   };
   //on page load, make search form disappear
   //once we receive user's name and goal input, display a line of text in main area, and display search form
@@ -51,7 +52,7 @@ class App extends Component {
     });
   };
 
-  // function to change state to render search page instead of favourite page
+  // function to change state to render search page instead of bookshelf page
   searchPage = () => {
     this.setState({
       resultsShowing: true,
