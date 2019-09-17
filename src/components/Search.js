@@ -51,8 +51,9 @@ class Search extends Component {
       const books = res.data.GoodreadsResponse.search.results.work;
       this.props.bookResults(books);
     }).catch((error) => {
-      
+
       alert("No results");
+      console.log(error)
       const emptyBooks = []
       this.props.bookResults(emptyBooks);
     })

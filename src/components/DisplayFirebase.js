@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import firebase from 'firebase';
 import AddComment from './AddComment';
 import GoalPercent from './GoalPercent';
+import placeholder from '../styles/assets/placeholder.jpg'
 
 
 class DisplayFirebase extends Component {
@@ -21,7 +22,10 @@ class DisplayFirebase extends Component {
         return (
           <div key={response.uniqueKey} className="displayBooksContent">
             <div>
-              <img src={response.Image} alt={response.Title} />
+              <img src={response.Image === "https://s.gr-assets.com/assets/nophoto/book/111x148-bcc042a9c91a29c1d680899eff700a03.png" 
+              ? placeholder : response.Image
+              
+            } alt={response.Title} />
               <h2>{response.Title}</h2>
               <p>{response.Author}</p>
               <p>{response.Rating}</p>
