@@ -60,3 +60,27 @@ label {
 p {
     @include text($lightBlue, 1.5rem)
 }
+
+ul.buttonList {
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+    li {
+        margin-right: 1rem;
+        button {
+            width:7rem;
+        }
+    }
+
+}
+
+.resultOverlay {
+    background-color: white;
+    display: flex;
+    flex-flow: row wrap;
+    min-height: 40vh;
+    
+    
+
+
+}

@@ -8,7 +8,6 @@
 
 .bookImages {
     margin: 0.5rem;
-    border: 0.1rem solid blue;
     width: 10rem;
     height: 15rem;
     img {
@@ -17,9 +16,9 @@
 
 }
 
-.resultsBlock {
-    margin: 0 auto;
-    
+.resultsBlock:hover {
+    background: lightblue;
+
 }
 
 .formFlex {
@@ -36,12 +35,19 @@
     
 }
 
-.bookNameResults {
+p.bookNameResults {
     @include text(black, 1.1rem);
+    margin: 0;
+    text-align: center;
+    font-style: italic;
 }
 
-.bookNameAuthor {
+p.authorNameResults {
   font-size: 1rem;
+  color: black;
+  margin: 0;
+  text-align: center;
+  font-weight: bold;
   
   
 

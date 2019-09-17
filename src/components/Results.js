@@ -189,9 +189,8 @@ class Results extends Component {
 
   render() {
     return (
-
       <section className="tracker">
-        <div className="formOverlay">
+        <div className="resultOverlay">
           {this.props.resultsShowing &&
             (this.props.displayBookResults.length
               ? this.renderDisplayBooks()

@@ -7,7 +7,7 @@ import Results from "./components/Results";
 import Modal from "./components/Modal";
 import "./styles/App.scss";
 // import DisplayFirebase from "./components/DisplayFirebase";
-
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 
 
 class App extends Component {
@@ -38,42 +38,12 @@ class App extends Component {
   //display the search result into main area
 
 
-
-  // openModal = books => {
-  //   this.setState({
-  //     isShowing: true
-  //   });
-  // };
-
-  // closeModal = () => {
-  //   this.setState({
-  //     isShowing: false
-  //   });
-  // };
-  // //Handle selected book details to pop as modal
-  // selectBook = book => {
-  //   console.log(book);
-  //   this.setState({
-  //     select: book
-  //   });
-  //   this.openModal();
-  //   console.log(this.state.select);
-  // };
-
   //goal tracker form fn to get user's reading goal
   goalFormSubmit = (goalInput) => {
     this.setState({
       userGoal: goalInput
     });
   };
-
-  // //Add book to reading list
-  // addBook = bookToAdd => {
-  //   console.log("bookToAdd", bookToAdd);
-  //   this.setState({
-  //     addBook: bookToAdd
-  //   });
-  // };
 
   bookshelfPage = () => {
     this.setState({
@@ -90,58 +60,40 @@ class App extends Component {
     });
   };
 
-  // componentDidUpdate() {
-  //   if (this.state.select === true) {
-  //     this.selectBook();
-  //   }
-  // }
-
   render() {
     return (
-      <div>
-        <Header appBookResults={this.bookResults} />
-        <Nav bookshelfPage={this.bookshelfPage}
-          searchPage={this.searchPage}/>
-        { typeof this.state.books == "undefined" 
-          ? alert("No results")
-          : (
-            this.state.books.length
-            ?
-              <Results
-                displayBookResults={this.state.books}
-                selectBook={this.selectBook}
-                resultsShowing={this.state.resultsShowing}
-                booklistShowing={this.state.booklistShowing}
-                userGoal={this.state.userGoal}
-              />
-            :
-                <Tracker
-          getGoalFn={this.goalFormSubmit}
-          searchOn={this.state.searchOn}
-        />
-          )        
-      }
-
-
-      
-      
-      
-        {/* {this.state.isShowing && (
-          <Modal
-            close={this.closeModal}
-            img={this.state.select.best_book.image_url}
-            title={this.state.select.best_book.title}
-            author={this.state.select.best_book.author.name}
-            rating={this.state.select.average_rating}
-            alt={this.state.select.best_book.title}
-            addBook={this.addBook}
-            selectBook={this.state.select}
-          />
-        )} */}
-        {/* {this.state.booklistShowing && <DisplayFirebase userGoal={this.state.userGoal />} */}
-      </div>
-    );
-  }
+      <Router>
+        <Route exact path='/' render={()=>{
+          return(
+          <div>
+            <Tracker
+              getGoalFn={this.goalFormSubmit}
+              searchOn={this.state.searchOn}
+            />
+          </div>
+          );
+        }}/>
+  
+        <Route exact path='/search' render={() => {
+          return (
+            <div>
+            <Header appBookResults={this.bookResults} />
+            <Nav bookshelfPage={this.bookshelfPage} 
+              searchPage={this.searchPage}/>
+             <Results
+              displayBookResults={this.state.books}
+              selectBook={this.selectBook}
+              resultsShowing={this.state.resultsShowing}
+              booklistShowing={this.state.booklistShowing}
+              userGoal={this.state.userGoal}
+            />
+            </div>
+            );
+       }}
+       />
+        
+    </Router>
+    )}
 }
 
 export default App;

@@ -5,7 +5,7 @@ class Nav extends Component {
         return (
           <div>
             <nav>
-              <ul>
+              <ul className="buttonList">
                 <li>
                   <button onClick={this.props.bookshelfPage}>Bookshelf</button>
                 </li>

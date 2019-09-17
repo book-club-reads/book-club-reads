@@ -10,23 +10,6 @@ class Search extends Component {
     }
   }
 
-  //get value from user input search field
-  handleChange = (e) => {
-    this.setState ({
-      [e.target.name]: e.target.value
-    })
-  }
-
-  //once we get the value from search field, make API call 
-  handleSubmit = (event) => {
-    event.preventDefault();
-
-    this.setState ({
-        userInput: event.target.value
-    })
-    this.fetchBooks(this.state.userInput);
-  }
-
   //API call to good reads based on user input
   fetchBooks = (input) => {
     axios({
@@ -47,18 +30,47 @@ class Search extends Component {
         useCache: false
       }
     }).then((res) => {
-      console.log(res);
-      const books = res.data.GoodreadsResponse.search.results.work;
-        this.props.bookResults(books);
+  
+      this.handleResults(res);
+  
     }).catch((error) => {
-
       alert("No results");
-      console.log(error)
       const emptyBooks = []
       this.props.bookResults(emptyBooks);
     })
   }
 
+  //Function to alert user if there are results or not from query
+  handleResults = (results) => {
+    const noResults = results.data.GoodreadsResponse.search.results
+    const books = results.data.GoodreadsResponse.search.results.work;
+
+    if (noResults === '') {
+
+      alert("No results");
+      const emptyBooks = []
+      this.props.bookResults(emptyBooks);
+
+    } else this.props.bookResults(books);
+  }
+
+  //get value from user input search field
+  handleChange = (e) => {
+    this.setState({
+      [e.target.name]: e.target.value
+    })
+  }
+
+  //once we get the value from search field, make API call 
+  handleSubmit = (event) => {
+    event.preventDefault();
+
+    this.setState({
+      userInput: event.target.value
+    })
+    this.fetchBooks(this.state.userInput);
+  }
+  
   //search form fields
   render(){
     return(
