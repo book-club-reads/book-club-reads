@@ -165,7 +165,7 @@ class DisplayFirebase extends Component {
       const response = data.val();
       const newState = [];
       let readCounter = 0
-
+      console.log("NewState", newState);
       for (let key in response) {
         if (response[key].Read === true) {
           readCounter = readCounter + 1
@@ -177,7 +177,8 @@ class DisplayFirebase extends Component {
           Rating: response[key].Rating,
           uniqueKey: key,
           Comment: response[key].Comment,
-          Read: response[key].Read
+          Read: response[key].Read,
+          BookId: response[key].BookId
         });
       }
       this.setState({

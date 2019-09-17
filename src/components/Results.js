@@ -12,7 +12,8 @@ class Results extends Component {
       userGoal: {},
       isShowing: false,
       select: "",
-      addBook: ""
+      addBook: "",
+      fbBookIdArray: []
     };
   }
 
@@ -82,47 +83,69 @@ class Results extends Component {
       userGoal: this.props.userGoal
     });
   };
-  openModal = books => {
-    this.setState({
-      isShowing: true
-    });
-  };
+  
+  //Stores all the book id from reading list into an aray
+  getFbBookId = () => {
+      const dbRef = firebase.database().ref("Name");
 
-  closeModal = () => {
-    this.setState({
-      isShowing: false
-    });
-  };
-  //Handle selected book details to pop as modal
-  selectBook = book => {
-    console.log(book);
-    this.setState({
-      select: book
-    });
-    this.openModal();
-    console.log(this.state.select);
-  };
+      dbRef.on("value", data => {
+        const response = data.val();
+        const newState = []
+       
+        for (let key in response) {
+          newState.push(response[key].BookId)
+        }
+        this.setState({
+          fbBookIdArray: newState
+        })        
+      });
+  }
 
+  //Function  to check if book was already added in the list
+  checkDuplicate = (bookToCheckDuplicate) => {
+    let checkDuplicateId = [];
+    checkDuplicateId = Object.values(bookToCheckDuplicate.id)
+
+    const checkBookId = checkDuplicateId[1]
+    
+    const copiedArray = this.state.fbBookIdArray
+    console.log("checkBookId", checkBookId);
+    
+    if (copiedArray.includes(`${checkBookId}`)) {
+      alert('Duplicate')
+    } else {
+      this.addBook(bookToCheckDuplicate);
+    }
+  }
+  
   //Add book to reading list
   addBook = bookToAdd => {
-    console.log("bookToAdd", bookToAdd);
+    let bookIdArray = []
+    
+    //Gets the book id
+    bookIdArray = Object.values(bookToAdd.id)
+    const bookId = bookIdArray[1]
+    
     this.setState({
       addBook: bookToAdd
     });
+    
     const dbRef = firebase.database().ref("Name");
-    console.log(bookToAdd.best_book.image_url);
+    
     dbRef.push({
       Image: bookToAdd.best_book.image_url,
       Title: bookToAdd.best_book.title,
       Author: bookToAdd.best_book.author.name,
       Rating: bookToAdd.average_rating,
-      Read: false
+      Read: false,
+      BookId: bookId
     });
   };
 
   componentDidMount() {
     this.renderDisplayBooks();
     this.getUserGoal();
+    this.getFbBookId();
   }
 
   componentDidUpdate() {
@@ -132,6 +155,7 @@ class Results extends Component {
   }
 
   render() {
+    console.log("this.state.fbBookIdArray", this.state.fbBookIdArray);
     return (
       // <div>
       //   <div className="displayBackground">
@@ -163,7 +187,7 @@ class Results extends Component {
               author={this.state.select.best_book.author.name}
               rating={this.state.select.average_rating}
               alt={this.state.select.best_book.title}
-              addBook={this.addBook}
+              addBook={this.checkDuplicate}
               selectBook={this.state.select}
             />
           )}
