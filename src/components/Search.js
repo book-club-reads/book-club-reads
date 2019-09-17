@@ -54,14 +54,14 @@ class Search extends Component {
     } else this.props.bookResults(books);
   }
 
-  //get value from user input search field
+  //Get value from user input search field
   handleChange = (e) => {
     this.setState({
       [e.target.name]: e.target.value
     })
   }
 
-  //once we get the value from search field, make API call 
+  //Once we get the value from search field, make API call 
   handleSubmit = (event) => {
     event.preventDefault();
 
@@ -71,7 +71,7 @@ class Search extends Component {
     this.fetchBooks(this.state.userInput);
   }
   
-  //search form fields
+  //Search form fields
   render(){
     return(
       <section>

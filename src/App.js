@@ -4,9 +4,7 @@ import Header from "./components/Header";
 import Nav from './components/Nav';
 import Tracker from "./components/Tracker";
 import Results from "./components/Results";
-import Modal from "./components/Modal";
 import "./styles/App.scss";
-// import DisplayFirebase from "./components/DisplayFirebase";
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 
 
@@ -25,20 +23,15 @@ class App extends Component {
     };
   }
 
-  //user input from search field
+  //User input from search field
   bookResults = searchBooks => {
     this.setState({
       books: searchBooks,
     });
     this.searchPage();
   };
-  //on page load, make search form disappear
-  //once we receive user's name and goal input, display a line of text in main area, and display search form
-  //once we receive user's input into search form, clear the line of text in main area
-  //display the search result into main area
 
-
-  //goal tracker form fn to get user's reading goal
+  //Goal tracker form fn to get user's reading goal
   goalFormSubmit = (goalInput) => {
     this.setState({
       userGoal: goalInput
@@ -52,7 +45,7 @@ class App extends Component {
     });
   };
 
-  // function to change state to render search page instead of bookshelf page
+  // Function to change state to render search page instead of bookshelf page
   searchPage = () => {
     this.setState({
       resultsShowing: true,
@@ -80,7 +73,7 @@ class App extends Component {
             <Header appBookResults={this.bookResults} />
             <Nav bookshelfPage={this.bookshelfPage} 
               searchPage={this.searchPage}/>
-             <Results
+            <Results
               displayBookResults={this.state.books}
               selectBook={this.selectBook}
               resultsShowing={this.state.resultsShowing}
@@ -89,13 +82,11 @@ class App extends Component {
             />
             </div>
             );
-       }}
-       />
+        }}
+        />
         
     </Router>
     )}
 }
 
 export default App;
-
- 
