@@ -25,7 +25,9 @@ class GoalPercent extends Component {
     render(){
         return(
             <div>
-                <p>Hello {this.props.userGoal.name} <span>Goal Completion: {this.state.percent}%</span></p>
+                <p>Hello {this.props.userGoal.name}</p>
+                <p>Goal Completion: {this.props.read}/{this.props.userGoal.goal} books</p>
+                <p>{this.state.percent}% of goal completed</p>
             </div>
         )
     }
