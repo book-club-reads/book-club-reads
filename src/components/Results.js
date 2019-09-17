@@ -156,17 +156,8 @@ class Results extends Component {
   }
 
   render() {
+    console.log("book array length", this.props.displayBookResults);
     return (
-      // <div>
-      //   <div className="displayBackground">
-      //     <h2 className=""> Results</h2>
-      //     <div>
-      //       {this.props.displayBookResults.length
-      //         ? this.renderDisplayBooks()
-      //         : this.renderEmptyState()}
-      //     </div>
-      //   </div>
-      // </div>
       <section className="tracker">
         <div className="formOverlay">
           {this.props.resultsShowing &&

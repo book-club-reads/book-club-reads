@@ -48,12 +48,21 @@ class Search extends Component {
       }
     }).then((res) => {
       console.log(res);
+      const noResults = res.data.GoodreadsResponse.search.results
       const books = res.data.GoodreadsResponse.search.results.work;
-      this.props.bookResults(books);
+      if(noResults === ''){
+        alert("No results");
+        const emptyBooks = []
+        this.props.bookResults(emptyBooks);
+      } else {
+        
+        this.props.bookResults(books);
+      }
+      
     }).catch((error) => {
 
       alert("No results");
-      console.log(error)
+      console.log("Error", error)
       const emptyBooks = []
       this.props.bookResults(emptyBooks);
     })
