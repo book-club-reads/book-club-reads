@@ -156,7 +156,6 @@ class Results extends Component {
   }
 
   render() {
-    console.log("book array length", this.props.displayBookResults);
     return (
       <section className="tracker">
         <div className="formOverlay">

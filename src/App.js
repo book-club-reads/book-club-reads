@@ -37,42 +37,12 @@ class App extends Component {
   //display the search result into main area
 
 
-
-  // openModal = books => {
-  //   this.setState({
-  //     isShowing: true
-  //   });
-  // };
-
-  // closeModal = () => {
-  //   this.setState({
-  //     isShowing: false
-  //   });
-  // };
-  // //Handle selected book details to pop as modal
-  // selectBook = book => {
-  //   console.log(book);
-  //   this.setState({
-  //     select: book
-  //   });
-  //   this.openModal();
-  //   console.log(this.state.select);
-  // };
-
   //goal tracker form fn to get user's reading goal
   goalFormSubmit = (goalInput) => {
     this.setState({
       userGoal: goalInput
     });
   };
-
-  // //Add book to reading list
-  // addBook = bookToAdd => {
-  //   console.log("bookToAdd", bookToAdd);
-  //   this.setState({
-  //     addBook: bookToAdd
-  //   });
-  // };
 
   bookshelfPage = () => {
     this.setState({
@@ -88,12 +58,6 @@ class App extends Component {
       booklistShowing:false
     });
   };
-
-  // componentDidUpdate() {
-  //   if (this.state.select === true) {
-  //     this.selectBook();
-  //   }
-  // }
 
   render() {
     return (

@@ -89,7 +89,6 @@ class Tracker extends Component {
     console.log(input)
   }
 
-
   render() {
     return (
       <div>
