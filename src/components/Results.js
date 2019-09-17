@@ -20,14 +20,15 @@ class Results extends Component {
   //Display the search results
   renderDisplayBooks = () => {
     const bookList = this.props.displayBookResults.map((book, i) => {
-      const first20 = book.best_book.title.replace(/(.{20})..+/, "$1...");
+      const first20 = book.best_book.title.replace(/(.{30})..+/, "$1...");
       return (
-        <div key={i} className="resultsBlock">
+        <div key={i} className="resultsBlock"
+          onClick={() => {
+            this.selectBook(book);
+          }}>
           <div
             className="bookImages"
-            onClick={() => {
-              this.selectBook(book);
-            }}
+            
           >
             <img
               src={
@@ -38,9 +39,10 @@ class Results extends Component {
               }
               alt={book.best_book.title}
             />
-            <p className="bookNameResults">{book.best_book.title.length < 20 ? book.best_book.title : first20 }</p>
-            <p className="authorNameResults">{book.best_book.author.name}</p>
           </div>
+          <p className="bookNameResults">{book.best_book.title.length < 30 ? book.best_book.title : first20}</p>
+          <p className="authorNameResults">{book.best_book.author.name}</p>
+          
         </div>
       );
     });
@@ -180,7 +182,7 @@ class Results extends Component {
 
   render() {
     return (
-      <section className="tracker">
+      <section className="content">
         <div className="resultOverlay">
           {this.props.resultsShowing &&
             (this.props.displayBookResults.length

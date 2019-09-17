@@ -48,6 +48,7 @@ class Tracker extends Component {
           <div className="nameInput">
             <label htmlFor="nameInput">What's your name?</label>
             <input name="nameInput"
+              required
               type="text"
               id="nameInput"
               placeholder="Enter your name"
@@ -58,6 +59,7 @@ class Tracker extends Component {
           <div className="goalInput">
             <label htmlFor="goalInput">What's your reading goal for the year? (max 100)</label>
             <input name="goalInput"
+              required
               type="text"
               id="goalInput"
               placeholder="10"
@@ -95,7 +97,7 @@ class Tracker extends Component {
             <h1>Book Club Reads</h1>
           </div>
         </header>
-        <section className="tracker">
+        <section className="content">
           <div className="formOverlay">
             {this.state.goalSubmit ? this.renderform() : this.renderPlaceholder()}
           </div>
