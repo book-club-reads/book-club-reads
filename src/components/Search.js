@@ -34,6 +34,7 @@ class Search extends Component {
       this.handleResults(res);
   
     }).catch((error) => {
+      alert("No results");
       const emptyBooks = []
       this.props.bookResults(emptyBooks);
     })
