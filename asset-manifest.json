@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/book-club-reads/static/css/main.771c2e5b.chunk.css",
-    "main.js": "/book-club-reads/static/js/main.4f771d39.chunk.js",
-    "main.js.map": "/book-club-reads/static/js/main.4f771d39.chunk.js.map",
+    "main.js": "/book-club-reads/static/js/main.d9a7aa16.chunk.js",
+    "main.js.map": "/book-club-reads/static/js/main.d9a7aa16.chunk.js.map",
     "runtime~main.js": "/book-club-reads/static/js/runtime~main.21484ea7.js",
     "runtime~main.js.map": "/book-club-reads/static/js/runtime~main.21484ea7.js.map",
     "static/js/2.716f8d03.chunk.js": "/book-club-reads/static/js/2.716f8d03.chunk.js",
     "static/js/2.716f8d03.chunk.js.map": "/book-club-reads/static/js/2.716f8d03.chunk.js.map",
     "index.html": "/book-club-reads/index.html",
-    "precache-manifest.88ba225cfff916ed47eaa8c08101c174.js": "/book-club-reads/precache-manifest.88ba225cfff916ed47eaa8c08101c174.js",
+    "precache-manifest.a0e6a5d97496279e9429049bdade555c.js": "/book-club-reads/precache-manifest.a0e6a5d97496279e9429049bdade555c.js",
     "service-worker.js": "/book-club-reads/service-worker.js",
     "static/css/main.771c2e5b.chunk.css.map": "/book-club-reads/static/css/main.771c2e5b.chunk.css.map",
     "static/media/bookLogo.png": "/book-club-reads/static/media/bookLogo.6284bfd2.png",
