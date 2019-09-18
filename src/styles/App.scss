@@ -20,8 +20,7 @@
 
 .content {
     @include max480 {
-        height: 61vh;
-        min-height: 45vh;
+        height: auto;
     }
 }
 
@@ -50,7 +49,6 @@ form {
     flex-direction: column;
     margin: 0 auto;
     @include text($lightBlue, 1rem);
-    // color: $lightBlue;
 }
 input, button {
     border: 4px solid transparent;
@@ -70,13 +68,13 @@ button {
 }
 .goalInput {
     @include max480 {
-        @include flex (center, center)
+        @include flex (center, center);
         flex-direction: column;
     }
 }
 .goalInput input {
     width: 10%;    
-    @include max480 {
+    @include max768 {
         width:50%;
     }
 }
