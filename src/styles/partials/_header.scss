@@ -8,6 +8,10 @@ header {
         min-height: 215px;
         flex-direction: column;
     }
+    @include max480 {
+        height: 20vh;
+        min-height: 200px;
+    }
 
     form {
         flex-direction: row;
@@ -28,5 +32,8 @@ header {
     h1{
         @include heading ($lightBlue, 2.5rem);
         margin: 0;
+        @include max480 {
+            font-size: 1.8rem;
+        }
     }
 }
