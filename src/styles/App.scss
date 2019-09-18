@@ -15,18 +15,15 @@
     background-attachment: fixed;
     @include flex(center, center);
     flex-direction: column;
+    
 }
-// main {
-//     min-height: 80vh;
-//     width: 100vw;
-//     background-image: url('./assets/header.jpg');
-//     background-size: cover;
-//     background-repeat: no-repeat;
-//     background-position: top;
-//     background-attachment: fixed;
-//     @include flex(center, center);
-//     flex-direction: column;
-// }
+
+.content {
+    @include max480 {
+        height: 61vh;
+        min-height: 45vh;
+    }
+}
 
 .formOverlay, .resultOverlay {
     background-color: #1b245699;
@@ -39,6 +36,11 @@
     flex-wrap: wrap;
     @include max940 {
         width: 80%;
+    }
+}
+.formOverlay {
+    @include max480 {
+        flex-direction: column;
     }
 }
 
@@ -65,12 +67,20 @@ button {
     margin: 10px 0;
     text-align: center;
 }
+.goalInput {
+    @include max480 {
+        @include flex (center, center)
+        flex-direction: column;
+    }
+}
 .goalInput input {
-    width: 10%;
+    width: 10%;    
+    @include max480 {
+        width:50%;
+    }
 }
 label {
     margin: 0 10px;
-    // font-size: 1.5rem;
 }
 p {
     @include text($lightBlue, 1.5rem)
@@ -80,8 +90,14 @@ ul.buttonList {
     list-style-type: none;
     display: flex;
     justify-content: center;
+    @include max480 {
+        flex-direction: column;
+    }
     li {
         margin: 20px;
+        @include max480 {
+            margin: 10px;
+        }
         button {
             width:200px;
         }
@@ -89,13 +105,3 @@ ul.buttonList {
 
 }
 
-// .resultOverlay {
-//     background-color: white;
-//     display: flex;
-//     flex-flow: row wrap;
-//     min-height: 40vh;
-    
-    
-
-
-// }

@@ -42,20 +42,23 @@ p.authorNameResults {
 
 
 .resultsBlock{
-    width: 25%;
-    height: 300px;
-    padding: 20px;
-    flex-direction: column;
-    @include flex(flex-start, center);
-    @include max940 {
-      width: 50%;
-    }
-    &:hover {
-        border-radius: 20px;
-        cursor: pointer;
-        background-color: #1b2456bb;
-        animation: shadow-drop-center 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
-    }
+  width: 25%;
+  height: 300px;
+  padding: 20px;
+  flex-direction: column;
+  @include flex(flex-start, center);
+  @include max940 {
+    width: 50%;
+  }
+  @include max480 {
+    width: 100%;
+  }
+  &:hover {
+    border-radius: 20px;
+    cursor: pointer;
+    background-color: #1b2456bb;
+    animation: shadow-drop-center 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+  }
 }
 
 @keyframes shadow-drop-center {
