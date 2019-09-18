@@ -8,7 +8,7 @@ class Tracker extends Component {
     super();
     this.state ={
       userInput: {}, //collect the goal and name input fields on form submit
-      goalInput: "", //
+      goalInput: "", 
       nameInput: "",
       goalSubmit: true,
     }
