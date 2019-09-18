@@ -78,8 +78,10 @@ class App extends Component {
               <div>
                 <Header appBookResults={this.bookResults} />
                 <main>
-                  <Nav bookshelfPage={this.bookshelfPage} 
-                    searchPage={this.searchPage}/>
+                  <Nav
+                    bookshelfPage={this.bookshelfPage}
+                    searchPage={this.searchPage}
+                  />
                   <Results
                     displayBookResults={this.state.books}
                     selectBook={this.selectBook}
@@ -87,9 +89,15 @@ class App extends Component {
                     booklistShowing={this.state.booklistShowing}
                     userGoal={this.state.userGoal}
                   />
+                  <footer>
+                    <p>
+                      Created by Shirley Wong, Gabe Kugelmass, Norre Daroy and
+                      Arunava De
+                    </p>
+                  </footer>
                 </main>
               </div>
-              );
+            );
          }}
          />
           
