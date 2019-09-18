@@ -5,6 +5,7 @@ header {
     height: 20vh;
     @include max940 {
         height: 22vh;
+        min-height: 215px;
         flex-direction: column;
     }
 
