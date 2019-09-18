@@ -8,6 +8,9 @@ header {
         min-height: 215px;
         flex-direction: column;
     }
+    @include max768 {
+        width: 100vw;
+    }
     @include max480 {
         height: 20vh;
         min-height: 200px;
@@ -15,6 +18,9 @@ header {
 
     form {
         flex-direction: row;
+        @include max480 {
+            font-size: 0.8rem;
+        }
         button {
             margin: 0 10px;
         }
