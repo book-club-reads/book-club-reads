@@ -20,53 +20,59 @@ class DisplayFirebase extends Component {
     const userReadingListArray = this.state.userReadingList.map(
       (response, i) => {
         return (
-          <div key={response.uniqueKey} className="displayBooksContent">
-            <div>
-              <img src={response.Image === "https://s.gr-assets.com/assets/nophoto/book/111x148-bcc042a9c91a29c1d680899eff700a03.png" 
-              ? placeholder : response.Image
-              
-            } alt={response.Title} />
-              <h2>{response.Title}</h2>
-              <p>{response.Author}</p>
-              <p>{response.Rating}</p>
-              <div>
-                {response.Comment
-                  ? this.renderComment(response.Comment)
-                  : this.renderNoComment()}
+          <div key={response.uniqueKey} className="booklistContent">
+            <div className="bookDetails">
+              <img
+                src={
+                  response.Image ===
+                  "https://s.gr-assets.com/assets/nophoto/book/111x148-bcc042a9c91a29c1d680899eff700a03.png"
+                    ? placeholder
+                    : response.Image
+                }
+                alt={response.Title}
+              />
+              <div className="bookDetailsText">
+                <p className="bookNameResults shelfStyle">{response.Title}</p>
+                <p className="authorNameResults shelfStyle">{response.Author}</p>
+                <p className="authorNameResults shelfStyle">Rating: {response.Rating}</p>
               </div>
-              <div>
+            </div>
+            <div className="">
+              {response.Comment
+                ? this.renderComment(response.Comment)
+                : this.renderNoComment()}
+            </div>
+
+              <div className="booklistButtons">
                 {response.Read === false ? (
                   <button
                     onClick={() => {
                       this.handleRead(response.uniqueKey);
                     }}
                   >
-                    Read
+                    Mark as Read
                   </button>
-                  
                 ) : (
                   <button
                     onClick={() => {
                       this.handleUnread(response.uniqueKey);
                     }}
                   >
-                    unRead
+                    Mark as Unread
                   </button>
                 )}
+              <button onClick={() => this.handleComment(response.uniqueKey)}>
+                Post Comment
+              </button>
+              <button onClick={() => this.removeBook(response.uniqueKey)}>
+                Remove book
+              </button>
               </div>
-            </div>
-
-            <button onClick={() => this.handleComment(response.uniqueKey)}>
-              Post Comment
-            </button>
-            <button onClick={() => this.removeBook(response.uniqueKey)}>
-              Remove book
-            </button>
           </div>
         );
       }
     );
-    return <div className="displayBooksContainer">{userReadingListArray}</div>;
+    return <div className="">{userReadingListArray}</div>;
   }
 
   //Function to run when user clicks read button
@@ -111,7 +117,7 @@ class DisplayFirebase extends Component {
   renderComment(comment) {
     return (
       <div>
-        <p>{comment}</p>
+        <p className="commentDisplay">"{comment}"</p>
       </div>
     );
   }
@@ -120,7 +126,7 @@ class DisplayFirebase extends Component {
   renderNoComment() {
     return (
       <div>
-        <p>No comment on this book</p>
+        <p className="commentDisplay">No comment on this book</p>
       </div>
     );
   }
@@ -186,18 +192,15 @@ class DisplayFirebase extends Component {
 
   render() {
     return (
-        <section className="displayBooksContainer">
-          <h2>Reading List</h2>
-          <GoalPercent read = {this.state.read}
-                        userGoal = {this.state.userGoal}
-          />
-          <div>
-            {this.state.userReadingList.length
-              ? this.renderReadingList()
-              : this.renderEmptyState()}
-          </div>
-          <AddComment comment = {this.state.commentBookId}/>
-        </section>
+      <section className="">
+        <div>
+          <GoalPercent read={this.state.read} userGoal={this.state.userGoal} />
+          {this.state.userReadingList.length
+            ? this.renderReadingList()
+            : this.renderEmptyState()}
+        </div>
+        <AddComment comment={this.state.commentBookId} />
+      </section>
     );
   }
 }
