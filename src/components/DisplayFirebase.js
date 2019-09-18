@@ -4,7 +4,6 @@ import AddComment from './AddComment';
 import GoalPercent from './GoalPercent';
 import placeholder from '../styles/assets/placeholder.jpg'
 
-
 class DisplayFirebase extends Component {
   constructor() {
     super();
@@ -15,6 +14,7 @@ class DisplayFirebase extends Component {
       commentBookId: ''
     };
   }
+  
   //Display the list of books in the reading list
   renderReadingList() {
     const userReadingListArray = this.state.userReadingList.map(

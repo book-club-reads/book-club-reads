@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import books from '../styles/assets/book-logo.png';
+import books from '../styles/assets/bookLogo.png';
 import Search from "../components/Search";
 
 class Header extends Component {

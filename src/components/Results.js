@@ -122,8 +122,6 @@ class Results extends Component {
   
   //Add book to reading list
   addBook = bookToAdd => {
-    console.log("bookToAdd", bookToAdd);
-
     let bookIdArray = []
 
     //Gets the book id
