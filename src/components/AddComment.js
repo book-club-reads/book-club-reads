@@ -10,7 +10,7 @@ class AddComment extends Component {
     };
   }
 
-  openModal = books => {
+  openModal = () => {
     this.setState({
       isShowing: true
     });
@@ -21,6 +21,7 @@ class AddComment extends Component {
       isShowing: false
     });
   };
+
   handleChange = event => {
     this.setState({
       value: event.target.value

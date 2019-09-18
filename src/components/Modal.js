@@ -1,5 +1,6 @@
 import React from "react";
 import placeholder from '../styles/assets/placeholder.jpg';
+
 class Modal extends React.Component {
   constructor() {
     super();
@@ -52,7 +53,6 @@ class Modal extends React.Component {
               className="closeModalButton"
               onClick={this.props.close}
             >
-              {/* &#9747; */}
               x
             </span>
           </div>

@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import books from '../styles/assets/book-logo.png';
+import books from '../styles/assets/bookLogo.png';
 import { Link } from 'react-router-dom';
 
 
@@ -8,7 +8,7 @@ class Tracker extends Component {
     super();
     this.state ={
       userInput: {}, //collect the goal and name input fields on form submit
-      goalInput: "", //
+      goalInput: "", 
       nameInput: "",
       goalSubmit: true,
     }
@@ -30,7 +30,6 @@ class Tracker extends Component {
   }
 
   renderPlaceholder = () => {
-    console.log('displaying message');
     return (
         <div className="userPrompt">
           <p>Hello {this.state.nameInput}</p>

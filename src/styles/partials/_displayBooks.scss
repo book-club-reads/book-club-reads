@@ -75,6 +75,9 @@ p.authorNameResults {
   p {
     margin: 0;
     font-size: 1.2rem;
+    @include max480 {
+      font-size: 1rem;
+    }
   }
 }
 
@@ -100,6 +103,10 @@ p.authorNameResults {
 p.shelfStyle {
   text-align: left;
   margin-bottom: 10px;
+  @include max480 {
+    font-size: 1rem;
+    padding-left: 5px;
+  }
 }
 
 .booklistButtons button {
@@ -113,4 +120,14 @@ p.shelfStyle {
   margin: 10px 0;
   font-size: 1rem;
   word-wrap: break-word;
+}
+
+@media (max-width: 550px) {
+  .booklistButtons {
+    display: flex;
+    flex-direction: column;
+    button {
+      margin-bottom: 5px;
+    }
+  }
 }
