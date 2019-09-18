@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import books from '../styles/assets/book-logo.png';
+import books from '../styles/assets/bookLogo.png';
 import { Link } from 'react-router-dom';
 
 
@@ -30,7 +30,6 @@ class Tracker extends Component {
   }
 
   renderPlaceholder = () => {
-    console.log('displaying message');
     return (
         <div className="userPrompt">
           <p>Hello {this.state.nameInput}</p>
