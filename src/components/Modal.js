@@ -20,15 +20,6 @@ class Modal extends React.Component {
     return (
       <div className="modal">
         <div className="modalContainer">
-          <div className="modalHeader">
-            <span
-              className="closeModalButton"
-              onClick={this.props.close}
-            >
-              {/* &#9747; */}
-              x
-            </span>
-          </div>
           <div className="bookDisplay">
             <div className="bookImage">
               <img
@@ -55,6 +46,15 @@ class Modal extends React.Component {
               }
               {this.state.addedShowing && <button>Added</button>}
             </div>
+          </div>
+          <div className="modalHeader">
+            <span
+              className="closeModalButton"
+              onClick={this.props.close}
+            >
+              {/* &#9747; */}
+              x
+            </span>
           </div>
         </div>
       </div>
