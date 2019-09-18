@@ -19,8 +19,9 @@
 }
 
 .content {
-    @include max480 {
+    @include max768 {
         height: auto;
+        // min-height: 50vh;
     }
 }
 
@@ -89,7 +90,7 @@ ul.buttonList {
     list-style-type: none;
     display: flex;
     justify-content: center;
-    @include max480 {
+    @include max768 {
         flex-direction: column;
     }
     li {

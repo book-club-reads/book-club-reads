@@ -41,7 +41,7 @@ p.authorNameResults {
 
 .resultsBlock{
   width: 25%;
-  height: 300px;
+  height: auto;
   padding: 20px;
   flex-direction: column;
   @include flex(flex-start, center);
