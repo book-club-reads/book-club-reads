@@ -79,14 +79,32 @@
     flex-direction: column;
     margin: 0 auto;
     width: 60%;
-    
-}
-.formModalContainer {
-    width: 20rem;
-    height: 20rem;
 }
 
 .bookImage {
     box-shadow: 10px 10px 10px 0px rgba(0,0,0,0.75);
 }
+
+textarea {
+    height: 300px;
+    width: 300px;
+}
+
+.commentLabel {
+    color: $darkBlue;
+    margin-bottom: 20px;
+}
+
+.formFlex input.commentSubmit {
+            border: 0.1rem solid black;
+            background: $lightBlue;
+            color: $darkBlue;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            &:hover {
+                background: $darkBlue;
+                color: $lightBlue;
+            }
+        }
 

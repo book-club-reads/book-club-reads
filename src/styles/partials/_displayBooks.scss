@@ -1,42 +1,36 @@
 .displayBooksContainer {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    
-    // justify-content: space-around;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+
+  // justify-content: space-around;
 }
 
 .bookImages {
-    margin: 0.5rem;
-    width: 100px;
-    margin: 0 auto;
-    img {
-        width: 100%;
-    } 
-
+  margin: 0.5rem;
+  width: 100px;
+  margin: 0 auto;
+  img {
+    width: 100%;
+  }
 }
 
-
-
 .formFlex {
-    display: flex;
-    flex-direction: column;
-    margin: 0 auto;
-    width: 60%;
-
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  width: 60%;
 }
 
 .displayBooksContent {
-    width: 25%;
-    
-    
+  width: 25%;
 }
 
 p.bookNameResults {
-    @include text($lightBlue, 1.1rem);
-    margin: 0;
-    text-align: center;
-    font-style: italic;
+  @include text($lightBlue, 1.1rem);
+  margin: 0;
+  text-align: center;
+  font-style: italic;
 }
 
 p.authorNameResults {
@@ -46,19 +40,18 @@ p.authorNameResults {
   font-weight: bold;
 }
 
-
-.resultsBlock{
-    width: 25%;
-    height: 300px;
-    padding: 20px;
-    flex-direction: column;
-    @include flex(flex-start, center);
-    &:hover {
-        border-radius: 20px;
-        cursor: pointer;
-        background-color: #1b2456bb;
-        animation: shadow-drop-center 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
-    }
+.resultsBlock {
+  width: 25%;
+  height: 300px;
+  padding: 20px;
+  flex-direction: column;
+  @include flex(flex-start, center);
+  &:hover {
+    border-radius: 20px;
+    cursor: pointer;
+    background-color: #1b2456bb;
+    animation: shadow-drop-center 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+  }
 }
 
 @keyframes shadow-drop-center {
@@ -68,4 +61,49 @@ p.authorNameResults {
   100% {
     box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.5);
   }
+}
+
+.goalContainer {
+  text-align: center;
+  p {
+    margin: 0;
+    font-size: 1.2rem;
+  }
+}
+
+.booklistContent {
+    // @include flex(center, center);
+    // flex-direction: column;
+    // flex-wrap: wrap;
+    // border: 2px solid crimson;
+    margin: 10px 0px;
+    background-color: #1b2456;
+    padding: 20px;
+    border-radius: 20px;
+}
+
+.bookDetailsText {
+  width: 60%;
+}
+
+.bookDetails {
+  @include flex(space-between, flex-start);
+}
+
+p.shelfStyle {
+  text-align: left;
+  margin-bottom: 10px;
+}
+
+.booklistButtons button {
+  font-size: 0.7rem;
+  padding: 5px;
+  margin-right: 5px;
+}
+
+.commentDisplay {
+  width: 200px;
+  margin: 10px 0;
+  font-size: 1rem;
+  word-wrap: break-word;
 }
