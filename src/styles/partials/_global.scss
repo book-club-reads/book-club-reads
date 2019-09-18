@@ -26,6 +26,17 @@ html {
 
 img {
     display: block;
-    
 }
 
+/* Portrait tablet and small desktops */
+@mixin max940 {
+    @media (max-width: 940px){@content;}
+}
+/* Landscape phone to portrait tablet */
+@mixin max768{
+    @media (max-width: 768px){@content;}
+}
+/* Landscape phones and down */
+@mixin max480{
+    @media (max-width: 480px){@content;}
+}

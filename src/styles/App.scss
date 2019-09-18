@@ -37,6 +37,9 @@
     padding: 40px;
     @include flex(center, center);
     flex-wrap: wrap;
+    @include max940 {
+        width: 80%;
+    }
 }
 
 form {

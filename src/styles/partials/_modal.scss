@@ -1,7 +1,6 @@
 
 .modalContainer,
 .formModalContainer {
-    // border: 2px solid black;
     box-shadow: 10px 10px 10px 0px rgba(0,0,0,0.75);
     border-radius: 20px;
     background: white;
@@ -9,10 +8,13 @@
     height: auto;
     position: absolute;
     left: 25%;
-    top: 25%;
+    top: 10%;
     padding: 30px;
-    flex-direction: column;
-    @include flex (center, unset)
+    @include flex (space-between, center);
+    @include max940 {
+        left: 10%;
+        width: 80%;
+    }
 }
 
 .wrapper {
@@ -30,37 +32,41 @@
 }
 
 .bookDisplay {
-    @include flex (space-around, center);
-    .modalBody {
-        margin-bottom: 1.5rem;
-        margin-left: 2rem;
-        h2 {
-            margin-top: 0;
-        }
-        p{
-            margin-top: 0;
-            @include text ($darkBlue, 1rem);
-        }
+    display: flex;
+    width: 85%;
+}
 
-        button {
-            border: 0.1rem solid black;
-            background: $lightBlue;
-            color: $darkBlue;
-            padding: 10px;
-            margin: 0;
-            border-radius: 5px;
-            &:hover {
-                background: $darkBlue;
-                color: $lightBlue;
-            }
+.modalBody {
+    width: 70%;
+    margin-left: 1.5rem;
+
+    h2 {
+        margin-top: 0;
+    }
+    p{
+        margin-top: 0;
+        @include text ($darkBlue, 1rem);
+    }
+
+    button {
+        border: 2px solid black;
+        background: $lightBlue;
+        color: $darkBlue;
+        padding: 10px;
+        margin: 0;
+        border-radius: 5px;
+        &:hover {
+            background: $darkBlue;
+            color: $lightBlue;
+            border: 2px solid #5C67FF;
         }
     }
 }
 
+
 .modalHeader {
-    width: 100%;
-    display: flex;
-    justify-content: flex-end;
+    width: 10%;
+    align-self: flex-start;
 }
 
 .closeModalButton {
@@ -88,5 +94,6 @@
 
 .bookImage {
     box-shadow: 10px 10px 10px 0px rgba(0,0,0,0.75);
+    align-self: center;
 }
 

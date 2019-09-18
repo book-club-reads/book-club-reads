@@ -3,6 +3,11 @@ header {
     @include flex (space-between, center);
     padding: 15px;
     height: 20vh;
+    @include max940 {
+        height: 22vh;
+        flex-direction: column;
+    }
+
     form {
         flex-direction: row;
         button {
