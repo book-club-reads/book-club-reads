@@ -1,117 +1,122 @@
-@import url('https://fonts.googleapis.com/css?family=Barlow|Merienda+One&display=swap');
+@import url("https://fonts.googleapis.com/css?family=Barlow|Merienda+One&display=swap");
 @import "partials/setup";
 @import "partials/global";
 @import "partials/header";
 @import "partials/displayBooks";
 @import "partials/modal";
 
-.content, main {
-    min-height: 80vh;
-    width: 100vw;
-    background-image: url('./assets/header.jpg');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: top;
-    background-attachment: fixed;
-    @include flex(center, center);
-    flex-direction: column;
-    
+.content,
+main {
+  min-height: 80vh;
+  width: 100vw;
+  background-image: url("./assets/header.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top;
+  background-attachment: fixed;
+  @include flex(center, center);
+  flex-direction: column;
 }
 
 .content {
-    @include max768 {
-        height: auto;
-        // min-height: 50vh;
-    }
+  @include max768 {
+    height: auto;
+  }
 }
 
-.formOverlay, .resultOverlay {
-    background-color: #1b245699;
-    width: 60%;
-    min-width: 315px;
-    height: auto;
-    min-height: 40vh;
-    border-radius: 20px;
-    padding: 40px;
-    @include flex(center, center);
-    flex-wrap: wrap;
-    @include max940 {
-        width: 80%;
-    }
+.formOverlay,
+.resultOverlay {
+  background-color: rgba(27, 36, 86, 0.8);
+  width: 60%;
+  min-width: 315px;
+  height: auto;
+  min-height: 60vh;
+  border-radius: 20px;
+  padding: 40px;
+  @include flex(center, center);
+  flex-wrap: wrap;
+  @include max940 {
+    width: 80%;
+  }
 }
 .formOverlay {
-    @include max480 {
-        flex-direction: column;
-    }
+  @include max480 {
+    flex-direction: column;
+  }
 }
 
 form {
-    @include flex(center, center);
-    flex-direction: column;
-    margin: 0 auto;
-    @include text($lightBlue, 1rem);
+  @include flex(center, center);
+  flex-direction: column;
+  margin: 0 auto;
+  @include text($lightBlue, 1rem);
 }
-input, button {
-    border: 4px solid transparent;
-    border-radius: 7px;
-    padding: 10px;
-    &:hover, &:focus {
+input,
+button {
+  border: 4px solid transparent;
+  border-radius: 7px;
+  padding: 10px;
+  &:hover,
+  &:focus {
     border: 4px solid $brightBlue;
-    border-radius: 7px;		
-    }
+    border-radius: 7px;
+  }
 }
 button {
-    background-color: $lightBlue;
+  background-color: $lightBlue;
 }
-.nameInput, .goalInput {
-    margin: 10px 0;
-    text-align: center;
+.nameInput,
+.goalInput {
+  margin: 10px 0;
+  text-align: center;
 }
 .goalInput {
-    @include max480 {
-        @include flex (center, center);
-        flex-direction: column;
-    }
+  @include max480 {
+    @include flex(center, center);
+    flex-direction: column;
+  }
 }
 .goalInput input {
-    width: 10%;    
-    @include max768 {
-        width:50%;
-    }
+  width: 10%;
+  @include max768 {
+    width: 50%;
+  }
 }
 label {
-    margin: 0 10px;
+  margin: 0 10px;
+  @include max480 {
+    margin-bottom: 10px;
+  }
 }
 p {
-    @include text($lightBlue, 1.5rem)
+  @include text($lightBlue, 1.5rem);
 }
 
 ul.buttonList {
-    list-style-type: none;
-    display: flex;
-    justify-content: center;
-    @include max768 {
-        flex-direction: column;
+  list-style-type: none;
+  display: flex;
+  justify-content: center;
+  padding: 0;
+  @include max768 {
+    font-size: 0.8rem;
+  }
+  li {
+    margin: 10px;
+    @include max480 {
+      margin: 0px 10px;
     }
-    li {
-        margin: 20px;
-        @include max480 {
-            margin: 10px;
-        }
-        button {
-            width:200px;
-        }
+    button {
+      max-width: 200px;
     }
-
+  }
 }
 
 footer {
-background: transparent;
-p {
-margin: 0;
-padding: 10px;
-font-size: .8rem;
-color: black;
-}
-
+  background: transparent;
+  p {
+    margin: 0;
+    padding: 10px;
+    font-size: 0.8rem;
+    color: black;
+  }
 }

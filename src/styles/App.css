@@ -189,6 +189,9 @@ img {
   display: block;
 }
 
+/* Portrait tablet and small desktops */
+/* Landscape phone to portrait tablet */
+/* Landscape phones and down */
 header {
   background-color: #1B2456;
   display: -webkit-box;
@@ -201,6 +204,24 @@ header {
       -ms-flex-align: center;
           align-items: center;
   padding: 15px;
+  height: 20vh;
+}
+
+@media (max-width: 768px) {
+  header {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    width: 100vw;
+    height: 28vh;
+  }
+}
+
+@media (max-width: 320px) {
+  header {
+    height: 30vh;
+  }
 }
 
 header form {
@@ -208,6 +229,12 @@ header form {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
+}
+
+@media (max-width: 768px) {
+  header form {
+    font-size: 0.8rem;
+  }
 }
 
 header form button {
@@ -235,11 +262,29 @@ header form button {
   width: 100%;
 }
 
+@media (max-width: 940px) {
+  .title img {
+    width: 90%;
+  }
+}
+
 .title h1 {
   color: #C8E0F8;
   font-size: 2.5rem;
   font-family: 'Merienda One', cursive;
   margin: 0;
+}
+
+@media (max-width: 940px) {
+  .title h1 {
+    font-size: 1.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .title h1 {
+    font-size: 1.2rem;
+  }
 }
 
 .displayBooksContainer {
@@ -256,16 +301,12 @@ header form button {
 
 .bookImages {
   margin: 0.5rem;
-  width: 10rem;
-  height: 15rem;
-}
-
-.bookImages img {
+  width: 100px;
   margin: 0 auto;
 }
 
-.resultsBlock:hover {
-  background: lightblue;
+.bookImages img {
+  width: 100%;
 }
 
 .formFlex {
@@ -285,7 +326,7 @@ header form button {
 }
 
 p.bookNameResults {
-  color: black;
+  color: #C8E0F8;
   font-size: 1.1rem;
   margin: 0;
   text-align: center;
@@ -293,23 +334,189 @@ p.bookNameResults {
 }
 
 p.authorNameResults {
+  color: #C8E0F8;
   font-size: 1rem;
-  color: black;
   margin: 0;
   text-align: center;
   font-weight: bold;
 }
 
+.resultsBlock {
+  width: 25%;
+  height: auto;
+  padding: 20px;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+@media (max-width: 940px) {
+  .resultsBlock {
+    width: 50%;
+  }
+}
+
+@media (max-width: 480px) {
+  .resultsBlock {
+    width: 100%;
+  }
+}
+
+.resultsBlock:hover {
+  border-radius: 20px;
+  cursor: pointer;
+  background-color: #1b2456bb;
+  -webkit-animation: shadow-drop-center 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+          animation: shadow-drop-center 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+
+@-webkit-keyframes shadow-drop-center {
+  0% {
+    -webkit-box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+            box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+  }
+  100% {
+    -webkit-box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.5);
+            box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.5);
+  }
+}
+
+@keyframes shadow-drop-center {
+  0% {
+    -webkit-box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+            box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+  }
+  100% {
+    -webkit-box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.5);
+            box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.5);
+  }
+}
+
+.goalContainer {
+  text-align: center;
+}
+
+.goalContainer p {
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+@media (max-width: 480px) {
+  .goalContainer p {
+    font-size: 1rem;
+  }
+}
+
+.booklistContent {
+  margin: 10px 0px;
+  background-color: #1b2456;
+  padding: 20px;
+  border-radius: 20px;
+}
+
+.bookDetailsText {
+  width: 60%;
+}
+
+.bookDetails {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+
+p.shelfStyle {
+  text-align: left;
+  margin-bottom: 10px;
+}
+
+@media (max-width: 480px) {
+  p.shelfStyle {
+    font-size: 1rem;
+    padding-left: 5px;
+  }
+}
+
+.booklistButtons button {
+  font-size: 0.7rem;
+  padding: 5px;
+  margin-right: 5px;
+}
+
+.commentDisplay {
+  width: 200px;
+  margin: 10px 0;
+  font-size: 1rem;
+  word-wrap: break-word;
+}
+
+@media (max-width: 550px) {
+  .booklistButtons {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .booklistButtons button {
+    margin-bottom: 5px;
+  }
+}
+
 .modalContainer,
 .formModalContainer {
-  width: 40rem;
-  border: 0.1rem solid black;
-  height: 17rem;
-  position: absolute;
+  -webkit-box-shadow: 10px 10px 10px 0px rgba(0, 0, 0, 0.75);
+          box-shadow: 10px 10px 10px 0px rgba(0, 0, 0, 0.75);
+  border-radius: 20px;
   background: white;
-  bottom: 10rem;
-  left: 15rem;
-  padding: 10px 0;
+  width: 50%;
+  height: auto;
+  position: absolute;
+  left: 25%;
+  top: 10%;
+  padding: 30px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+@media (max-width: 940px) {
+  .modalContainer,
+  .formModalContainer {
+    left: 10%;
+    width: 80%;
+  }
+}
+
+@media (max-width: 480px) {
+  .modalContainer,
+  .formModalContainer {
+    left: 2.5%;
+    width: 95%;
+  }
 }
 
 .wrapper {
@@ -330,41 +537,53 @@ p.authorNameResults {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-flow: row nowrap;
-          flex-flow: row nowrap;
+  width: 85%;
 }
 
-.bookDisplay .modalBody {
-  margin-bottom: 1.5rem;
-  margin-left: 2rem;
+.modalBody {
+  width: 70%;
+  margin-left: 1.5rem;
 }
 
-.bookDisplay .modalBody h2 {
+.modalBody h2 {
   margin-top: 0;
 }
 
-.bookDisplay .modalBody button {
-  border: 0.1rem solid black;
-  background: white;
-  padding: 0.5rem;
+.modalBody p {
+  margin-top: 0;
+  color: #1B2456;
+  font-size: 1rem;
+}
+
+.modalBody button {
+  border: 2px solid black;
+  background: #C8E0F8;
+  color: #1B2456;
+  padding: 10px;
   margin: 0;
-  border-radius: 5%;
+  border-radius: 5px;
+}
+
+.modalBody button:hover {
+  background: #1B2456;
+  color: #C8E0F8;
+  border: 2px solid #5C67FF;
 }
 
 .modalHeader {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
+  width: 10%;
+  -ms-flex-item-align: start;
+      align-self: flex-start;
 }
 
 .closeModalButton {
   font-size: 2rem;
   cursor: pointer;
+  padding: 5px;
+}
+
+.closeModalButton:hover {
+  color: #5C67FF;
 }
 
 .formFlex {
@@ -379,13 +598,49 @@ p.authorNameResults {
   width: 60%;
 }
 
-.formModalContainer {
-  width: 20rem;
-  height: 20rem;
+.bookImage {
+  -webkit-box-shadow: 10px 10px 10px 0px rgba(0, 0, 0, 0.75);
+          box-shadow: 10px 10px 10px 0px rgba(0, 0, 0, 0.75);
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
 }
 
-.tracker {
-  height: 80vh;
+textarea {
+  height: 300px;
+  width: 300px;
+}
+
+@media (max-width: 480px) {
+  textarea {
+    height: 250px;
+    width: 250px;
+  }
+}
+
+.commentLabel {
+  color: #1B2456;
+  margin-bottom: 20px;
+}
+
+.formFlex input.commentSubmit {
+  border: 0.1rem solid black;
+  background: #C8E0F8;
+  color: #1B2456;
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 5px;
+}
+
+.formFlex input.commentSubmit:hover {
+  background: #1B2456;
+  color: #C8E0F8;
+}
+
+.content,
+main {
+  min-height: 80vh;
+  width: 100vw;
   background-image: url("./assets/header.jpg");
   background-size: cover;
   background-repeat: no-repeat;
@@ -406,11 +661,19 @@ p.authorNameResults {
           flex-direction: column;
 }
 
-.formOverlay {
-  background-color: #1b245699;
+@media (max-width: 768px) {
+  .content {
+    height: auto;
+  }
+}
+
+.formOverlay,
+.resultOverlay {
+  background-color: rgba(27, 36, 86, 0.8);
   width: 60%;
+  min-width: 315px;
   height: auto;
-  min-height: 40vh;
+  min-height: 60vh;
   border-radius: 20px;
   padding: 40px;
   display: -webkit-box;
@@ -424,6 +687,22 @@ p.authorNameResults {
           align-items: center;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
+}
+
+@media (max-width: 940px) {
+  .formOverlay,
+  .resultOverlay {
+    width: 80%;
+  }
+}
+
+@media (max-width: 480px) {
+  .formOverlay {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
 }
 
 form {
@@ -445,13 +724,16 @@ form {
   font-size: 1rem;
 }
 
-input, button {
+input,
+button {
   border: 4px solid transparent;
   border-radius: 7px;
   padding: 10px;
 }
 
-input:hover, input:focus, button:hover, button:focus {
+input:hover, input:focus,
+button:hover,
+button:focus {
   border: 4px solid #5C67FF;
   border-radius: 7px;
 }
@@ -460,17 +742,48 @@ button {
   background-color: #C8E0F8;
 }
 
-.nameInput, .goalInput {
+.nameInput,
+.goalInput {
   margin: 10px 0;
   text-align: center;
+}
+
+@media (max-width: 480px) {
+  .goalInput {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
 }
 
 .goalInput input {
   width: 10%;
 }
 
+@media (max-width: 768px) {
+  .goalInput input {
+    width: 50%;
+  }
+}
+
 label {
   margin: 0 10px;
+}
+
+@media (max-width: 480px) {
+  label {
+    margin-bottom: 10px;
+  }
 }
 
 p {
@@ -486,25 +799,37 @@ ul.buttonList {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  padding: 0;
+}
+
+@media (max-width: 768px) {
+  ul.buttonList {
+    font-size: 0.8rem;
+  }
 }
 
 ul.buttonList li {
-  margin-right: 1rem;
+  margin: 10px;
+}
+
+@media (max-width: 480px) {
+  ul.buttonList li {
+    margin: 0px 10px;
+  }
 }
 
 ul.buttonList li button {
-  width: 7rem;
+  max-width: 200px;
 }
 
-.resultOverlay {
-  background-color: white;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-flow: row wrap;
-          flex-flow: row wrap;
-  min-height: 40vh;
+footer {
+  background: transparent;
+}
+
+footer p {
+  margin: 0;
+  padding: 10px;
+  font-size: 0.8rem;
+  color: black;
 }
 /*# sourceMappingURL=App.css.map */

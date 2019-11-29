@@ -13,10 +13,10 @@ class Nav extends Component {
               </Link>
             </li>
             <li>
-              <button onClick={this.props.bookshelfPage}>My Bookshelf</button>
+              <button onClick={this.props.bookshelfPage}>Bookshelf</button>
             </li>
             <li>
-              <button onClick={this.props.searchPage}>Search Results</button>
+              <button onClick={this.props.searchPage}>Search</button>
             </li>
           </ul>
         </nav>
