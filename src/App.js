@@ -1,12 +1,11 @@
 import React, { Component } from "react";
 import firebase from "./firebase";
 import Header from "./components/Header";
-import Nav from './components/Nav';
+import Nav from "./components/Nav";
 import Tracker from "./components/Tracker";
 import Results from "./components/Results";
 import "./styles/App.scss";
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
-
+import { BrowserRouter as Router, Route } from "react-router-dom";
 
 class App extends Component {
   constructor() {
@@ -26,18 +25,18 @@ class App extends Component {
   //User input from search field
   bookResults = searchBooks => {
     this.setState({
-      books: searchBooks,
+      books: searchBooks
     });
     this.searchPage();
   };
 
   //Goal tracker form fn to get user's reading goal
-  goalFormSubmit = (goalInput) => {
+  goalFormSubmit = goalInput => {
     this.setState({
       userGoal: goalInput
     });
     const dbRef = firebase.database().ref("Name");
-    dbRef.remove()
+    dbRef.remove();
     this.searchPage();
   };
 
@@ -47,33 +46,36 @@ class App extends Component {
       booklistShowing: true
     });
   };
-  
 
   // Function to change state to render search page instead of bookshelf page
   searchPage = () => {
     this.setState({
       resultsShowing: true,
-      booklistShowing:false
+      booklistShowing: false
     });
   };
 
   render() {
     return (
       <Router basename={process.env.PUBLIC_URL}>
-        
-          <Route exact path='/' render={()=>{
-            return(
-              
-            <div>
-              <Tracker
-                getGoalFn={this.goalFormSubmit}
-                searchOn={this.state.searchOn}
-              />
-            </div>
-    
+        <Route
+          exact
+          path="/"
+          render={() => {
+            return (
+              <div>
+                <Tracker
+                  getGoalFn={this.goalFormSubmit}
+                  searchOn={this.state.searchOn}
+                />
+              </div>
             );
-          }}/>
-          <Route exact path='/search' render={() => {
+          }}
+        />
+        <Route
+          exact
+          path="/search"
+          render={() => {
             return (
               <div>
                 <Header appBookResults={this.bookResults} />
@@ -91,19 +93,18 @@ class App extends Component {
                   />
                   <footer>
                     <p>
-                      Created by Shirley Wong, Gabe Kugelmass, Norre Daroy and
+                      © 2019 Shirley Wong, Gabe Kugelmass, Norre Daroy and
                       Arunava De
                     </p>
                   </footer>
                 </main>
               </div>
             );
-         }}
-         />
-          
+          }}
+        />
       </Router>
-      
-    )}
+    );
+  }
 }
 
 export default App;

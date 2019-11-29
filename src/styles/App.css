@@ -181,7 +181,7 @@ legend, button::-moz-focus-inner, input::-moz-focus-inner {
 }
 
 html {
-  font-family: 'Barlow', sans-serif;
+  font-family: "Barlow", sans-serif;
   font-size: 125%;
 }
 
@@ -193,7 +193,7 @@ img {
 /* Landscape phone to portrait tablet */
 /* Landscape phones and down */
 header {
-  background-color: #1B2456;
+  background-color: #1b2456;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -204,7 +204,7 @@ header {
       -ms-flex-align: center;
           align-items: center;
   padding: 15px;
-  height: 20vh;
+  min-height: 20vh;
 }
 
 @media (max-width: 768px) {
@@ -217,13 +217,13 @@ header {
         -ms-flex-pack: center;
             justify-content: center;
     width: 100vw;
-    height: 28vh;
+    min-height: 28vh;
   }
 }
 
 @media (max-width: 320px) {
   header {
-    height: 30vh;
+    min-height: 30vh;
   }
 }
 
@@ -272,9 +272,9 @@ header form button {
 }
 
 .title h1 {
-  color: #C8E0F8;
+  color: #c8e0f8;
   font-size: 2.5rem;
-  font-family: 'Merienda One', cursive;
+  font-family: "Merienda One", cursive;
   margin: 0;
 }
 
@@ -329,7 +329,7 @@ header form button {
 }
 
 p.bookNameResults {
-  color: #C8E0F8;
+  color: #c8e0f8;
   font-size: 1.1rem;
   margin: 0;
   text-align: center;
@@ -337,7 +337,7 @@ p.bookNameResults {
 }
 
 p.authorNameResults {
-  color: #C8E0F8;
+  color: #c8e0f8;
   font-size: 1rem;
   margin: 0;
   text-align: center;
@@ -554,22 +554,22 @@ p.shelfStyle {
 
 .modalBody p {
   margin-top: 0;
-  color: #1B2456;
+  color: #1b2456;
   font-size: 1rem;
 }
 
 .modalBody button {
   border: 2px solid black;
-  background: #C8E0F8;
-  color: #1B2456;
+  background: #c8e0f8;
+  color: #1b2456;
   padding: 10px;
   margin: 0;
   border-radius: 5px;
 }
 
 .modalBody button:hover {
-  background: #1B2456;
-  color: #C8E0F8;
+  background: #1b2456;
+  color: #c8e0f8;
   border: 2px solid #5C67FF;
 }
 
@@ -586,7 +586,7 @@ p.shelfStyle {
 }
 
 .closeModalButton:hover {
-  color: #5C67FF;
+  color: #5c67ff;
 }
 
 .formFlex {
@@ -622,28 +622,28 @@ textarea {
 }
 
 .commentLabel {
-  color: #1B2456;
+  color: #1b2456;
   margin-bottom: 20px;
 }
 
 .formFlex input.commentSubmit {
   border: 0.1rem solid black;
-  background: #C8E0F8;
-  color: #1B2456;
+  background: #c8e0f8;
+  color: #1b2456;
   padding: 10px;
   margin: 10px 0;
   border-radius: 5px;
 }
 
 .formFlex input.commentSubmit:hover {
-  background: #1B2456;
-  color: #C8E0F8;
+  background: #1b2456;
+  color: #c8e0f8;
 }
 
 .content,
 main {
   min-height: 80vh;
-  width: 100vw;
+  width: 100%;
   background-image: url("./assets/header.jpg");
   background-size: cover;
   background-repeat: no-repeat;
@@ -662,6 +662,13 @@ main {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+}
+
+@media (max-width: 480px) {
+  .content,
+  main {
+    background-attachment: initial;
+  }
 }
 
 @media (max-width: 768px) {
@@ -699,6 +706,15 @@ main {
   }
 }
 
+@media (max-width: 768px) {
+  .formOverlay .formOverlay p,
+  .formOverlay .resultOverlay p,
+  .resultOverlay .formOverlay p,
+  .resultOverlay .resultOverlay p {
+    font-size: 0.8rem;
+  }
+}
+
 @media (max-width: 480px) {
   .formOverlay {
     -webkit-box-orient: vertical;
@@ -723,7 +739,7 @@ form {
       -ms-flex-direction: column;
           flex-direction: column;
   margin: 0 auto;
-  color: #C8E0F8;
+  color: #c8e0f8;
   font-size: 1rem;
 }
 
@@ -737,12 +753,12 @@ button {
 input:hover, input:focus,
 button:hover,
 button:focus {
-  border: 4px solid #5C67FF;
+  border: 4px solid #5c67ff;
   border-radius: 7px;
 }
 
 button {
-  background-color: #C8E0F8;
+  background-color: #c8e0f8;
 }
 
 .nameInput,
@@ -790,7 +806,7 @@ label {
 }
 
 p {
-  color: #C8E0F8;
+  color: #c8e0f8;
   font-size: 1.5rem;
 }
 
@@ -834,5 +850,29 @@ footer p {
   padding: 10px;
   font-size: 0.8rem;
   color: black;
+}
+
+@media (max-width: 768px) {
+  .addBooks p {
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .addBooks p {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .userPrompt p {
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .userPrompt p {
+    font-size: 1rem;
+  }
 }
 /*# sourceMappingURL=App.css.map */

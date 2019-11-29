@@ -33,7 +33,7 @@ class Tracker extends Component {
     return (
         <div className="userPrompt">
           <p>Hello {this.state.nameInput}</p>
-          <p>You've set a goal to read {this.state.goalInput} books this year.  Start by searching for a book by title or author at the top right corner.</p>
+          <p>You've set a goal to read {this.state.goalInput} books this year.  Start by searching for a book by title or author up top.</p>
           <Link to="/search">
           <button>Get Started</button>
           </Link>

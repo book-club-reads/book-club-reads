@@ -1,9 +1,8 @@
 import React, { Component } from "react";
-import placeholder from '../styles/assets/placeholder.jpg'; 
+import placeholder from "../styles/assets/placeholder.jpg";
 import DisplayFirebase from "./DisplayFirebase";
 import Modal from "./Modal";
 import firebase from "firebase";
-
 
 class Results extends Component {
   constructor() {
@@ -22,14 +21,14 @@ class Results extends Component {
     const bookList = this.props.displayBookResults.map((book, i) => {
       const first20 = book.best_book.title.replace(/(.{30})..+/, "$1...");
       return (
-        <div key={i} className="resultsBlock"
+        <div
+          key={i}
+          className="resultsBlock"
           onClick={() => {
             this.selectBook(book);
-          }}>
-          <div
-            className="bookImages"
-            
-          >
+          }}
+        >
+          <div className="bookImages">
             <img
               src={
                 book.best_book.image_url ===
@@ -40,9 +39,10 @@ class Results extends Component {
               alt={book.best_book.title}
             />
           </div>
-          <p className="bookNameResults">{book.best_book.title.length < 30 ? book.best_book.title : first20}</p>
+          <p className="bookNameResults">
+            {book.best_book.title.length < 30 ? book.best_book.title : first20}
+          </p>
           <p className="authorNameResults">{book.best_book.author.name}</p>
-          
         </div>
       );
     });
@@ -52,8 +52,8 @@ class Results extends Component {
   //If there is no returned data, render empty message
   renderEmptyState() {
     return (
-      <div>
-        <p>Add books to your collection</p>
+      <div className="addBooks">
+        <p>Search to add books to your collection</p>
       </div>
     );
   }
@@ -86,54 +86,54 @@ class Results extends Component {
       userGoal: this.props.userGoal
     });
   };
-  
+
   //Stores all the book id from reading list into an aray
   getFbBookId = () => {
-      const dbRef = firebase.database().ref("Name");
+    const dbRef = firebase.database().ref("Name");
 
-      dbRef.on("value", data => {
-        const response = data.val();
-        const newState = []
-       
-        for (let key in response) {
-          newState.push(response[key].BookId)
-        }
-        this.setState({
-          fbBookIdArray: newState
-        })        
+    dbRef.on("value", data => {
+      const response = data.val();
+      const newState = [];
+
+      for (let key in response) {
+        newState.push(response[key].BookId);
+      }
+      this.setState({
+        fbBookIdArray: newState
       });
-  }
+    });
+  };
 
   //Function  to check if book was already added in the list
-  checkDuplicate = (bookToCheckDuplicate) => {
+  checkDuplicate = bookToCheckDuplicate => {
     let checkDuplicateId = [];
-    checkDuplicateId = Object.values(bookToCheckDuplicate.id)
+    checkDuplicateId = Object.values(bookToCheckDuplicate.id);
 
-    const checkBookId = checkDuplicateId[1]
-    
-    const copiedArray = this.state.fbBookIdArray
-    
+    const checkBookId = checkDuplicateId[1];
+
+    const copiedArray = this.state.fbBookIdArray;
+
     if (copiedArray.includes(`${checkBookId}`)) {
-      alert('You already added this book')
+      alert("You already added this book");
     } else {
       this.addBook(bookToCheckDuplicate);
     }
-  }
-  
+  };
+
   //Add book to reading list
   addBook = bookToAdd => {
-    let bookIdArray = []
+    let bookIdArray = [];
 
     //Gets the book id
-    bookIdArray = Object.values(bookToAdd.id)
-    const bookId = bookIdArray[1]
+    bookIdArray = Object.values(bookToAdd.id);
+    const bookId = bookIdArray[1];
 
     this.setState({
       addBook: bookToAdd
     });
-    
+
     const dbRef = firebase.database().ref("Name");
-    
+
     dbRef.push({
       Image: bookToAdd.best_book.image_url,
       Title: bookToAdd.best_book.title,

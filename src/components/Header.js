@@ -1,21 +1,24 @@
-import React, { Component } from 'react';
-import books from '../styles/assets/bookLogo.png';
+import React, { Component } from "react";
+import books from "../styles/assets/bookLogo.png";
 import Search from "../components/Search";
+import { Link } from "react-router-dom";
 
 class Header extends Component {
   constructor() {
     super();
-    this.state={
-      books: [],
-    }
+    this.state = {
+      books: []
+    };
   }
-  
+
   render() {
     return (
       <header>
         <div className="title">
           <div className="logo">
-            <img src={books} alt="Logo with books" />
+            <Link to="/">
+              <img src={books} alt="Logo with books" />
+            </Link>
           </div>
           <h1>Book Club Reads</h1>
         </div>
@@ -25,4 +28,4 @@ class Header extends Component {
   }
 }
 
-export default Header
+export default Header;

@@ -1,46 +1,54 @@
 // colors
-$brightBlue: #5C67FF;
-$lightBlue: #C8E0F8;
-$darkBlue: #1B2456;
-$blush: #E5C1BD;
-$cranberry: #E25050;
+$brightBlue: #5c67ff;
+$lightBlue: #c8e0f8;
+$darkBlue: #1b2456;
+$blush: #e5c1bd;
+$cranberry: #e25050;
 @mixin heading($color, $size) {
-    color: $color;
-    font-size: $size;
-    font-family: 'Merienda One', cursive;
+  color: $color;
+  font-size: $size;
+  font-family: "Merienda One", cursive;
 }
 @mixin text($color, $size) {
-    color: $color;
-    font-size: $size;
+  color: $color;
+  font-size: $size;
 }
 @mixin flex($justify, $align) {
-    display: flex;
-    justify-content: $justify;
-    align-items: $align;
+  display: flex;
+  justify-content: $justify;
+  align-items: $align;
 }
 
 html {
-    font-family: 'Barlow', sans-serif;
-    font-size: 125%;
+  font-family: "Barlow", sans-serif;
+  font-size: 125%;
 }
 
 img {
-    display: block;
+  display: block;
 }
 
 /* Portrait tablet and small desktops */
 @mixin max940 {
-    @media (max-width: 940px){@content;}
+  @media (max-width: 940px) {
+    @content;
+  }
 }
 /* Landscape phone to portrait tablet */
-@mixin max768{
-    @media (max-width: 768px){@content;}
+@mixin max768 {
+  @media (max-width: 768px) {
+    @content;
+  }
 }
 /* Landscape phones and down */
-@mixin max480{
-    @media (max-width: 480px){@content;}
+@mixin max480 {
+  @media (max-width: 480px) {
+    @content;
+  }
 }
 
-@mixin max320{
-    @media (max-width: 320px){@content;}
+@mixin max320 {
+  @media (max-width: 320px) {
+    @content;
+  }
 }
