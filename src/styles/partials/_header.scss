@@ -1,45 +1,48 @@
 header {
-    background-color: $darkBlue;
-    @include flex (space-between, center);
-    padding: 15px;
-    height: 20vh;
-    @include max940 {
-        height: 22vh;
-        min-height: 215px;
-        flex-direction: column;
-    }
-    @include max768 {
-        width: 100vw;
-    }
-    @include max480 {
-        height: 20vh;
-        min-height: 200px;
-    }
+  background-color: $darkBlue;
+  @include flex(space-between, center);
+  padding: 15px;
+  height: 20vh;
+  @include max768 {
+    flex-direction: column;
+    width: 100vw;
+    height: 28vh;
+  }
 
-    form {
-        flex-direction: row;
-        @include max480 {
-            font-size: 0.8rem;
-        }
-        button {
-            margin: 0 10px;
-        }
+  @include max320{
+    height: 30vh;
+}
+
+  form {
+    flex-direction: row;
+    @include max768 {
+      font-size: 0.8rem;
     }
+    button {
+      margin: 0 10px;
+    }
+  }
 }
 .title {
-    @include flex(flex-start, center);
-    .logo {
-        width: 100px;
-        margin: 15px;
+  @include flex(flex-start, center);
+  .logo {
+    width: 100px;
+    margin: 15px;
+  }
+  img {
+    width: 100%;
+    @include max940 {
+      width: 90%;
     }
-    img {
-        width: 100%;
+  }
+  h1 {
+    @include heading($lightBlue, 2.5rem);
+    margin: 0;
+    @include max940 {
+      font-size: 1.8rem;
     }
-    h1{
-        @include heading ($lightBlue, 2.5rem);
-        margin: 0;
-        @include max480 {
-            font-size: 1.8rem;
-        }
+    @include max480 {
+      font-size: 1.2rem;
     }
+  }
 }

@@ -40,3 +40,7 @@ img {
 @mixin max480{
     @media (max-width: 480px){@content;}
 }
+
+@mixin max320{
+    @media (max-width: 320px){@content;}
+}

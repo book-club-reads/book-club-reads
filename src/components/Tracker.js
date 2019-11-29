@@ -45,7 +45,7 @@ class Tracker extends Component {
     return (
         <form action="" onSubmit={this.onFormSubmit}>
           <div className="nameInput">
-            <label htmlFor="nameInput">What's your name?</label>
+            <label htmlFor="nameInput"></label>
             <input name="nameInput"
               required
               type="text"
