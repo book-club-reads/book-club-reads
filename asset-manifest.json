@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/book-club-reads/static/css/main.706259d2.chunk.css",
+    "main.css": "/book-club-reads/static/css/main.676f06fd.chunk.css",
     "main.js": "/book-club-reads/static/js/main.e2fce705.chunk.js",
     "main.js.map": "/book-club-reads/static/js/main.e2fce705.chunk.js.map",
     "runtime~main.js": "/book-club-reads/static/js/runtime~main.21484ea7.js",
@@ -8,9 +8,9 @@
     "static/js/2.716f8d03.chunk.js": "/book-club-reads/static/js/2.716f8d03.chunk.js",
     "static/js/2.716f8d03.chunk.js.map": "/book-club-reads/static/js/2.716f8d03.chunk.js.map",
     "index.html": "/book-club-reads/index.html",
-    "precache-manifest.d685b949b85fbb3883cece0fc270881d.js": "/book-club-reads/precache-manifest.d685b949b85fbb3883cece0fc270881d.js",
+    "precache-manifest.4748699ac4aefae5162defdb40e75af0.js": "/book-club-reads/precache-manifest.4748699ac4aefae5162defdb40e75af0.js",
     "service-worker.js": "/book-club-reads/service-worker.js",
-    "static/css/main.706259d2.chunk.css.map": "/book-club-reads/static/css/main.706259d2.chunk.css.map",
+    "static/css/main.676f06fd.chunk.css.map": "/book-club-reads/static/css/main.676f06fd.chunk.css.map",
     "static/media/bookLogo.png": "/book-club-reads/static/media/bookLogo.6284bfd2.png",
     "static/media/App.scss": "/book-club-reads/static/media/header.1f176ca0.jpg"
   }
