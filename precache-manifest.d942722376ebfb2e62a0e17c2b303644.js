@@ -1,19 +1,19 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "73909b97e5ec8be08dc3b1facd31bb64",
+    "revision": "e1eb3a7915a1fd4a2a389824a34d5cdf",
     "url": "/book-club-reads/index.html"
   },
   {
-    "revision": "4d0758e63d126123c2ae",
-    "url": "/book-club-reads/static/css/main.771c2e5b.chunk.css"
+    "revision": "9edce9d5e40a1d618657",
+    "url": "/book-club-reads/static/css/main.f178adec.chunk.css"
   },
   {
     "revision": "d16aebf9e13c02a40da9",
     "url": "/book-club-reads/static/js/2.716f8d03.chunk.js"
   },
   {
-    "revision": "4d0758e63d126123c2ae",
-    "url": "/book-club-reads/static/js/main.d9a7aa16.chunk.js"
+    "revision": "9edce9d5e40a1d618657",
+    "url": "/book-club-reads/static/js/main.24486f79.chunk.js"
   },
   {
     "revision": "ffe8f78b6441fa6de75a",
